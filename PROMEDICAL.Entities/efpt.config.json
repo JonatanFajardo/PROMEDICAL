@@ -1,0 +1,374 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "MedicalSystemContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": "DbContextContainer",
+   "OutputPath": "Entities",
+   "ProjectRootNamespace": "PROMEDICAL.Entities",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[tbAlergias]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbCargos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbCirugias]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbCitas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbConsultorios]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbEmpleados]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbEmpresas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbEspecialidades]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbFrecuenciasCardiacas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbJornadas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbMedicamentos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbPacientes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbPacientes_tbAlergias]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbPacientes_tbCirugias]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbPersonas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbPesos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbPrescripciones]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbTipoCitas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbTipoConsultas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[UDP_Alergias_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Alergias_Detail]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Alergias_Find]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Alergias_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Alergias_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Alergias_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Cargos_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Cargos_Detail]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Cargos_Find]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Cargos_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Cargos_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Cargos_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Cirugias_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Cirugias_Detail]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Cirugias_Find]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Cirugias_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Cirugias_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Cirugias_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Consultorios_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Consultorios_Detail]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Consultorios_Find]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Consultorios_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Consultorios_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Consultorios_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Especialidades_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Especialidades_Detail]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Especialidades_Find]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Especialidades_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Especialidades_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Especialidades_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Jornadas_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Jornadas_Detail]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Jornadas_Find]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Jornadas_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Jornadas_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Jornadas_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Medicamentos_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Medicamentos_Detail]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Medicamentos_Find]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Medicamentos_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Medicamentos_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Medicamentos_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Pesos_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Pesos_Detail]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Pesos_Find]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Pesos_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Pesos_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Pesos_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Prescripciones_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Prescripciones_Detail]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Prescripciones_Find]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Prescripciones_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Prescripciones_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Prescripciones_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_TipoCitas_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_TipoCitas_Detail]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_TipoCitas_Find]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_TipoCitas_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_TipoCitas_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_TipoCitas_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_TipoConsultas_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_TipoConsultas_Detail]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_TipoConsultas_Find]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_TipoConsultas_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_TipoConsultas_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_TipoConsultas_Update]",
+         "ObjectType": 1
+      }
+   ],
+   "UiHint": "JOHN-EB\\SQLEXPRESS.MEDICALSYSTEM",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDbContextSplitting": true,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": true,
+   "UseSpatial": false
+}
