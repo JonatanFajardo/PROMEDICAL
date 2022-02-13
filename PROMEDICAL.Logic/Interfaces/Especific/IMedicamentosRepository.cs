@@ -4,9 +4,9 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace PROMEDICAL.Logic.Interfaces
+namespace PROMEDICAL.Logic.Interfaces.Especific
 {
-    public interface IPrescripcionesRepository : IGenericCatalogsRepository<tbPrescripciones>
+    public interface IMedicamentosRepository : IGenericCatalogsRepository<tbMedicamentos>
     {
     }
 }

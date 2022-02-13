@@ -1,4 +1,5 @@
 ﻿using PROMEDICAL.Logic.Interfaces;
+using PROMEDICAL.Logic.Interfaces.Especific;
 using PROMEDICAL.Logic.Interfaces.General;
 using System;
 using System.Collections.Generic;
@@ -10,9 +11,25 @@ namespace PROMEDICAL.Logic.Repositories.General
     {
         public UnitOfWork(ICargosRepository cargosRepository)
         {
-            cargos = cargosRepository;
-
+            Cargos = cargosRepository;
         }
-        public ICargosRepository cargos { get; }
+        public ICargosRepository Cargos { get; }
+        public IPrescripcionesRepository Prescripciones { get; }
+        public ITipoCitasRepository TipoCitas { get; }
+        public ITipoConsultasRepository TipoConsultas { get; }
+        public IConsultoriosRepository Consultorios { get; }
+        public IEspecialidadesRepository Especialidades { get; }
+        public IJornadasRepository Jornadas { get; }
+        public IMedicamentosRepository Medicamentos { get; }
+        public IPesosRepository Pesos { get; }
+        public ICirugiasRepository Cirugias { get; }
+
+        public ICitasRepository Citas { get; }
+        public IEmpleadosRepository Empleados { get; }
+        public IEmpresasRepository Empresas { get; }
+        public IFrecuenciasCardiacasRepository FrecuenciasCardiacas { get; }
+        public IPacientesRepository Pacientes { get; }
+        public IPersonasRepository Personas { get; }
+
     }
 }

@@ -12,5 +12,6 @@ namespace PROMEDICAL.Logic.Interfaces.General
         Task<T> DetailAsync(int id);
         Task<Boolean> AddAsync(T entity);
         Task<Boolean> EditAsync(T entity);
+        Task<Boolean> RemoveAsync(int id);
     }
 }

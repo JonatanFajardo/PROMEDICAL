@@ -5,31 +5,27 @@ using PROMEDICAL.Entities.Entities;
 using PROMEDICAL.Logic.Interfaces.General;
 using PROMEDICAL.Logic.Repositories.General;
 using System;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace PROMEDICAL.Business.Services
 {
-    internal class CargosService
+    internal class TipoConsultasService
     {
-        //private readonly CargosRepository _CargosRepository;
-
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
-
-        public CargosService(IUnitOfWork IUnitOfWork, IMapper mapper)
+        public TipoConsultasService(IUnitOfWork IUnitOfWork, IMapper mapper)
         {
             _mapper = mapper;
             _unitOfWork = IUnitOfWork;
         }
+
         public async Task<ApiServiceResult> ListAsync()
         {
             ApiServiceResult apiServiceResult = new ApiServiceResult();
 
             try
             {
-                IEnumerable<tbCargos> serviceResult = await _unitOfWork.Cargos.ListAsync();
-                return apiServiceResult.Ok(_mapper.Map<CargosDto>(serviceResult));
+                return apiServiceResult.Ok(await _unitOfWork.TipoConsultas.ListAsync());
             }
             catch (Exception e)
             {
@@ -43,8 +39,7 @@ namespace PROMEDICAL.Business.Services
 
             try
             {
-                tbCargos serviceResult = await _unitOfWork.Cargos.FindAsync(id);
-                return apiServiceResult.Ok(_mapper.Map<CargosDto>(serviceResult));
+                return apiServiceResult.Ok(await _unitOfWork.TipoConsultas.FindAsync(id));
             }
             catch (Exception e)
             {
@@ -58,8 +53,7 @@ namespace PROMEDICAL.Business.Services
 
             try
             {
-                tbCargos serviceResult = await _unitOfWork.Cargos.DetailAsync(id);
-                return apiServiceResult.Ok(_mapper.Map<CargosDto>(serviceResult));
+                return apiServiceResult.Ok(await _unitOfWork.TipoConsultas.DetailAsync(id));
             }
             catch (Exception e)
             {
@@ -67,56 +61,16 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> AddAsync(CargosDto dto)
+        public async Task<ApiServiceResult> AddAsync(TipoConsultasDto dto)
         {
             ApiServiceResult apiServiceResult = new ApiServiceResult();
 
             try
             {
-                tbCargos mappedResult = _mapper.Map<tbCargos>(dto);
-                apiServiceResult.Success = await _unitOfWork.Cargos.AddAsync(mappedResult);
+                tbTipoConsultas mappedResult = _mapper.Map<tbTipoConsultas>(dto);
+                apiServiceResult.Success = await _unitOfWork.TipoConsultas.AddAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok($"creada exitosamente.");
-                else
-                    return apiServiceResult.Error();
-                throw new NotImplementedException();
-
-            }
-            catch (Exception e)
-            {
-                return apiServiceResult.Error();
-            }
-        }
-        public async Task<ApiServiceResult> EditAsync(CargosDto dto)
-        {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
-
-            try
-            {
-
-                tbCargos mappedResult = _mapper.Map<tbCargos>(dto);
-                apiServiceResult.Success = await _unitOfWork.Cargos.EditAsync(mappedResult);
-                if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok($"actualizada exitosamente.");
-                else
-                    return apiServiceResult.Error();
-                throw new NotImplementedException();
-            }
-            catch (Exception e)
-            {
-                return apiServiceResult.Error();
-            }
-        }
-
-        public async Task<ApiServiceResult> DeleteAsync(int id)
-        {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
-
-            try
-            {
-                apiServiceResult.Success = await _unitOfWork.Cargos.RemoveAsync(id);
-                if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok();
+                    return apiServiceResult.Ok("Objeto creada exitosamente.");
                 else
                     return apiServiceResult.Error();
             }
@@ -125,6 +79,23 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
+        public async Task<ApiServiceResult> EditAsync(TipoConsultasDto dto)
+        {
+            ApiServiceResult apiServiceResult = new ApiServiceResult();
 
+            try
+            {
+                tbTipoConsultas mappedResult = _mapper.Map<tbTipoConsultas>(dto);
+                apiServiceResult.Success = await _unitOfWork.TipoConsultas.EditAsync(mappedResult);
+                if (!apiServiceResult.Success)
+                    return apiServiceResult.Ok("Objeto actualizada exitosamente.");
+                else
+                    return apiServiceResult.Error();
+            }
+            catch (Exception e)
+            {
+                return apiServiceResult.Error();
+            }
+        }
     }
 }
