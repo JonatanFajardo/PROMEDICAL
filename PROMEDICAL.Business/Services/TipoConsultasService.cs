@@ -3,7 +3,6 @@ using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
 using PROMEDICAL.Entities.Entities;
 using PROMEDICAL.Logic.Interfaces.General;
-using PROMEDICAL.Logic.Repositories.General;
 using System;
 using System.Threading.Tasks;
 

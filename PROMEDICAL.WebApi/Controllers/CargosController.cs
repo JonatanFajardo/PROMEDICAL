@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using PROMEDICAL.Business.Extensions;
-using System;
 using System.Threading.Tasks;
 
 namespace PROMEDICAL.WebApi.Controllers

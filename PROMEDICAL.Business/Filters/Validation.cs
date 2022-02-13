@@ -1,9 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using PROMEDICAL.Business.Extensions;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace PROMEDICAL.Business.Filters
@@ -24,7 +21,7 @@ namespace PROMEDICAL.Business.Filters
                     Success = false,
                     Type = ServiceResultType.BadRequest
                 };
-                
+
                 context.Result = new BadRequestObjectResult(apiServiceResult);
                 return;
             }

@@ -1,8 +1,4 @@
-﻿
-using System;
-using System.Collections.Generic;
-
-namespace PROMEDICAL.Business.Dto
+﻿namespace PROMEDICAL.Business.Dto
 {
     public class Pacientes_Alergias
     {

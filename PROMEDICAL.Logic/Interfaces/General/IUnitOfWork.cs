@@ -1,7 +1,4 @@
 ﻿using PROMEDICAL.Logic.Interfaces.Especific;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PROMEDICAL.Logic.Interfaces.General
 {

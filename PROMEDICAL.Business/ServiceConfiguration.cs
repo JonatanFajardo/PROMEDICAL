@@ -4,14 +4,11 @@ using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using PROMEDICAL.Business.Services;
 using PROMEDICAL.DataAccess;
-using PROMEDICAL.Logic.Interfaces;
 using PROMEDICAL.Logic.Interfaces.Especific;
 using PROMEDICAL.Logic.Interfaces.General;
 using PROMEDICAL.Logic.Repositories;
 using PROMEDICAL.Logic.Repositories.General;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PROMEDICAL.Business
 {
@@ -71,7 +68,7 @@ namespace PROMEDICAL.Business
 
         public static void AddMoreServices(this IServiceCollection services)
         {
-            
+
         }
     }
 }

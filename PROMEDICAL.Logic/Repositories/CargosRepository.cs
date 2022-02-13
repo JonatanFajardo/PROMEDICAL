@@ -1,7 +1,6 @@
 ﻿using Dapper;
 using PROMEDICAL.DataAccess.Extensions;
 using PROMEDICAL.Entities.Entities;
-using PROMEDICAL.Logic.Interfaces;
 using PROMEDICAL.Logic.Interfaces.Especific;
 using System;
 using System.Collections.Generic;

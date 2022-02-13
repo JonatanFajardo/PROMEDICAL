@@ -1,7 +1,4 @@
-﻿using AHM.Insta.Help.DataAccess.Entities;
-using AHM.Insta.Help.DataAccess.Interfaces;
-using AHM.Insta.Help.DataAccess.Repositories;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using NLog;
 using System;
@@ -181,7 +178,7 @@ namespace AHM.Insta.Help.BusinessLogic
         Update = 5,
         Delete = 6,
         PasswordChange = 7,
-        Search = 8       
+        Search = 8
     }
 
     public class CustomJsonResolver : DefaultContractResolver

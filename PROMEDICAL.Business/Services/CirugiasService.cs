@@ -3,7 +3,6 @@ using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
 using PROMEDICAL.Entities.Entities;
 using PROMEDICAL.Logic.Interfaces.General;
-using PROMEDICAL.Logic.Repositories.General;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -104,22 +103,22 @@ namespace PROMEDICAL.Business.Services
         }
 
         public async Task<ApiServiceResult> DeleteAsync(int id)
-            {
-                ApiServiceResult apiServiceResult = new ApiServiceResult();
+        {
+            ApiServiceResult apiServiceResult = new ApiServiceResult();
 
-                try
-                {
-                    apiServiceResult.Success = await _unitOfWork.Cirugias.RemoveAsync(id);
-                    if (!apiServiceResult.Success)
-                        return apiServiceResult.Ok();
-                    else
-                        return apiServiceResult.Error();
-                }
-                catch (Exception e)
-                {
+            try
+            {
+                apiServiceResult.Success = await _unitOfWork.Cirugias.RemoveAsync(id);
+                if (!apiServiceResult.Success)
+                    return apiServiceResult.Ok();
+                else
                     return apiServiceResult.Error();
-                }
             }
+            catch (Exception e)
+            {
+                return apiServiceResult.Error();
+            }
+        }
 
     }
 }
