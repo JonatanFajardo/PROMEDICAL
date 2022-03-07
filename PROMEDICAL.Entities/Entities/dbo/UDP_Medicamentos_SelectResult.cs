@@ -7,9 +7,5 @@ namespace PROMEDICAL.Entities.Entities
 {
     public partial class UDP_Medicamentos_SelectResult
     {
-        public int medi_Id { get; set; }
-        public string medi_Nombre { get; set; }
-        public string medi_Marca { get; set; }
-        public string medi_Descripcion { get; set; }
     }
 }

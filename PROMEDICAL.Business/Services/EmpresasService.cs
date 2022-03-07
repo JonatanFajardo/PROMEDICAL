@@ -77,7 +77,7 @@ namespace PROMEDICAL.Business.Services
         //        tbEmpresas mappedResult = _mapper.Map<tbEmpresas>(dto);
         //        apiServiceResult.Success = await _unitOfWork.Empresas.AddAsync(mappedResult);
         //        if (!apiServiceResult.Success)
-        //            return apiServiceResult.Ok($"creada exitosamente.");
+        //            return apiServiceResult.Ok();
         //        else
         //            return apiServiceResult.Error();
         //        throw new NotImplementedException();
@@ -98,7 +98,7 @@ namespace PROMEDICAL.Business.Services
         //        tbEmpresas mappedResult = _mapper.Map<tbEmpresas>(dto);
         //        apiServiceResult.Success = await _unitOfWork.Empresas.EditAsync(mappedResult);
         //        if (!apiServiceResult.Success)
-        //            return apiServiceResult.Ok($"actualizada exitosamente.");
+        //            return apiServiceResult.Ok();
         //        else
         //            return apiServiceResult.Error();
         //        throw new NotImplementedException();

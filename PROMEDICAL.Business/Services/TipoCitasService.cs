@@ -83,7 +83,7 @@ namespace PROMEDICAL.Business.Services
                 tbTipoCitas mappedResult = _mapper.Map<tbTipoCitas>(dto);
                 apiServiceResult.Success = await _unitOfWork.TipoCitas.AddAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok("Objeto creada exitosamente.");
+                    return apiServiceResult.Ok("Objeto Registro guardado exitosamente.");
                 else
                     return apiServiceResult.Error();
             }
@@ -101,7 +101,7 @@ namespace PROMEDICAL.Business.Services
                 tbTipoCitas mappedResult = _mapper.Map<tbTipoCitas>(dto);
                 apiServiceResult.Success = await _unitOfWork.TipoCitas.EditAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok("Objeto actualizada exitosamente.");
+                    return apiServiceResult.Ok("Objeto Registro Operación completada exitosamente..");
                 else
                     return apiServiceResult.Error();
             }

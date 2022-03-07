@@ -83,7 +83,7 @@ namespace PROMEDICAL.Business.Services
                 tbCirugias mappedResult = _mapper.Map<tbCirugias>(dto);
                 apiServiceResult.Success = await _unitOfWork.Cirugias.AddAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok($"creada exitosamente.");
+                    return apiServiceResult.Ok();
                 else
                     return apiServiceResult.Error();
             }
@@ -101,7 +101,7 @@ namespace PROMEDICAL.Business.Services
                 tbCirugias mappedResult = _mapper.Map<tbCirugias>(dto);
                 apiServiceResult.Success = await _unitOfWork.Cirugias.EditAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok("Objeto actualizada exitosamente.");
+                    return apiServiceResult.Ok("Objeto Registro Operación completada exitosamente..");
                 else
                     return apiServiceResult.Error();
             }

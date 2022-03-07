@@ -5,6 +5,9 @@ using System.Collections.Generic;
 
 namespace PROMEDICAL.Entities.Entities
 {
+    /// <summary>
+    /// Indica todas las cirugias que estan disponibles para un paciente.
+    /// </summary>
     public partial class tbCirugias
     {
         public int ciru_Id { get; set; }
@@ -16,10 +19,5 @@ namespace PROMEDICAL.Entities.Entities
         public DateTime? ciru_FechaModifica { get; set; }
 
         public virtual tbPacientes_tbCirugias tbPacientes_tbCirugias { get; set; }
-
-        public object ToList()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

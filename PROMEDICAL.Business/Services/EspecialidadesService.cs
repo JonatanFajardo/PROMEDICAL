@@ -81,7 +81,7 @@ namespace PROMEDICAL.Business.Services
                 tbEspecialidades mappedResult = _mapper.Map<tbEspecialidades>(dto);
                 apiServiceResult.Success = await _unitOfWork.Especialidades.AddAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok("Objeto creada exitosamente.");
+                    return apiServiceResult.Ok("Objeto Registro guardado exitosamente.");
                 else
                     return apiServiceResult.Error();
             }
@@ -99,7 +99,7 @@ namespace PROMEDICAL.Business.Services
                 tbEspecialidades mappedResult = _mapper.Map<tbEspecialidades>(dto);
                 apiServiceResult.Success = await _unitOfWork.Especialidades.EditAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok("Objeto actualizada exitosamente.");
+                    return apiServiceResult.Ok("Objeto Registro Operación completada exitosamente..");
                 else
                     return apiServiceResult.Error();
             }

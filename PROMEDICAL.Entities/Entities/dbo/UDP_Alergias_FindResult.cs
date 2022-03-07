@@ -8,6 +8,7 @@ namespace PROMEDICAL.Entities.Entities
     public partial class UDP_Alergias_FindResult
     {
         public int algi_Id { get; set; }
+        public string algi_Nombre { get; set; }
         public string algi_Descripcion { get; set; }
     }
 }

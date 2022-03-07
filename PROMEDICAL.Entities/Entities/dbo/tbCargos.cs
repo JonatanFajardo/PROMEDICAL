@@ -21,10 +21,5 @@ namespace PROMEDICAL.Entities.Entities
         public DateTime? carg_FechaModifica { get; set; }
 
         public virtual ICollection<tbEmpleados> tbEmpleados { get; set; }
-
-        public object ToList()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

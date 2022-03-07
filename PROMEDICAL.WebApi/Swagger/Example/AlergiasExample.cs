@@ -52,7 +52,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new ServiceResult()
             {
-                Message = "creado exitosamente.",
+                Message = "Operación completada exitosamente.",
                 Success = true,
                 Type = ServiceResultType.Success,
                 Data = null
@@ -66,7 +66,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new ServiceResult()
             {
-                Message = "Se produjo un error",
+                Message = "Operación completada exitosamente.",
                 Success = false,
                 Type = ServiceResultType.Error,
                 Data = null
@@ -94,7 +94,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new ServiceResult()
             {
-                Message = "modificado exitosamente.",
+                Message = "Operación completada exitosamente.",
                 Success = true,
                 Type = ServiceResultType.Success,
                 Data = null
@@ -108,7 +108,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new ServiceResult()
             {
-                Message = "Se produjo un error",
+                Message = "Operación completada exitosamente.",
                 Success = false,
                 Type = ServiceResultType.Error,
                 Data = null
@@ -135,7 +135,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new ServiceResult()
             {
-                Message = "eliminado exitosamente.",
+                Message = "Operación completada exitosamente.",
                 Success = true,
                 Type = ServiceResultType.Success,
                 Data = null
@@ -149,7 +149,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new ServiceResult()
             {
-                Message = "Se produjo un error",
+                Message = "Operación completada exitosamente.",
                 Success = false,
                 Type = ServiceResultType.Error,
                 Data = null

@@ -48,7 +48,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbCargos repositoryResult = await _unitOfWork.Cargos.FindAsync(id);
-                apiServiceResult.Data = _mapper.Map<CargosDto>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<CargosDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -88,7 +88,7 @@ namespace PROMEDICAL.Business.Services
                 tbCargos mappedResult = _mapper.Map<tbCargos>(dto);
                 apiServiceResult.Success = await _unitOfWork.Cargos.AddAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok($"creada exitosamente.");
+                    return apiServiceResult.Ok();
                 else
                     return apiServiceResult.Error();
             }
@@ -107,7 +107,7 @@ namespace PROMEDICAL.Business.Services
                 tbCargos mappedResult = _mapper.Map<tbCargos>(dto);
                 apiServiceResult.Success = await _unitOfWork.Cargos.EditAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok($"actualizada exitosamente.");
+                    return apiServiceResult.Ok();
                 else
                     return apiServiceResult.Error();
             }

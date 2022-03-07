@@ -87,7 +87,7 @@ namespace PROMEDICAL.Business.Services
                 tbAlergias mappedResult = _mapper.Map<tbAlergias>(dto);
                 apiServiceResult.Success = await _unitOfWork.Alergias.AddAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok($"creada exitosamente.");
+                    return apiServiceResult.Ok();
                 else
                     return apiServiceResult.Error();
             }
@@ -106,7 +106,7 @@ namespace PROMEDICAL.Business.Services
                 tbAlergias mappedResult = _mapper.Map<tbAlergias>(dto);
                 apiServiceResult.Success = await _unitOfWork.Alergias.EditAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok($"actualizada exitosamente.");
+                    return apiServiceResult.Ok();
                 else
                     return apiServiceResult.Error();
             }

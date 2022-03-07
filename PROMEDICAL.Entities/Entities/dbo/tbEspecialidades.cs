@@ -9,6 +9,7 @@ namespace PROMEDICAL.Entities.Entities
     {
         public tbEspecialidades()
         {
+            tbCitas = new HashSet<tbCitas>();
             tbEmpleados = new HashSet<tbEmpleados>();
         }
 
@@ -20,6 +21,7 @@ namespace PROMEDICAL.Entities.Entities
         public int? espc_UsuarioModifica { get; set; }
         public DateTime? espc_FechaModifica { get; set; }
 
+        public virtual ICollection<tbCitas> tbCitas { get; set; }
         public virtual ICollection<tbEmpleados> tbEmpleados { get; set; }
     }
 }

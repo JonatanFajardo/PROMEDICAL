@@ -20,7 +20,6 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
 
             entity.Property(e => e.medi_FechaRegistra).HasColumnType("datetime");
 
-            entity.Property(e => e.medi_Marca).HasMaxLength(150);
 
             entity.Property(e => e.medi_Nombre).HasMaxLength(150);
 

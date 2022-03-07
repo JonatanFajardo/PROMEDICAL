@@ -16,7 +16,7 @@ namespace PROMEDICAL.Entities.Entities
         public int? empd_Id { get; set; }
         public int? paci_Id { get; set; }
         public int tici_Id { get; set; }
-        public int tico_Id { get; set; }
+        public int? espc_Id { get; set; }
         public DateTime? cita_FechaCita { get; set; }
         public bool? cita_EsEliminado { get; set; }
         public int? cita_UsuarioRegistra { get; set; }
@@ -26,6 +26,7 @@ namespace PROMEDICAL.Entities.Entities
 
         public virtual tbEmpleados empd { get; set; }
         public virtual tbTipoConsultas empdNavigation { get; set; }
+        public virtual tbEspecialidades espc { get; set; }
         public virtual tbPacientes paci { get; set; }
         public virtual tbTipoCitas tici { get; set; }
         public virtual ICollection<tbPrescripciones> tbPrescripciones { get; set; }

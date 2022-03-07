@@ -354,12 +354,13 @@
          "ObjectType": 1
       }
    ],
-   "UiHint": "JOHN-EB\\SQLEXPRESS.MEDICALSYSTEM",
+   "UiHint": "JOHN-EB.MEDICALSYSTEM",
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": true,
    "UseDbContextSplitting": true,
    "UseFluentApiOnly": true,
    "UseHandleBars": false,
+   "UseHierarchyId": false,
    "UseInflector": false,
    "UseLegacyPluralizer": false,
    "UseManyToManyEntity": false,
