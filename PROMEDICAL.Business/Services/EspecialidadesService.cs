@@ -5,11 +5,12 @@ using PROMEDICAL.Entities.Entities;
 using PROMEDICAL.Logic.Interfaces.General;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PROMEDICAL.Business.Services
 {
-    internal class EspecialidadesService
+    public class EspecialidadesService
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -19,14 +20,18 @@ namespace PROMEDICAL.Business.Services
             _unitOfWork = IUnitOfWork;
         }
 
-        public async Task<ApiServiceResult> ListAsync()
+        public async Task<ServiceResult> ListAsync()
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                IEnumerable<tbEspecialidades> serviceResult = await _unitOfWork.Especialidades.ListAsync();
-                return apiServiceResult.Ok(_mapper.Map<EspecialidadesDto>(serviceResult));
+                IEnumerable<tbEspecialidades> repositoryResult = await _unitOfWork.Especialidades.ListAsync();
+                apiServiceResult.Data = _mapper.Map<List<EspecialidadesDto>>(repositoryResult.ToList());
+                if (apiServiceResult.Data == null)
+                    return apiServiceResult.Error();
+
+                return apiServiceResult.Ok();
             }
             catch (Exception e)
             {
@@ -34,14 +39,18 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> FindAsync(int id)
+        public async Task<ServiceResult> FindAsync(int id)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                tbEspecialidades serviceResult = await _unitOfWork.Especialidades.FindAsync(id);
-                return apiServiceResult.Ok(_mapper.Map<EspecialidadesDto>(serviceResult));
+                tbEspecialidades repositoryResult = await _unitOfWork.Especialidades.FindAsync(id);
+                apiServiceResult.Data = _mapper.Map<EspecialidadesDto>(repositoryResult);
+                if (apiServiceResult.Data == null)
+                    return apiServiceResult.Error();
+
+                return apiServiceResult.Ok();
             }
             catch (Exception e)
             {
@@ -49,9 +58,9 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> DetailAsync(int id)
+        public async Task<ServiceResult> DetailAsync(int id)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -63,9 +72,9 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> AddAsync(EspecialidadesDto dto)
+        public async Task<ServiceResult> AddAsync(EspecialidadesDto dto)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -81,9 +90,9 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ApiServiceResult> EditAsync(EspecialidadesDto dto)
+        public async Task<ServiceResult> EditAsync(EspecialidadesDto dto)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -99,6 +108,24 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
 
+        }
+
+        public async Task<ServiceResult> DeleteAsync(int id)
+        {
+            ServiceResult apiServiceResult = new ServiceResult();
+
+            try
+            {
+                apiServiceResult.Success = await _unitOfWork.Especialidades.RemoveAsync(id);
+                if (!apiServiceResult.Success)
+                    return apiServiceResult.Ok();
+                else
+                    return apiServiceResult.Error();
+            }
+            catch (Exception e)
+            {
+                return apiServiceResult.Error();
+            }
         }
     }
 }

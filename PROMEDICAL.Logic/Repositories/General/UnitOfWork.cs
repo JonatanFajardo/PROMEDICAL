@@ -5,10 +5,43 @@ namespace PROMEDICAL.Logic.Repositories.General
 {
     public class UnitOfWork : IUnitOfWork
     {
-        public UnitOfWork(ICargosRepository cargosRepository)
+        public UnitOfWork(ICargosRepository cargosRepository,
+            IAlergiasRepository AlergiasRepository,
+            ICargosRepository CargosRepository,
+            IPrescripcionesRepository PrescripcionesRepository,
+            ITipoCitasRepository TipoCitasRepository,
+            ITipoConsultasRepository TipoConsultasRepository,
+            IConsultoriosRepository ConsultoriosRepository,
+            IEspecialidadesRepository EspecialidadesRepository,
+            IJornadasRepository JornadasRepository,
+            IMedicamentosRepository MedicamentosRepository,
+            IPesosRepository PesosRepository,
+            ICirugiasRepository CirugiasRepository,
+            ICitasRepository CitasRepository,
+            IEmpleadosRepository EmpleadosRepository,
+            IEmpresasRepository EmpresasRepository,
+            IFrecuenciasCardiacasRepository FrecuenciasCardiacasRepository,
+            IPacientesRepository PacientesRepository)
         {
             Cargos = cargosRepository;
+            Alergias = AlergiasRepository;
+            Cargos = CargosRepository;
+            Prescripciones = PrescripcionesRepository;
+            TipoCitas = TipoCitasRepository;
+            TipoConsultas = TipoConsultasRepository;
+            Consultorios = ConsultoriosRepository;
+            Especialidades = EspecialidadesRepository;
+            Jornadas = JornadasRepository;
+            Medicamentos = MedicamentosRepository;
+            Pesos = PesosRepository;
+            Cirugias = CirugiasRepository;
+            Citas = CitasRepository;
+            Empleados = EmpleadosRepository;
+            Empresas = EmpresasRepository;
+            FrecuenciasCardiacas = FrecuenciasCardiacasRepository;
+            Pacientes = PacientesRepository;
         }
+        public IAlergiasRepository Alergias { get; }
         public ICargosRepository Cargos { get; }
         public IPrescripcionesRepository Prescripciones { get; }
         public ITipoCitasRepository TipoCitas { get; }

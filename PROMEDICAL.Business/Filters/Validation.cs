@@ -16,7 +16,7 @@ namespace PROMEDICAL.Business.Filters
         {
             if (!context.ModelState.IsValid)
             {
-                ApiServiceResult apiServiceResult = new ApiServiceResult()
+                ServiceResult apiServiceResult = new ServiceResult()
                 {
                     Success = false,
                     Type = ServiceResultType.BadRequest

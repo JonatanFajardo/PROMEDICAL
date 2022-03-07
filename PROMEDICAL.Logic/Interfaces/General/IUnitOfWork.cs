@@ -8,6 +8,7 @@ namespace PROMEDICAL.Logic.Interfaces.General
         IPrescripcionesRepository Prescripciones { get; }
         ITipoCitasRepository TipoCitas { get; }
         ITipoConsultasRepository TipoConsultas { get; }
+        IAlergiasRepository Alergias { get; }
         ICargosRepository Cargos { get; }
         ICirugiasRepository Cirugias { get; }
         IConsultoriosRepository Consultorios { get; }

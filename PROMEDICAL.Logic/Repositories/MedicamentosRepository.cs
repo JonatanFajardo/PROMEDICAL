@@ -13,7 +13,7 @@ namespace PROMEDICAL.Logic.Repositories
     {
         public async Task<IEnumerable<tbMedicamentos>> ListAsync()
         {
-            const string sqlQuery = "UDP_Medicamentos_List";
+            const string sqlQuery = "UDP_Medicamentos_Select";
             return await Transaction.SelectAsync<tbMedicamentos>(sqlQuery);
         }
         public async Task<tbMedicamentos> DetailAsync(int id)
@@ -30,6 +30,7 @@ namespace PROMEDICAL.Logic.Repositories
             parameter.Add("@medi_Id", id, DbType.Int32, ParameterDirection.Input);
             return await Transaction.FindAsync<tbMedicamentos>(sqlQuery, parameter);
         }
+
         public async Task<Boolean> AddAsync(tbMedicamentos entity)
         {
             entity.medi_UsuarioRegistra = 1;
@@ -43,7 +44,7 @@ namespace PROMEDICAL.Logic.Repositories
         public async Task<Boolean> EditAsync(tbMedicamentos entity)
         {
             entity.medi_UsuarioModifica = 1;
-            const string sqlQuery = "UDP_Medicamentos_Edit";
+            const string sqlQuery = "UDP_Medicamentos_Update";
             var parameter = new DynamicParameters();
             parameter.Add("@medi_Id", entity.medi_Id, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@medi_Descripcion", entity.medi_Descripcion, DbType.String, ParameterDirection.Input);
@@ -55,7 +56,7 @@ namespace PROMEDICAL.Logic.Repositories
         {
             const string sqlQuery = "UDP_Medicamentos_Delete";
             var parameter = new DynamicParameters();
-            parameter.Add("@raza_Id", id, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@medi_Id", id, DbType.Int32, ParameterDirection.Input);
             return await Transaction.DeleteAsync(sqlQuery, parameter);
         }
     }

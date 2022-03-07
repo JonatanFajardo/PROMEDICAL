@@ -16,5 +16,10 @@ namespace PROMEDICAL.Entities.Entities
         public DateTime? ciru_FechaModifica { get; set; }
 
         public virtual tbPacientes_tbCirugias tbPacientes_tbCirugias { get; set; }
+
+        public object ToList()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

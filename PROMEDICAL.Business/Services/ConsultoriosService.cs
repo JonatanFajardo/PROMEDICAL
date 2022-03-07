@@ -5,11 +5,12 @@ using PROMEDICAL.Entities.Entities;
 using PROMEDICAL.Logic.Interfaces.General;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PROMEDICAL.Business.Services
 {
-    internal class ConsultoriosService
+    public class ConsultoriosService
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -19,14 +20,18 @@ namespace PROMEDICAL.Business.Services
             _unitOfWork = IUnitOfWork;
         }
 
-        public async Task<ApiServiceResult> ListAsync()
+        public async Task<ServiceResult> ListAsync()
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                IEnumerable<tbConsultorios> serviceResult = await _unitOfWork.Consultorios.ListAsync();
-                return apiServiceResult.Ok(_mapper.Map<ConsultoriosDto>(serviceResult));
+                IEnumerable<tbConsultorios> repositoryResult = await _unitOfWork.Consultorios.ListAsync();
+                apiServiceResult.Data = _mapper.Map<List<ConsultoriosDto>>(repositoryResult.ToList());
+                if (apiServiceResult.Data = null)
+                    return apiServiceResult.Error();
+
+                return apiServiceResult.Ok();
             }
             catch (Exception e)
             {
@@ -34,16 +39,22 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-
-
-        public async Task<ApiServiceResult> FindAsync(int id)
+        public async Task<ServiceResult> FindAsync(int id)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                tbConsultorios serviceResult = await _unitOfWork.Consultorios.FindAsync(id);
-                return apiServiceResult.Ok(_mapper.Map<ConsultoriosDto>(serviceResult));
+                tbConsultorios repositoryResult = await _unitOfWork.Consultorios.FindAsync(id);
+                apiServiceResult.Data = _mapper.Map<ConsultoriosDto>(repositoryResult);
+                if (apiServiceResult.Data = null)
+                {
+                    apiServiceResult.Success = false;
+                    apiServiceResult.Error();
+                    return apiServiceResult;
+                }
+
+                return apiServiceResult.Ok();
             }
             catch (Exception e)
             {
@@ -51,14 +62,22 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> DetailAsync(int id)
+        public async Task<ServiceResult> DetailAsync(int id)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                tbConsultorios serviceResult = await _unitOfWork.Consultorios.DetailAsync(id);
-                return apiServiceResult.Ok(_mapper.Map<ConsultoriosDto>(serviceResult));
+                tbConsultorios repositoryResult = await _unitOfWork.Consultorios.DetailAsync(id);
+                apiServiceResult.Data = _mapper.Map<ConsultoriosDto>(repositoryResult);
+                if (apiServiceResult.Data = null)
+                {
+                    apiServiceResult.Success = false;
+                    apiServiceResult.Error();
+                    return apiServiceResult;
+                }
+
+                return apiServiceResult.Ok();
             }
             catch (Exception e)
             {
@@ -66,9 +85,9 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> AddAsync(ConsultoriosDto dto)
+        public async Task<ServiceResult> AddAsync(ConsultoriosDto dto)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -84,9 +103,9 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ApiServiceResult> EditAsync(ConsultoriosDto dto)
+        public async Task<ServiceResult> EditAsync(ConsultoriosDto dto)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -101,7 +120,24 @@ namespace PROMEDICAL.Business.Services
             {
                 return apiServiceResult.Error();
             }
+        }
 
+        public async Task<ServiceResult> DeleteAsync(int id)
+        {
+            ServiceResult apiServiceResult = new ServiceResult();
+
+            try
+            {
+                apiServiceResult.Success = await _unitOfWork.Consultorios.RemoveAsync(id);
+                if (!apiServiceResult.Success)
+                    return apiServiceResult.Ok();
+                else
+                    return apiServiceResult.Error();
+            }
+            catch (Exception e)
+            {
+                return apiServiceResult.Error();
+            }
         }
     }
 }

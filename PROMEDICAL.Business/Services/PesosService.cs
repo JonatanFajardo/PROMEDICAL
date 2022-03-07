@@ -5,11 +5,12 @@ using PROMEDICAL.Entities.Entities;
 using PROMEDICAL.Logic.Interfaces.General;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PROMEDICAL.Business.Services
 {
-    internal class PesosService
+    public class PesosService
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -19,14 +20,18 @@ namespace PROMEDICAL.Business.Services
             _unitOfWork = IUnitOfWork;
         }
 
-        public async Task<ApiServiceResult> ListAsync()
+        public async Task<ServiceResult> ListAsync()
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                IEnumerable<tbPesos> serviceResult = await _unitOfWork.Pesos.ListAsync();
-                return apiServiceResult.Ok(_mapper.Map<MedicamentosDto>(serviceResult));
+                IEnumerable<tbPesos> repositoryResult = await _unitOfWork.Pesos.ListAsync();
+                apiServiceResult.Data = _mapper.Map<List<MedicamentosDto>>(repositoryResult.ToList());
+                if (apiServiceResult.Data == null)
+                    return apiServiceResult.Error();
+
+                return apiServiceResult.Ok();
             }
             catch (Exception e)
             {
@@ -34,14 +39,18 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> FindAsync(int id)
+        public async Task<ServiceResult> FindAsync(int id)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                tbPesos serviceResult = await _unitOfWork.Pesos.FindAsync(id);
-                return apiServiceResult.Ok(_mapper.Map<PesosDto>(serviceResult));
+                tbPesos repositoryResult = await _unitOfWork.Pesos.FindAsync(id);
+                apiServiceResult.Data = _mapper.Map<PesosDto>(repositoryResult);
+                if (apiServiceResult.Data == null)
+                    return apiServiceResult.Error();
+
+                return apiServiceResult.Ok();
             }
             catch (Exception e)
             {
@@ -49,14 +58,18 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> DetailAsync(int id)
+        public async Task<ServiceResult> DetailAsync(int id)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                tbPesos serviceResult = await _unitOfWork.Pesos.DetailAsync(id);
-                return apiServiceResult.Ok(_mapper.Map<PesosDto>(serviceResult));
+                tbPesos repositoryResult = await _unitOfWork.Pesos.DetailAsync(id);
+                apiServiceResult.Data = _mapper.Map<PesosDto>(repositoryResult);
+                if (apiServiceResult.Data == null)
+                    return apiServiceResult.Error();
+
+                return apiServiceResult.Ok();
             }
             catch (Exception e)
             {
@@ -65,9 +78,9 @@ namespace PROMEDICAL.Business.Services
         }
 
 
-        public async Task<ApiServiceResult> AddAsync(PesosDto dto)
+        public async Task<ServiceResult> AddAsync(PesosDto dto)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -83,9 +96,9 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ApiServiceResult> EditAsync(PesosDto dto)
+        public async Task<ServiceResult> EditAsync(PesosDto dto)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -102,9 +115,9 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> DeleteAsync(int id)
+        public async Task<ServiceResult> DeleteAsync(int id)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {

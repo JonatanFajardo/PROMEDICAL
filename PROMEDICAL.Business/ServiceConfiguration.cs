@@ -1,7 +1,9 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.DependencyInjection;
+using PROMEDICAL.Business.Extensions;
 using PROMEDICAL.Business.Services;
 using PROMEDICAL.DataAccess;
 using PROMEDICAL.Logic.Interfaces.Especific;
@@ -16,6 +18,8 @@ namespace PROMEDICAL.Business
     {
         public static void AddLogicLayer(this IServiceCollection services, string connectionString)
         {
+            services.AddScoped<IAlergiasRepository, AlergiasRepository>();
+            services.AddScoped<ICirugiasRepository, CirugiasRepository>();
             services.AddScoped<IPrescripcionesRepository, PrescripcionesRepository>();
             services.AddScoped<ITipoCitasRepository, TipoCitasRepository>();
             services.AddScoped<ITipoConsultasRepository, TipoConsultasRepository>();
@@ -33,10 +37,6 @@ namespace PROMEDICAL.Business
             services.AddScoped<IPersonasRepository, PersonasRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
-
-
-
-
             ////https://www.it-swarm.dev/es/c%23/obtencion-de-url-absolutas-utilizando-asp.net-core/1053425403/
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>()
                 .AddScoped<IUrlHelper>(x => x
@@ -48,22 +48,33 @@ namespace PROMEDICAL.Business
 
         public static void AddBusinessLayer(this IServiceCollection services)
         {
-            services.AddAutoMapper(x => x.AddProfile<MappingProfile>(), AppDomain.CurrentDomain.GetAssemblies());
+            //services.AddAutoMapper(x => x.AddProfile<MappingProfileExtensions>(), AppDomain.CurrentDomain.GetAssemblies());
+
+            services.AddScoped<AlergiasService>();
+            services.AddScoped<CirugiasService>();
             services.AddScoped<PrescripcionesService>();
             services.AddScoped<TipoCitasService>();
             services.AddScoped<TipoConsultasService>();
             services.AddScoped<CargosService>();
             services.AddScoped<ConsultoriosService>();
             services.AddScoped<EspecialidadesService>();
-            //services.AddScoped<JornadasService>();
+            services.AddScoped<JornadasServices>();
             services.AddScoped<MedicamentosService>();
             services.AddScoped<PesosService>();
-            //services.AddScoped<CitasService>();
-            //services.AddScoped<EmpleadosService>();
-            //services.AddScoped<EmpresasService>();
-            //services.AddScoped<FrecuenciasCardiacasService>();
-            //services.AddScoped<PacientesService>();
-            //services.AddScoped<PersonasService>();
+            //services.AddScoped<CitasServices>();
+            //services.AddScoped<EmpleadosServices>();
+            services.AddScoped<EmpresasService>();
+            //services.AddScoped<FrecuenciasCardiacasServices>();
+            //services.AddScoped<PacientesServices>();
+
+            /// Auto Mapper Configurations
+            var mapperConfig = new MapperConfiguration(mc =>
+            {
+                mc.AddProfile(new MappingProfile());
+            });
+
+            IMapper mapper = mapperConfig.CreateMapper();
+            services.AddSingleton(mapper);
         }
 
         public static void AddMoreServices(this IServiceCollection services)

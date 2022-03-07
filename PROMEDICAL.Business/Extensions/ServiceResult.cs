@@ -5,7 +5,7 @@ namespace PROMEDICAL.Business.Extensions
     /// <summary>
     /// Objeto que encapsula el resultado de una solicitud en la capa de negocios.
     /// </summary>
-    public class ApiServiceResult
+    public class ServiceResult
     {
         /// <summary>   
         /// Indica el tipo de solicitud.
@@ -36,9 +36,19 @@ namespace PROMEDICAL.Business.Extensions
         /// <summary>
         /// Resultado de servicio cuando la operacion se ha realizado exitosamente (200).
         /// </summary>
+        /// <returns></returns>
+        public ServiceResult Ok()
+        {
+            Success = true;
+            return SetMessage("Operación completada exitosamente.", ServiceResultType.Success);
+        }
+
+        /// <summary>
+        /// Resultado de servicio cuando la operacion se ha realizado exitosamente (200).
+        /// </summary>
         /// <param name="data">El objeto de respuesta que se pasa a la siguiente capa del sistema.</param>
         /// <returns></returns>
-        public ApiServiceResult Ok(object data = null)
+        public ServiceResult Ok(object data = null)
         {
             Success = true;
             Data = data;
@@ -51,7 +61,7 @@ namespace PROMEDICAL.Business.Extensions
         /// <param name="message">Mensaje personalizado que se pasa a la siguiente capa del sistema.</param>
         /// <param name="data">El objeto de respuesta que se pasa a la siguiente capa del sistema.</param>
         /// <returns></returns>
-        public ApiServiceResult Ok(string message, object data = null)
+        public ServiceResult Ok(string message, object data = null)
         {
             Success = true;
             Data = data;
@@ -64,7 +74,7 @@ namespace PROMEDICAL.Business.Extensions
         /// <param name="message">Mensaje personalizado que se pasa a la siguiente capa del sistema.</param>
         /// <param name="success">Si el resultado del servicio se debe marcar como exitoso o no.</param>
         /// <returns></returns>
-        public ApiServiceResult Info(string message, bool success = true)
+        public ServiceResult Info(string message, bool success = true)
         {
             Success = success;
             return SetMessage(message, ServiceResultType.Info);
@@ -76,7 +86,7 @@ namespace PROMEDICAL.Business.Extensions
         /// <param name="message">Mensaje personalizado que se pasa a la siguiente capa del sistema.</param>
         /// <param name="success">Si el resultado del servicio se debe marcar como exitoso o no.</param>
         /// <returns></returns>
-        public ApiServiceResult Warning(string message, bool success = true)
+        public ServiceResult Warning(string message, bool success = true)
         {
             Success = success;
             return SetMessage(message, ServiceResultType.Warning);
@@ -86,7 +96,7 @@ namespace PROMEDICAL.Business.Extensions
         /// Resultado de servicio cuando ocurre un error (500).
         /// </summary>
         /// <returns></returns>
-        public ApiServiceResult Error()
+        public ServiceResult Error()
         {
             return Error("Se ha producido un error al procesar la solicitud. Si el problema persiste, comuníquese con el administrador del sistema.");
         }
@@ -96,7 +106,7 @@ namespace PROMEDICAL.Business.Extensions
         /// </summary>
         /// <param name="message">Mensaje personalizado que se pasa a la siguiente capa del sistema.</param>
         /// <returns></returns>
-        public ApiServiceResult Error(string message)
+        public ServiceResult Error(string message)
         {
             Success = false;
             return SetMessage(message, ServiceResultType.Error);
@@ -108,7 +118,7 @@ namespace PROMEDICAL.Business.Extensions
         /// <param name="message">Mensaje personalizado que se pasa a la siguiente capa del sistema.</param>
         /// <param name="success">Si el resultado del servicio se debe marcar como exitoso o no.</param>
         /// <returns></returns>
-        public ApiServiceResult NotFound(string message = "Objeto no encontrado.", bool success = false)
+        public ServiceResult NotFound(string message = "Objeto no encontrado.", bool success = false)
         {
             Success = success;
             return SetMessage(message, ServiceResultType.NotFound);
@@ -121,7 +131,7 @@ namespace PROMEDICAL.Business.Extensions
         /// <param name="data">Los datos a pasar en la respuesta.</param>
         /// <param name="success">Si el resultado del servicio se debe marcar como exitoso o no.</param>
         /// <returns></returns>
-        public ApiServiceResult NotAcceptable(string message = "Inaceptable.", dynamic data = null, bool success = false)
+        public ServiceResult NotAcceptable(string message = "Inaceptable.", dynamic data = null, bool success = false)
         {
             Success = success;
             Data = data;
@@ -135,7 +145,7 @@ namespace PROMEDICAL.Business.Extensions
         /// <param name="data">Los datos a pasar en la respuesta.</param>
         /// <param name="success">Si el resultado del servicio se debe marcar como exitoso o no.</param>
         /// <returns></returns>
-        public ApiServiceResult Conflict(string message = "Se ha detectado un conflicto con el objeto.", dynamic data = null, bool success = false)
+        public ServiceResult Conflict(string message = "Se ha detectado un conflicto con el objeto.", dynamic data = null, bool success = false)
         {
             Success = success;
             Data = data;
@@ -148,7 +158,7 @@ namespace PROMEDICAL.Business.Extensions
         /// <param name="message">Mensaje personalizado que se pasa a la siguiente capa del sistema.</param>
         /// <param name="success">Si el resultado del servicio se debe marcar como exitoso o no.</param>
         /// <returns></returns>
-        public ApiServiceResult Unauthorized(string message = "Acceso no autorizado al objeto.", bool success = false)
+        public ServiceResult Unauthorized(string message = "Acceso no autorizado al objeto.", bool success = false)
         {
             Success = success;
             return SetMessage(message, ServiceResultType.Unauthorized);
@@ -160,7 +170,7 @@ namespace PROMEDICAL.Business.Extensions
         /// <param name="message">Mensaje personalizado que se pasa a la siguiente capa del sistema.</param>
         /// <param name="success">Si el resultado del servicio se debe marcar como exitoso o no.</param>
         /// <returns></returns>
-        public ApiServiceResult Forbidden(string message = "Prohibido el acceso al objeto.", bool success = false)
+        public ServiceResult Forbidden(string message = "Prohibido el acceso al objeto.", bool success = false)
         {
             Success = success;
             return SetMessage(message, ServiceResultType.Forbidden);
@@ -172,7 +182,7 @@ namespace PROMEDICAL.Business.Extensions
         /// <param name="message">Mensaje personalizado que se pasa a la siguiente capa del sistema.</param>
         /// <param name="success">Si el resultado del servicio se debe marcar como exitoso o no.</param>
         /// <returns></returns>
-        public ApiServiceResult BadRequest(string message = "Bad request.", bool success = false)
+        public ServiceResult BadRequest(string message = "Bad request.", bool success = false)
         {
             Success = success;
             return SetMessage(message, ServiceResultType.BadRequest);
@@ -185,7 +195,7 @@ namespace PROMEDICAL.Business.Extensions
         /// <param name="data">Los datos a pasar en la respuesta..</param>
         /// <param name="success">Si el resultado del servicio se debe marcar como exitoso o no.</param>
         /// <returns></returns>
-        public ApiServiceResult Disabled(string message = "Disabled resource.", dynamic data = null, bool success = false)
+        public ServiceResult Disabled(string message = "Disabled resource.", dynamic data = null, bool success = false)
         {
             Success = success;
             Data = data;
@@ -198,14 +208,14 @@ namespace PROMEDICAL.Business.Extensions
         /// <param name="message">Mensaje personalizado que se pasa a la siguiente capa del sistema.</param>
         /// <param name="serviceResultType">El tipo de resultado a retornar.</param>
         /// <returns></returns>
-        public ApiServiceResult SetMessage(string message, ServiceResultType serviceResultType)
+        public ServiceResult SetMessage(string message, ServiceResultType serviceResultType)
         {
             Message = message;
             Type = serviceResultType;
             return this;
         }
 
-        public ApiServiceResult()
+        public ServiceResult()
         {
             Success = false;
             Type = ServiceResultType.Error;

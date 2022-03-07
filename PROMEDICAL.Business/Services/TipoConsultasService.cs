@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PROMEDICAL.Business.Services
 {
-    internal class TipoConsultasService
+    public class TipoConsultasService
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -18,9 +18,9 @@ namespace PROMEDICAL.Business.Services
             _unitOfWork = IUnitOfWork;
         }
 
-        public async Task<ApiServiceResult> ListAsync()
+        public async Task<ServiceResult> ListAsync()
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -32,9 +32,9 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> FindAsync(int id)
+        public async Task<ServiceResult> FindAsync(int id)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -46,9 +46,9 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> DetailAsync(int id)
+        public async Task<ServiceResult> DetailAsync(int id)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -60,9 +60,9 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> AddAsync(TipoConsultasDto dto)
+        public async Task<ServiceResult> AddAsync(TipoConsultasDto dto)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -78,9 +78,9 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ApiServiceResult> EditAsync(TipoConsultasDto dto)
+        public async Task<ServiceResult> EditAsync(TipoConsultasDto dto)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -88,6 +88,23 @@ namespace PROMEDICAL.Business.Services
                 apiServiceResult.Success = await _unitOfWork.TipoConsultas.EditAsync(mappedResult);
                 if (!apiServiceResult.Success)
                     return apiServiceResult.Ok("Objeto actualizada exitosamente.");
+                else
+                    return apiServiceResult.Error();
+            }
+            catch (Exception e)
+            {
+                return apiServiceResult.Error();
+            }
+        }
+        public async Task<ServiceResult> DeleteAsync(int id)
+        {
+            ServiceResult apiServiceResult = new ServiceResult();
+
+            try
+            {
+                apiServiceResult.Success = await _unitOfWork.TipoConsultas.RemoveAsync(id);
+                if (!apiServiceResult.Success)
+                    return apiServiceResult.Ok();
                 else
                     return apiServiceResult.Error();
             }

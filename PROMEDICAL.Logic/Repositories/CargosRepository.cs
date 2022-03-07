@@ -13,7 +13,7 @@ namespace PROMEDICAL.Logic.Repositories
     {
         public async Task<IEnumerable<tbCargos>> ListAsync()
         {
-            const string sqlQuery = "UDP_Cargos_List";
+            const string sqlQuery = "UDP_Cargos_Select";
             return await Transaction.SelectAsync<tbCargos>(sqlQuery);
         }
         public async Task<tbCargos> DetailAsync(int id)
@@ -42,7 +42,7 @@ namespace PROMEDICAL.Logic.Repositories
         public async Task<Boolean> EditAsync(tbCargos entity)
         {
             entity.carg_UsuarioModifica = 1;
-            const string sqlQuery = "UDP_Cargos_Edit";
+            const string sqlQuery = "UDP_Cargos_Update";
             var parameter = new DynamicParameters();
             parameter.Add("@carg_Id", entity.carg_Id, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@carg_Descripcion", entity.carg_Descripcion, DbType.String, ParameterDirection.Input);
@@ -53,7 +53,7 @@ namespace PROMEDICAL.Logic.Repositories
         {
             const string sqlQuery = "UDP_Cargos_Delete";
             var parameter = new DynamicParameters();
-            parameter.Add("@raza_Id", id, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@carg_Id", id, DbType.Int32, ParameterDirection.Input);
             return await Transaction.DeleteAsync(sqlQuery, parameter);
         }
     }

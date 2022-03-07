@@ -13,9 +13,10 @@ namespace PROMEDICAL.Logic.Repositories
     {
         public async Task<IEnumerable<tbConsultorios>> ListAsync()
         {
-            const string sqlQuery = "UDP_Consultorios_List";
+            const string sqlQuery = "UDP_Consultorios_Select";
             return await Transaction.SelectAsync<tbConsultorios>(sqlQuery);
         }
+
         public async Task<tbConsultorios> DetailAsync(int id)
         {
             const string sqlQuery = "UDP_Consultorios_Detail";
@@ -23,6 +24,7 @@ namespace PROMEDICAL.Logic.Repositories
             parameter.Add("@cons_Id", id, DbType.Int32, ParameterDirection.Input);
             return await Transaction.FindAsync<tbConsultorios>(sqlQuery, parameter);
         }
+
         public async Task<tbConsultorios> FindAsync(int id)
         {
             const string sqlQuery = "UDP_Consultorios_Find";
@@ -30,6 +32,7 @@ namespace PROMEDICAL.Logic.Repositories
             parameter.Add("@cons_Id", id, DbType.Int32, ParameterDirection.Input);
             return await Transaction.FindAsync<tbConsultorios>(sqlQuery, parameter);
         }
+
         public async Task<Boolean> AddAsync(tbConsultorios entity)
         {
             entity.cons_UsuarioRegistra = 1;
@@ -43,7 +46,7 @@ namespace PROMEDICAL.Logic.Repositories
         public async Task<Boolean> EditAsync(tbConsultorios entity)
         {
             entity.cons_UsuarioModifica = 1;
-            const string sqlQuery = "UDP_Consultorios_Edit";
+            const string sqlQuery = "UDP_Consultorios_Update";
             var parameter = new DynamicParameters();
             parameter.Add("@cons_Id", entity.cons_Id, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@cons_Descripcion", entity.cons_Descripcion, DbType.String, ParameterDirection.Input);
@@ -55,7 +58,7 @@ namespace PROMEDICAL.Logic.Repositories
         {
             const string sqlQuery = "UDP_Consultorios_Delete";
             var parameter = new DynamicParameters();
-            parameter.Add("@raza_Id", id, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@cons_Id", id, DbType.Int32, ParameterDirection.Input);
             return await Transaction.DeleteAsync(sqlQuery, parameter);
         }
     }

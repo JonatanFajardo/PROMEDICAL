@@ -14,7 +14,7 @@ namespace PROMEDICAL.Logic.Repositories
 
         public async Task<IEnumerable<tbEspecialidades>> ListAsync()
         {
-            const string sqlQuery = "UDP_Especialidades_List";
+            const string sqlQuery = "UDP_Especialidades_Select";
             return await Transaction.SelectAsync<tbEspecialidades>(sqlQuery);
         }
         public async Task<tbEspecialidades> DetailAsync(int id)
@@ -44,7 +44,7 @@ namespace PROMEDICAL.Logic.Repositories
         public async Task<Boolean> EditAsync(tbEspecialidades entity)
         {
             entity.espc_UsuarioModifica = 1;
-            const string sqlQuery = "UDP_Especialidades_Edit";
+            const string sqlQuery = "UDP_Especialidades_Update";
             var parameter = new DynamicParameters();
             parameter.Add("@espc_Id", entity.espc_Id, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@espc_Descripcion", entity.espc_Descripcion, DbType.String, ParameterDirection.Input);
@@ -56,7 +56,7 @@ namespace PROMEDICAL.Logic.Repositories
         {
             const string sqlQuery = "UDP_Especialidades_Delete";
             var parameter = new DynamicParameters();
-            parameter.Add("@raza_Id", id, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@espc_Id", id, DbType.Int32, ParameterDirection.Input);
             return await Transaction.DeleteAsync(sqlQuery, parameter);
         }
     }

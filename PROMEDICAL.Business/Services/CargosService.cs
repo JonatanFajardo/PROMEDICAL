@@ -5,11 +5,12 @@ using PROMEDICAL.Entities.Entities;
 using PROMEDICAL.Logic.Interfaces.General;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PROMEDICAL.Business.Services
 {
-    internal class CargosService
+    public class CargosService
     {
         //private readonly CargosRepository _CargosRepository;
 
@@ -21,14 +22,18 @@ namespace PROMEDICAL.Business.Services
             _mapper = mapper;
             _unitOfWork = IUnitOfWork;
         }
-        public async Task<ApiServiceResult> ListAsync()
+        public async Task<ServiceResult> ListAsync()
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                IEnumerable<tbCargos> serviceResult = await _unitOfWork.Cargos.ListAsync();
-                return apiServiceResult.Ok(_mapper.Map<CargosDto>(serviceResult));
+                IEnumerable<tbCargos> repositoryResult = await _unitOfWork.Cargos.ListAsync();
+                apiServiceResult.Data = _mapper.Map <List<CargosDto>>(repositoryResult.ToList());
+                if (apiServiceResult.Data == null)
+                    return apiServiceResult.Error();
+
+                return apiServiceResult.Ok();
             }
             catch (Exception e)
             {
@@ -36,14 +41,18 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> FindAsync(int id)
+        public async Task<ServiceResult> FindAsync(int id)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                tbCargos serviceResult = await _unitOfWork.Cargos.FindAsync(id);
-                return apiServiceResult.Ok(_mapper.Map<CargosDto>(serviceResult));
+                tbCargos repositoryResult = await _unitOfWork.Cargos.FindAsync(id);
+                apiServiceResult.Data = _mapper.Map<CargosDto>(repositoryResult.ToList());
+                if (apiServiceResult.Data == null)
+                    return apiServiceResult.Error();
+
+                return apiServiceResult.Ok();
             }
             catch (Exception e)
             {
@@ -51,14 +60,18 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> DetailAsync(int id)
+        public async Task<ServiceResult> DetailAsync(int id)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                tbCargos serviceResult = await _unitOfWork.Cargos.DetailAsync(id);
-                return apiServiceResult.Ok(_mapper.Map<CargosDto>(serviceResult));
+                tbCargos repositoryResult = await _unitOfWork.Cargos.DetailAsync(id);
+                apiServiceResult.Data = _mapper.Map<CargosDto>(repositoryResult);
+                if (apiServiceResult.Data == null)
+                    return apiServiceResult.Error();
+
+                return apiServiceResult.Ok();
             }
             catch (Exception e)
             {
@@ -66,9 +79,9 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> AddAsync(CargosDto dto)
+        public async Task<ServiceResult> AddAsync(CargosDto dto)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -78,17 +91,15 @@ namespace PROMEDICAL.Business.Services
                     return apiServiceResult.Ok($"creada exitosamente.");
                 else
                     return apiServiceResult.Error();
-                throw new NotImplementedException();
-
             }
             catch (Exception e)
             {
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ApiServiceResult> EditAsync(CargosDto dto)
+        public async Task<ServiceResult> EditAsync(CargosDto dto)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -99,7 +110,6 @@ namespace PROMEDICAL.Business.Services
                     return apiServiceResult.Ok($"actualizada exitosamente.");
                 else
                     return apiServiceResult.Error();
-                throw new NotImplementedException();
             }
             catch (Exception e)
             {
@@ -107,9 +117,9 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> DeleteAsync(int id)
+        public async Task<ServiceResult> DeleteAsync(int id)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {

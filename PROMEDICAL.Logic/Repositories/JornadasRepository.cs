@@ -13,7 +13,7 @@ namespace PROMEDICAL.Logic.Repositories
     {
         public async Task<IEnumerable<tbJornadas>> ListAsync()
         {
-            const string sqlQuery = "UDP_Jornadas_List";
+            const string sqlQuery = "UDP_Jornadas_Select";
             return await Transaction.SelectAsync<tbJornadas>(sqlQuery);
         }
         public async Task<tbJornadas> DetailAsync(int id)
@@ -43,7 +43,7 @@ namespace PROMEDICAL.Logic.Repositories
         public async Task<Boolean> EditAsync(tbJornadas entity)
         {
             entity.jorn_UsuarioModifica = 1;
-            const string sqlQuery = "UDP_Jornadas_Edit";
+            const string sqlQuery = "UDP_Jornadas_Update";
             var parameter = new DynamicParameters();
             parameter.Add("@jorn_Id", entity.jorn_Id, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@jorn_Descripcion", entity.jorn_Descripcion, DbType.String, ParameterDirection.Input);
@@ -55,7 +55,7 @@ namespace PROMEDICAL.Logic.Repositories
         {
             const string sqlQuery = "UDP_Jornadas_Delete";
             var parameter = new DynamicParameters();
-            parameter.Add("@raza_Id", id, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@jorn_Id", id, DbType.Int32, ParameterDirection.Input);
             return await Transaction.DeleteAsync(sqlQuery, parameter);
         }
     }

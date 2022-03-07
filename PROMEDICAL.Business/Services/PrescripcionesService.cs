@@ -5,11 +5,12 @@ using PROMEDICAL.Entities.Entities;
 using PROMEDICAL.Logic.Interfaces.General;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace PROMEDICAL.Business.Services
 {
-    internal class PrescripcionesService
+    public class PrescripcionesService
     {
         private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
@@ -19,14 +20,18 @@ namespace PROMEDICAL.Business.Services
             _unitOfWork = IUnitOfWork;
         }
 
-        public async Task<ApiServiceResult> ListAsync()
+        public async Task<ServiceResult> ListAsync()
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                IEnumerable<tbPrescripciones> serviceResult = await _unitOfWork.Prescripciones.ListAsync();
-                return apiServiceResult.Ok(_mapper.Map<PrescripcionesDto>(serviceResult));
+                IEnumerable<tbPrescripciones> repositoryResult = await _unitOfWork.Prescripciones.ListAsync();
+                apiServiceResult.Data = _mapper.Map<List<PrescripcionesDto>>(repositoryResult.ToList());
+                if (apiServiceResult.Data == null)
+                    return apiServiceResult.Error();
+
+                return apiServiceResult.Ok();
             }
             catch (Exception e)
             {
@@ -34,14 +39,18 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> FindAsync(int id)
+        public async Task<ServiceResult> FindAsync(int id)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                tbPrescripciones serviceResult = await _unitOfWork.Prescripciones.FindAsync(id);
-                return apiServiceResult.Ok(_mapper.Map<PrescripcionesDto>(serviceResult));
+                tbPrescripciones repositoryResult = await _unitOfWork.Prescripciones.FindAsync(id);
+                apiServiceResult.Data = _mapper.Map<PrescripcionesDto>(repositoryResult);
+                if (apiServiceResult.Data == null)
+                    return apiServiceResult.Error();
+
+                return apiServiceResult.Ok();
             }
             catch (Exception e)
             {
@@ -49,14 +58,18 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> DetailAsync(int id)
+        public async Task<ServiceResult> DetailAsync(int id)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                tbPrescripciones serviceResult = await _unitOfWork.Prescripciones.DetailAsync(id);
-                return apiServiceResult.Ok(_mapper.Map<PrescripcionesDto>(serviceResult));
+                tbPrescripciones repositoryResult = await _unitOfWork.Prescripciones.DetailAsync(id);
+                apiServiceResult.Data = _mapper.Map<PrescripcionesDto>(repositoryResult);
+                if (apiServiceResult.Data == null)
+                    return apiServiceResult.Error();
+
+                return apiServiceResult.Ok();
             }
             catch (Exception e)
             {
@@ -64,9 +77,9 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ApiServiceResult> AddAsync(PrescripcionesDto dto)
+        public async Task<ServiceResult> AddAsync(PrescripcionesDto dto)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -82,9 +95,9 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ApiServiceResult> EditAsync(PrescripcionesDto dto)
+        public async Task<ServiceResult> EditAsync(PrescripcionesDto dto)
         {
-            ApiServiceResult apiServiceResult = new ApiServiceResult();
+            ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
@@ -101,7 +114,23 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
+        public async Task<ServiceResult> DeleteAsync(int id)
+        {
+            ServiceResult apiServiceResult = new ServiceResult();
 
+            try
+            {
+                apiServiceResult.Success = await _unitOfWork.Prescripciones.RemoveAsync(id);
+                if (!apiServiceResult.Success)
+                    return apiServiceResult.Ok();
+                else
+                    return apiServiceResult.Error();
+            }
+            catch (Exception e)
+            {
+                return apiServiceResult.Error();
+            }
+        }
 
     }
 }
