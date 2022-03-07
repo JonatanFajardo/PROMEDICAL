@@ -32,7 +32,6 @@ namespace PROMEDICAL.Logic.Repositories
         }
         public async Task<Boolean> AddAsync(tbAlergias entity)
         {
-            entity.algi_UsuarioRegistra = 1;
             const string sqlQuery = "UDP_Alergias_Insert";
             var parameter = new DynamicParameters();
             parameter.Add("@algi_Nombre", entity.algi_Nombre, DbType.String, ParameterDirection.Input);
@@ -42,7 +41,6 @@ namespace PROMEDICAL.Logic.Repositories
         }
         public async Task<Boolean> EditAsync(tbAlergias entity)
         {
-            entity.algi_UsuarioModifica = 1;
             const string sqlQuery = "UDP_Alergias_Update";
             var parameter = new DynamicParameters();
             parameter.Add("@algi_Id", entity.algi_Id, DbType.Int32, ParameterDirection.Input);

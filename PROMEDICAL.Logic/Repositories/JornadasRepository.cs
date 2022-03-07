@@ -32,7 +32,6 @@ namespace PROMEDICAL.Logic.Repositories
         }
         public async Task<Boolean> AddAsync(tbJornadas entity)
         {
-            entity.jorn_UsuarioRegistra = 1;
             const string sqlQuery = "UDP_Jornadas_Insert";
             var parameter = new DynamicParameters();
             parameter.Add("@jorn_Descripcion", entity.jorn_Descripcion, DbType.String, ParameterDirection.Input);
@@ -42,7 +41,6 @@ namespace PROMEDICAL.Logic.Repositories
 
         public async Task<Boolean> EditAsync(tbJornadas entity)
         {
-            entity.jorn_UsuarioModifica = 1;
             const string sqlQuery = "UDP_Jornadas_Update";
             var parameter = new DynamicParameters();
             parameter.Add("@jorn_Id", entity.jorn_Id, DbType.Int32, ParameterDirection.Input);

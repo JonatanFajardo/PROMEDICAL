@@ -32,7 +32,6 @@ namespace PROMEDICAL.Logic.Repositories
         }
         public async Task<Boolean> AddAsync(tbPesos entity)
         {
-            entity.peso_UsuarioRegistra = 1;
             const string sqlQuery = "UDP_Pesos_Insert";
             var parameter = new DynamicParameters();
             parameter.Add("@peso_Descripcion", entity.peso_Descripcion, DbType.String, ParameterDirection.Input);
@@ -42,7 +41,6 @@ namespace PROMEDICAL.Logic.Repositories
 
         public async Task<Boolean> EditAsync(tbPesos entity)
         {
-            entity.peso_UsuarioModifica = 1;
             const string sqlQuery = "UDP_Pesos_Update";
             var parameter = new DynamicParameters();
             parameter.Add("@peso_Id", entity.peso_Id, DbType.Int32, ParameterDirection.Input);
