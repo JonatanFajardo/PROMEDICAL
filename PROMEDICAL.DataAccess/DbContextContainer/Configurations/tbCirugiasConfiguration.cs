@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
-using PROMEDICAL.DataAccess.DbContextContainer;
+using PROMEDICAL.Entities.DbContextContainer;
 using PROMEDICAL.Entities.Entities;
 using System;
 
-namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
+namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 {
     public partial class tbCirugiasConfiguration : IEntityTypeConfiguration<tbCirugias>
     {
@@ -14,6 +14,8 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
         {
             entity.HasKey(e => e.ciru_Id)
                 .HasName("PK_tbCirugia");
+
+            entity.HasComment("Indica todas las cirugias que estan disponibles para un paciente.");
 
             entity.Property(e => e.ciru_Descripcion).HasMaxLength(250);
 

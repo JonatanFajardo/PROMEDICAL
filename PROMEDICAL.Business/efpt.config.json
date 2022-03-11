@@ -1,0 +1,111 @@
+﻿{
+   "CodeGenerationMode": 0,
+   "ContextClassName": "MEDICALSYSTEMContext",
+   "ContextNamespace": null,
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": null,
+   "OutputContextPath": null,
+   "OutputPath": "Dtos",
+   "ProjectRootNamespace": "PROMEDICAL.Business",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 2,
+   "Tables": [
+      {
+         "Name": "[dbo].[tbAlergias]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbCargos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbCirugias]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbCitas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbConsultorios]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbEmpleados]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbEmpresas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbFrecuenciasCardiacas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbJornadas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbMedicamentos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbPacientes]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbPacientes_tbAlergias]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbPacientes_tbCirugias]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbPersonas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbPesos]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbPrescripciones]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbTipoCitas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbTipoConsultas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbTiposSangre]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "JOHN-EB.MEDICALSYSTEM",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": true,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": false,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": true,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": true,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false
+}

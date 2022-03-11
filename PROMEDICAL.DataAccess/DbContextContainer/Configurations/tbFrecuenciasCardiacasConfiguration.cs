@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
-using PROMEDICAL.DataAccess.DbContextContainer;
+using PROMEDICAL.Entities.DbContextContainer;
 using PROMEDICAL.Entities.Entities;
 using System;
 
-namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
+namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 {
     public partial class tbFrecuenciasCardiacasConfiguration : IEntityTypeConfiguration<tbFrecuenciasCardiacas>
     {
@@ -31,6 +31,7 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
             entity.HasOne(d => d.paci)
                 .WithMany(p => p.tbFrecuenciasCardiacas)
                 .HasForeignKey(d => d.paci_Id)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_tbFrecuenciaCardiaca_tbPaciente_paci_Id");
 
             OnConfigurePartial(entity);

@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
-using PROMEDICAL.DataAccess.DbContextContainer;
+using PROMEDICAL.Entities.DbContextContainer;
 using PROMEDICAL.Entities.Entities;
 using System;
 
-namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
+namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 {
     public partial class tbEmpleadosConfiguration : IEntityTypeConfiguration<tbEmpleados>
     {
@@ -16,33 +16,26 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
 
             entity.Property(e => e.empd_Id).ValueGeneratedNever();
 
-            entity.Property(e => e.empd_FechaModifica).HasColumnType("datetime");
 
-            entity.Property(e => e.empd_FechaRegistra).HasColumnType("datetime");
 
             entity.HasOne(d => d.carg)
                 .WithMany(p => p.tbEmpleados)
-                .HasForeignKey(d => d.carg_Id);
+                .HasForeignKey(d => d.carg_Id)
+                .OnDelete(DeleteBehavior.ClientSetNull);
 
             entity.HasOne(d => d.cons)
                 .WithMany(p => p.tbEmpleados)
                 .HasForeignKey(d => d.cons_Id);
 
-            entity.HasOne(d => d.emps)
-                .WithMany(p => p.tbEmpleados)
-                .HasForeignKey(d => d.emps_Id);
-
-            entity.HasOne(d => d.espc)
-                .WithMany(p => p.tbEmpleados)
-                .HasForeignKey(d => d.espc_Id);
-
             entity.HasOne(d => d.jorn)
                 .WithMany(p => p.tbEmpleados)
-                .HasForeignKey(d => d.jorn_Id);
+                .HasForeignKey(d => d.jorn_Id)
+                .OnDelete(DeleteBehavior.ClientSetNull);
 
             entity.HasOne(d => d.pers)
                 .WithMany(p => p.tbEmpleados)
-                .HasForeignKey(d => d.pers_Id);
+                .HasForeignKey(d => d.pers_Id)
+                .OnDelete(DeleteBehavior.ClientSetNull);
 
             OnConfigurePartial(entity);
         }

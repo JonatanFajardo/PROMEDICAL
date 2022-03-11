@@ -87,7 +87,7 @@ namespace PROMEDICAL.Business.Services
                 tbPesos mappedResult = _mapper.Map<tbPesos>(dto);
                 apiServiceResult.Success = await _unitOfWork.Pesos.AddAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok("Objeto Registro guardado exitosamente.");
+                    return apiServiceResult.Ok();
                 else
                     return apiServiceResult.Error();
             }
@@ -105,7 +105,7 @@ namespace PROMEDICAL.Business.Services
                 tbPesos mappedResult = _mapper.Map<tbPesos>(dto);
                 apiServiceResult.Success = await _unitOfWork.Pesos.EditAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok("Objeto Registro Operación completada exitosamente..");
+                    return apiServiceResult.Ok();
                 else
                     return apiServiceResult.Error();
             }

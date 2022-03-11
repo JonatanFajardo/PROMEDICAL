@@ -2,12 +2,11 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
-using PROMEDICAL.DataAccess.DbContextContainer;
+using PROMEDICAL.Entities.DbContextContainer;
 using PROMEDICAL.Entities.Entities;
 using System;
-using PROMEDICAL.Entities.Entities;
 
-namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
+namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 {
     public partial class tbCargosConfiguration : IEntityTypeConfiguration<tbCargos>
     {
@@ -16,6 +15,7 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
             entity.HasKey(e => e.carg_Id);
 
             entity.Property(e => e.carg_Descripcion)
+                .IsRequired()
                 .HasMaxLength(150)
                 .IsUnicode(false);
 

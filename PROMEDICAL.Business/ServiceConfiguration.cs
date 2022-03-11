@@ -1,10 +1,12 @@
 ﻿using AutoMapper;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.DependencyInjection;
 using PROMEDICAL.Business.Extensions;
 using PROMEDICAL.Business.Services;
+using PROMEDICAL.Business.Validations;
 using PROMEDICAL.DataAccess;
 using PROMEDICAL.Logic.Interfaces.Especific;
 using PROMEDICAL.Logic.Interfaces.General;
@@ -25,7 +27,7 @@ namespace PROMEDICAL.Business
             services.AddScoped<ITipoConsultasRepository, TipoConsultasRepository>();
             services.AddScoped<ICargosRepository, CargosRepository>();
             services.AddScoped<IConsultoriosRepository, ConsultoriosRepository>();
-            services.AddScoped<IEspecialidadesRepository, EspecialidadesRepository>();
+            services.AddScoped<ITiposSangreRepository, TiposSangreRepository>();
             services.AddScoped<IJornadasRepository, JornadasRepository>();
             services.AddScoped<IMedicamentosRepository, MedicamentosRepository>();
             services.AddScoped<IPesosRepository, PesosRepository>();
@@ -48,6 +50,8 @@ namespace PROMEDICAL.Business
 
         public static void AddBusinessLayer(this IServiceCollection services)
         {
+            services.AddMvc().AddFluentValidation();
+            services.AddTransient<AlergiasValidation> ();
             //services.AddAutoMapper(x => x.AddProfile<MappingProfileExtensions>(), AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<AlergiasService>();
@@ -57,15 +61,15 @@ namespace PROMEDICAL.Business
             services.AddScoped<TipoConsultasService>();
             services.AddScoped<CargosService>();
             services.AddScoped<ConsultoriosService>();
-            services.AddScoped<EspecialidadesService>();
+            services.AddScoped<TiposSangreService>();
             services.AddScoped<JornadasServices>();
             services.AddScoped<MedicamentosService>();
             services.AddScoped<PesosService>();
-            //services.AddScoped<CitasServices>();
-            //services.AddScoped<EmpleadosServices>();
+            //services.AddScoped<CitasService>();
+            services.AddScoped<EmpleadosService>();
             services.AddScoped<EmpresasService>();
-            //services.AddScoped<FrecuenciasCardiacasServices>();
-            //services.AddScoped<PacientesServices>();
+            //services.AddScoped<FrecuenciasCardiacasService>();
+            //services.AddScoped<PacientesService>();
 
             /// Auto Mapper Configurations
             var mapperConfig = new MapperConfiguration(mc =>

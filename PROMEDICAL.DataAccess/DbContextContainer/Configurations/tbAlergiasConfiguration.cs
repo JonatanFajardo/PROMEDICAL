@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
-using PROMEDICAL.DataAccess.DbContextContainer;
-using System;
+using PROMEDICAL.Entities.DbContextContainer;
 using PROMEDICAL.Entities.Entities;
+using System;
 
-namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
+namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 {
     public partial class tbAlergiasConfiguration : IEntityTypeConfiguration<tbAlergias>
     {
@@ -22,7 +22,9 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
 
             entity.Property(e => e.algi_FechaRegistra).HasColumnType("datetime");
 
-            entity.Property(e => e.algi_Nombre).HasMaxLength(150);
+            entity.Property(e => e.algi_Nombre)
+                .IsRequired()
+                .HasMaxLength(150);
 
             OnConfigurePartial(entity);
         }

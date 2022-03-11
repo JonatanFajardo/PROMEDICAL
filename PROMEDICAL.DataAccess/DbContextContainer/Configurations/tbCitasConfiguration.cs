@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
-using PROMEDICAL.DataAccess.DbContextContainer;
+using PROMEDICAL.Entities.DbContextContainer;
 using PROMEDICAL.Entities.Entities;
 using System;
 
-namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
+namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 {
     public partial class tbCitasConfiguration : IEntityTypeConfiguration<tbCitas>
     {
@@ -24,16 +24,12 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
             entity.HasOne(d => d.empd)
                 .WithMany(p => p.tbCitas)
                 .HasForeignKey(d => d.empd_Id)
-                .HasConstraintName("FK_tbCita_tbEmpleados_empd_Id");
-
-            entity.HasOne(d => d.empdNavigation)
-                .WithMany(p => p.tbCitas)
-                .HasForeignKey(d => d.empd_Id)
-                .HasConstraintName("FK_tbCita_tbTipoConsulta_tico_Id");
+                .OnDelete(DeleteBehavior.ClientSetNull);
 
             entity.HasOne(d => d.paci)
                 .WithMany(p => p.tbCitas)
                 .HasForeignKey(d => d.paci_Id)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_tbCita_tbPaciente_paci_Id");
 
             entity.HasOne(d => d.tici)

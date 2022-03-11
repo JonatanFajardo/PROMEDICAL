@@ -35,6 +35,8 @@ namespace PROMEDICAL.Logic.Repositories
         {
             const string sqlQuery = "UDP_Medicamentos_Insert";
             var parameter = new DynamicParameters();
+            parameter.Add("@medi_Nombre", entity.medi_Descripcion, DbType.String, ParameterDirection.Input);
+            parameter.Add("@medi_Precio", entity.medi_Descripcion, DbType.Decimal, ParameterDirection.Input);
             parameter.Add("@medi_Descripcion", entity.medi_Descripcion, DbType.String, ParameterDirection.Input);
             parameter.Add("@medi_UsuarioRegistra", entity.medi_UsuarioRegistra, DbType.Int32, ParameterDirection.Input);
             return await Transaction.SendAsync(sqlQuery, parameter);
@@ -45,6 +47,8 @@ namespace PROMEDICAL.Logic.Repositories
             const string sqlQuery = "UDP_Medicamentos_Update";
             var parameter = new DynamicParameters();
             parameter.Add("@medi_Id", entity.medi_Id, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@medi_Nombre", entity.medi_Id, DbType.String, ParameterDirection.Input);
+            parameter.Add("@medi_Precio", entity.medi_Id, DbType.Decimal, ParameterDirection.Input);
             parameter.Add("@medi_Descripcion", entity.medi_Descripcion, DbType.String, ParameterDirection.Input);
             parameter.Add("@medi_UsuarioModifica", entity.medi_UsuarioRegistra, DbType.Int32, ParameterDirection.Input);
             return await Transaction.SendAsync(sqlQuery, parameter);

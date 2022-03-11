@@ -26,14 +26,14 @@ namespace PROMEDICAL.WebApi.Swagger
             {
                 Title = $"API {description.ApiVersion}",
                 Version = description.GroupName,
-                Description = "Utilice está api para el Helpdesk",
+                Description = "API que permite interactuar con la información del sistema medico Promedical",
                 Contact = new OpenApiContact()
                 {
-                    Name = "INSTA HELP Service"
+                    Name = "PRIMEDICAL Service"
                 },
                 License = new OpenApiLicense()
                 {
-                    Name = "All rights reserved (2021)."
+                    Name = "All rights reserved (2022)."
                 }
             };
 

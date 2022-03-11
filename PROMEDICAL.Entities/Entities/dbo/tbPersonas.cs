@@ -40,7 +40,7 @@ namespace PROMEDICAL.Entities.Entities
         /// <summary>
         /// Fecha en la que nacio la persona.
         /// </summary>
-        public DateTime? pers_FechaNacimiento { get; set; }
+        public DateTime pers_FechaNacimiento { get; set; }
         /// <summary>
         /// Medio por el cual permite ponerse en contacto mediante mensaje electronico con la persona.
         /// </summary>
@@ -76,10 +76,10 @@ namespace PROMEDICAL.Entities.Entities
         /// <summary>
         /// Indica el estado actual de la persona.
         /// </summary>
-        public bool? pers_EsActivo { get; set; }
-        public bool? pers_EsEliminado { get; set; }
-        public int? pers_UsuarioRegistra { get; set; }
-        public DateTime? pers_FechaRegistra { get; set; }
+        public bool pers_EsActivo { get; set; }
+        public bool pers_EsEliminado { get; set; }
+        public int pers_UsuarioRegistra { get; set; }
+        public DateTime pers_FechaRegistra { get; set; }
         public int? pers_UsuarioModifica { get; set; }
         public DateTime? pers_FechaModifica { get; set; }
 

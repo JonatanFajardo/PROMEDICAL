@@ -13,20 +13,17 @@ namespace PROMEDICAL.Entities.Entities
         }
 
         public int cita_Id { get; set; }
-        public int? empd_Id { get; set; }
-        public int? paci_Id { get; set; }
+        public int paci_Id { get; set; }
+        public int empd_Id { get; set; }
         public int tici_Id { get; set; }
-        public int? espc_Id { get; set; }
-        public DateTime? cita_FechaCita { get; set; }
-        public bool? cita_EsEliminado { get; set; }
-        public int? cita_UsuarioRegistra { get; set; }
-        public DateTime? cita_FechaRegistra { get; set; }
+        public DateTime cita_FechaCita { get; set; }
+        public bool cita_EsEliminado { get; set; }
+        public int cita_UsuarioRegistra { get; set; }
+        public DateTime cita_FechaRegistra { get; set; }
         public int? cita_UsuarioModifica { get; set; }
         public DateTime? cita_FechaModifica { get; set; }
 
         public virtual tbEmpleados empd { get; set; }
-        public virtual tbTipoConsultas empdNavigation { get; set; }
-        public virtual tbEspecialidades espc { get; set; }
         public virtual tbPacientes paci { get; set; }
         public virtual tbTipoCitas tici { get; set; }
         public virtual ICollection<tbPrescripciones> tbPrescripciones { get; set; }

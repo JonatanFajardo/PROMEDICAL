@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
-using PROMEDICAL.DataAccess.DbContextContainer;
+using PROMEDICAL.Entities.DbContextContainer;
 using PROMEDICAL.Entities.Entities;
 using System;
 
-namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
+namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 {
     public partial class tbEmpresasConfiguration : IEntityTypeConfiguration<tbEmpresas>
     {
@@ -14,53 +14,38 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
         {
             entity.HasKey(e => e.emps_Id);
 
-            entity.Property(e => e.emps_Id).ValueGeneratedNever();
-
-            entity.Property(e => e.emps_Calle)
-                .HasMaxLength(150)
-                .HasComment("Información sobre una direccion aproximada.");
-
-            entity.Property(e => e.emps_Ciudad)
-                .HasMaxLength(150)
-                .HasComment("Información sobre una direccion aproximada.");
-
-            entity.Property(e => e.emps_CodigoPostal)
-                .HasMaxLength(150)
-                .HasComment("Información sobre una direccion aproximada.");
-
             entity.Property(e => e.emps_CorreoElectronico)
+                .IsRequired()
                 .HasMaxLength(150)
                 .IsUnicode(false)
                 .HasComment("Medio por el cual permite ponerse en contacto mediante mensaje electronico con la persona.");
 
+            entity.Property(e => e.emps_Direccion)
+                .HasMaxLength(700)
+                .HasComment("Información sobre una direccion aproximada.");
+
             entity.Property(e => e.emps_EsActivo)
+                .IsRequired()
                 .HasDefaultValueSql("((1))")
                 .HasComment("Indica el estado actual de la persona.");
-
-            entity.Property(e => e.emps_EsEliminado).HasDefaultValueSql("((0))");
 
             entity.Property(e => e.emps_FechaModifica).HasColumnType("datetime");
 
             entity.Property(e => e.emps_FechaRegistra).HasColumnType("datetime");
 
             entity.Property(e => e.emps_NombreComercial)
+                .IsRequired()
                 .HasMaxLength(250)
                 .IsUnicode(false);
 
-            entity.Property(e => e.emps_Pais)
-                .HasMaxLength(150)
-                .HasComment("Información sobre una direccion aproximada.");
-
-            entity.Property(e => e.emps_Provincia)
-                .HasMaxLength(150)
-                .HasComment("Información sobre una direccion aproximada.");
-
             entity.Property(e => e.emps_RTN)
+                .IsRequired()
                 .HasMaxLength(14)
                 .IsUnicode(false);
 
             entity.Property(e => e.emps_Telefono)
-                .HasMaxLength(9)
+                .IsRequired()
+                .HasMaxLength(8)
                 .IsUnicode(false)
                 .HasComment("Almacena una serie de digitos de telefono.");
 

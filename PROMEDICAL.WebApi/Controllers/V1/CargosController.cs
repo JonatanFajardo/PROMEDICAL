@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
+using PROMEDICAL.Business.Filters;
 using PROMEDICAL.Business.Services;
+using PROMEDICAL.Business.Utilities;
 using PROMEDICAL.WebApi.Swagger.Example;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.Filters;
@@ -12,6 +14,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
 {
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
+    [TypeFilter(typeof(ValidationFilter))]
     [Produces("application/json")]
     public class CargosController : ApiBaseController
     {
@@ -21,7 +24,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             _cargosService = cargosService;
         }
         
-        [HttpGet("cargos-list")]
+        [HttpGet(ApiUrl.Cargos.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListCargosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> CargosFind()
@@ -29,7 +32,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _cargosService.ListAsync());
         }
 
-        [HttpGet("cargos-find")]
+        [HttpGet(ApiUrl.Cargos.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListCargosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> CargosDetail(int id)
@@ -37,7 +40,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _cargosService.FindAsync(id));
         }
 
-        [HttpGet("cargos-detail")]
+        [HttpGet(ApiUrl.Cargos.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListCargosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> CargosList(int id)
@@ -45,18 +48,18 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _cargosService.DetailAsync(id));
         }
 
-        [HttpPost("cargos-create")]
+        [HttpPost(ApiUrl.Cargos.Create)]
         [SwaggerRequestExample(typeof(CargosDto), typeof(CreateCargosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateCargosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreateCargosErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create(CargosDto dto)
+        public async Task<IActionResult> Create([FromBody] CargosDto dto)
         {
             return ApiServiceResult(await _cargosService.AddAsync(dto));
         }
 
-        [HttpPut("cargos-update")]
+        [HttpPut(ApiUrl.Cargos.Update)]
         [SwaggerRequestExample(typeof(CargosDto), typeof(UpdateCargosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateCargosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -67,7 +70,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _cargosService.EditAsync(dto));
         }
 
-        [HttpPut("cargos-delete")]
+        [HttpPut(ApiUrl.Cargos.Delete)]
         [SwaggerRequestExample(typeof(CargosDto), typeof(DeleteCargosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteCargosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]

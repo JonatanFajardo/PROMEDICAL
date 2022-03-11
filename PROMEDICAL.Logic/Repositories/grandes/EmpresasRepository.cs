@@ -39,11 +39,6 @@ namespace PROMEDICAL.Logic.Repositories
             parameter.Add("@emps_NombreComercial", entity.emps_NombreComercial, DbType.String, ParameterDirection.Input);
             parameter.Add("@emps_CorreoElectronico", entity.emps_CorreoElectronico, DbType.String, ParameterDirection.Input);
             parameter.Add("@emps_Telefono", entity.emps_Telefono, DbType.String, ParameterDirection.Input);
-            parameter.Add("@emps_Calle", entity.emps_Calle, DbType.String, ParameterDirection.Input);
-            parameter.Add("@emps_Ciudad", entity.emps_Ciudad, DbType.String, ParameterDirection.Input);
-            parameter.Add("@emps_Provincia", entity.emps_Provincia, DbType.String, ParameterDirection.Input);
-            parameter.Add("@emps_CodigoPostal", entity.emps_CodigoPostal, DbType.String, ParameterDirection.Input);
-            parameter.Add("@emps_Pais", entity.emps_Pais, DbType.String, ParameterDirection.Input);
             parameter.Add("@emps_EsActivo", entity.emps_EsActivo, DbType.Boolean, ParameterDirection.Input);
             parameter.Add("@emps_UsuarioRegistra", entity.emps_UsuarioRegistra, DbType.Date, ParameterDirection.Input);
             return await Transaction.SendAsync(sqlQuery, parameter);
@@ -57,11 +52,6 @@ namespace PROMEDICAL.Logic.Repositories
             parameter.Add("@emps_NombreComercial", entity.emps_NombreComercial, DbType.String, ParameterDirection.Input);
             parameter.Add("@emps_CorreoElectronico", entity.emps_CorreoElectronico, DbType.String, ParameterDirection.Input);
             parameter.Add("@emps_Telefono", entity.emps_Telefono, DbType.String, ParameterDirection.Input);
-            parameter.Add("@emps_Calle", entity.emps_Calle, DbType.String, ParameterDirection.Input);
-            parameter.Add("@emps_Ciudad", entity.emps_Ciudad, DbType.String, ParameterDirection.Input);
-            parameter.Add("@emps_Provincia", entity.emps_Provincia, DbType.String, ParameterDirection.Input);
-            parameter.Add("@emps_CodigoPostal", entity.emps_CodigoPostal, DbType.String, ParameterDirection.Input);
-            parameter.Add("@emps_Pais", entity.emps_Pais, DbType.String, ParameterDirection.Input);
             parameter.Add("@emps_EsActivo", entity.emps_EsActivo, DbType.Boolean, ParameterDirection.Input);
             parameter.Add("@emps_UsuarioModifica", entity.emps_UsuarioModifica, DbType.Int32, ParameterDirection.Input);
             return await Transaction.SendAsync(sqlQuery, parameter);

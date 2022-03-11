@@ -42,10 +42,6 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[tbEspecialidades]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[tbFrecuenciasCardiacas]",
          "ObjectType": 0
       },
@@ -87,6 +83,10 @@
       },
       {
          "Name": "[dbo].[tbTipoConsultas]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[tbTiposSangre]",
          "ObjectType": 0
       },
       {
@@ -162,6 +162,30 @@
          "ObjectType": 1
       },
       {
+         "Name": "[dbo].[UDP_Citas_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Citas_Detail]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Citas_Find]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Citas_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Citas_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Citas_Update]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[UDP_Consultorios_Delete]",
          "ObjectType": 1
       },
@@ -186,27 +210,43 @@
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[UDP_Especialidades_Delete]",
+         "Name": "[dbo].[UDP_Empleados_Delete]",
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[UDP_Especialidades_Detail]",
+         "Name": "[dbo].[UDP_Empleados_Detail]",
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[UDP_Especialidades_Find]",
+         "Name": "[dbo].[UDP_Empleados_Find]",
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[UDP_Especialidades_Insert]",
+         "Name": "[dbo].[UDP_Empleados_Insert]",
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[UDP_Especialidades_Select]",
+         "Name": "[dbo].[UDP_Empleados_Select]",
          "ObjectType": 1
       },
       {
-         "Name": "[dbo].[UDP_Especialidades_Update]",
+         "Name": "[dbo].[UDP_Empleados_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Empresas_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Empresas_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Empresas_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Empresas_Update]",
          "ObjectType": 1
       },
       {
@@ -255,6 +295,38 @@
       },
       {
          "Name": "[dbo].[UDP_Medicamentos_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Pacientes_Delete]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Pacientes_Detail]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Pacientes_Find]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Pacientes_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Pacientes_Select]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Pacientes_Update]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Personas_Insert]",
+         "ObjectType": 1
+      },
+      {
+         "Name": "[dbo].[UDP_Personas_Update]",
          "ObjectType": 1
       },
       {

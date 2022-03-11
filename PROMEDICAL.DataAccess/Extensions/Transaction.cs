@@ -30,17 +30,14 @@ namespace PROMEDICAL.DataAccess.Extensions
             {
                 database.Open();
                 var result = await database.QueryAsync<T>(sqlQuery, commandType: CommandType.StoredProcedure);
-                if (result == null && result.Count() > 0)
-                {
-                }
                 database.Close();
                 database.Dispose();
+                if (result == null && result.Count() > 0)
+                    return null;
+                
                 return result;
                 //answer.ErrorGeneral = error.Message;
                 //answer.ErrorDetails = error.ToString();
-                database.Close();
-                database.Dispose();
-                return null;
             }
         }
 
@@ -71,9 +68,19 @@ namespace PROMEDICAL.DataAccess.Extensions
             }
         }
 
-        public static Task<bool> DeleteAsync(string sqlQuery, DynamicParameters parameter)
+        public static async Task<Boolean> DeleteAsync(string sqlQuery, DynamicParameters parameters)
         {
-            throw new NotImplementedException();
+            using (var database = new SqlConnection(AppPromedicalDbContext.ConnectionString))
+            {
+                database.Open();
+                var result = await database.QueryAsync(sqlQuery, parameters, commandType: CommandType.StoredProcedure);
+                database.Close();
+                database.Dispose();
+                if (result.Count() != 0)
+                    return true;
+
+                return false;
+            }
         }
     }
 }

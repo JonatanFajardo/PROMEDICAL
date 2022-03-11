@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
+using PROMEDICAL.Business.Filters;
 using PROMEDICAL.Business.Services;
+using PROMEDICAL.Business.Utilities;
 using PROMEDICAL.WebApi.Swagger.Example;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.Filters;
@@ -12,6 +14,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
 {
     [ApiController]
     [Route("api/v{version:apiVersion}/[controller]")]
+    [TypeFilter(typeof(ValidationFilter))]
     [Produces("application/json")]
     public class CirugiasController : ApiBaseController
     {
@@ -21,7 +24,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             _cirugiasService = cirugiasService;
         }
         
-        [HttpGet("cirugias-list")]
+        [HttpGet(ApiUrl.Cirugias.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListCirugiasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> CirugiasFind()
@@ -29,7 +32,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _cirugiasService.ListAsync());
         }
 
-        [HttpGet("cirugias-find")]
+        [HttpGet(ApiUrl.Cirugias.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListCirugiasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> CirugiasDetail(int id)
@@ -37,7 +40,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _cirugiasService.FindAsync(id));
         }
 
-        [HttpGet("cirugias-detail")]
+        [HttpGet(ApiUrl.Cirugias.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListCirugiasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> CirugiasList(int id)
@@ -45,7 +48,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _cirugiasService.DetailAsync(id));
         }
 
-        [HttpPost("cirugias-create")]
+        [HttpPost(ApiUrl.Cirugias.Create)]
         [SwaggerRequestExample(typeof(CirugiasDto), typeof(CreateCirugiasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateCirugiasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -56,7 +59,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _cirugiasService.AddAsync(dto));
         }
 
-        [HttpPut("cirugias-update")]
+        [HttpPut(ApiUrl.Cirugias.Update)]
         [SwaggerRequestExample(typeof(CirugiasDto), typeof(UpdateCirugiasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateCirugiasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -67,7 +70,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _cirugiasService.EditAsync(dto));
         }
 
-        [HttpPut("cirugias-delete")]
+        [HttpPut(ApiUrl.Cirugias.Delete)]
         [SwaggerRequestExample(typeof(CirugiasDto), typeof(DeleteCirugiasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteCirugiasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]

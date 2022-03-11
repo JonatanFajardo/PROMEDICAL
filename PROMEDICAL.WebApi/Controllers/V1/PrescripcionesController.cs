@@ -2,6 +2,7 @@
 using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
 using PROMEDICAL.Business.Services;
+using PROMEDICAL.Business.Utilities;
 using PROMEDICAL.WebApi.Swagger.Example;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.Filters;
@@ -21,7 +22,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             _prescripcionesService = prescripcionesService;
         }
         
-        [HttpGet("prescripciones-list")]
+        [HttpGet(ApiUrl.Prescripciones.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListPrescripcionesResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> PrescripcionesFind()
@@ -29,7 +30,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _prescripcionesService.ListAsync());
         }
 
-        [HttpGet("prescripciones-find")]
+        [HttpGet(ApiUrl.Prescripciones.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListPrescripcionesResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> PrescripcionesDetail(int id)
@@ -37,7 +38,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _prescripcionesService.FindAsync(id));
         }
 
-        [HttpGet("prescripciones-detail")]
+        [HttpGet(ApiUrl.Prescripciones.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListPrescripcionesResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> PrescripcionesList(int id)
@@ -45,7 +46,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _prescripcionesService.DetailAsync(id));
         }
 
-        [HttpPost("prescripciones-create")]
+        [HttpPost(ApiUrl.Prescripciones.Create)]
         [SwaggerRequestExample(typeof(PrescripcionesDto), typeof(CreatePrescripcionesExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreatePrescripcionesOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -56,7 +57,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _prescripcionesService.AddAsync(dto));
         }
 
-        [HttpPut("prescripciones-update")]
+        [HttpPut(ApiUrl.Prescripciones.Update)]
         [SwaggerRequestExample(typeof(PrescripcionesDto), typeof(UpdatePrescripcionesExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdatePrescripcionesOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -67,7 +68,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _prescripcionesService.EditAsync(dto));
         }
 
-        [HttpPut("prescripciones-delete")]
+        [HttpPut(ApiUrl.Prescripciones.Delete)]
         [SwaggerRequestExample(typeof(PrescripcionesDto), typeof(DeletePrescripcionesExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeletePrescripcionesOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]

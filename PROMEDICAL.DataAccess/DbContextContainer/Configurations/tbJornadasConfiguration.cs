@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
-using PROMEDICAL.DataAccess.DbContextContainer;
+using PROMEDICAL.Entities.DbContextContainer;
 using PROMEDICAL.Entities.Entities;
 using System;
 
-namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
+namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 {
     public partial class tbJornadasConfiguration : IEntityTypeConfiguration<tbJornadas>
     {
@@ -14,7 +14,9 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
         {
             entity.HasKey(e => e.jorn_Id);
 
-            entity.Property(e => e.jorn_Descripcion).HasMaxLength(150);
+            entity.Property(e => e.jorn_Descripcion)
+                .IsRequired()
+                .HasMaxLength(150);
 
             entity.Property(e => e.jorn_FechaModifica).HasColumnType("datetime");
 

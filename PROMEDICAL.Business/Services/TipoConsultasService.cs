@@ -69,7 +69,7 @@ namespace PROMEDICAL.Business.Services
                 tbTipoConsultas mappedResult = _mapper.Map<tbTipoConsultas>(dto);
                 apiServiceResult.Success = await _unitOfWork.TipoConsultas.AddAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok("Objeto Registro guardado exitosamente.");
+                    return apiServiceResult.Ok();
                 else
                     return apiServiceResult.Error();
             }
@@ -87,7 +87,7 @@ namespace PROMEDICAL.Business.Services
                 tbTipoConsultas mappedResult = _mapper.Map<tbTipoConsultas>(dto);
                 apiServiceResult.Success = await _unitOfWork.TipoConsultas.EditAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok("Objeto Registro Operación completada exitosamente..");
+                    return apiServiceResult.Ok();
                 else
                     return apiServiceResult.Error();
             }

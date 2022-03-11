@@ -69,7 +69,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new ServiceResult()
             {
-                Message = "Operación completada exitosamente.",
+                Message = "Se ha producido un error al procesar la solicitud. Si el problema persiste, comuníquese con el administrador del sistema.",
                 Success = false,
                 Type = ServiceResultType.Error,
                 Data = null
@@ -112,7 +112,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new ServiceResult()
             {
-                Message = "Operación completada exitosamente.",
+                Message = "Se ha producido un error al procesar la solicitud. Si el problema persiste, comuníquese con el administrador del sistema.",
                 Success = false,
                 Type = ServiceResultType.Error,
                 Data = null
@@ -153,7 +153,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new ServiceResult()
             {
-                Message = "Operación completada exitosamente.",
+                Message = "Se ha producido un error al procesar la solicitud. Si el problema persiste, comuníquese con el administrador del sistema.",
                 Success = false,
                 Type = ServiceResultType.Error,
                 Data = null

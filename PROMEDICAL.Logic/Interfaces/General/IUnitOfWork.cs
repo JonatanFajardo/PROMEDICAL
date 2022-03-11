@@ -12,7 +12,7 @@ namespace PROMEDICAL.Logic.Interfaces.General
         ICargosRepository Cargos { get; }
         ICirugiasRepository Cirugias { get; }
         IConsultoriosRepository Consultorios { get; }
-        IEspecialidadesRepository Especialidades { get; }
+        ITiposSangreRepository TiposSangre { get; }
         IJornadasRepository Jornadas { get; }
         IMedicamentosRepository Medicamentos { get; }
         IPesosRepository Pesos { get; }

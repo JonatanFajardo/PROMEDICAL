@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
-using PROMEDICAL.DataAccess.DbContextContainer;
+using PROMEDICAL.Entities.DbContextContainer;
 using PROMEDICAL.Entities.Entities;
 using System;
 
-namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
+namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 {
     public partial class tbPesosConfiguration : IEntityTypeConfiguration<tbPesos>
     {
@@ -14,16 +14,13 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
         {
             entity.HasKey(e => e.peso_Id);
 
-            entity.Property(e => e.peso_Descripcion).HasMaxLength(150);
+            entity.Property(e => e.peso_Descripcion)
+                .IsRequired()
+                .HasMaxLength(150);
 
             entity.Property(e => e.peso_FechaModifica).HasColumnType("datetime");
 
             entity.Property(e => e.peso_FechaRegistra).HasColumnType("datetime");
-
-            entity.HasOne(d => d.paci)
-                .WithMany(p => p.tbPesos)
-                .HasForeignKey(d => d.paci_Id)
-                .HasConstraintName("FK_tbPesos_tbPaciente_paci_Id");
 
             OnConfigurePartial(entity);
         }

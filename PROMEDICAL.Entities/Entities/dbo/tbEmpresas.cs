@@ -9,7 +9,7 @@ namespace PROMEDICAL.Entities.Entities
     {
         public tbEmpresas()
         {
-            tbEmpleados = new HashSet<tbEmpleados>();
+            tbPacientes = new HashSet<tbPacientes>();
         }
 
         public int emps_Id { get; set; }
@@ -26,33 +26,17 @@ namespace PROMEDICAL.Entities.Entities
         /// <summary>
         /// Información sobre una direccion aproximada.
         /// </summary>
-        public string emps_Calle { get; set; }
-        /// <summary>
-        /// Información sobre una direccion aproximada.
-        /// </summary>
-        public string emps_Ciudad { get; set; }
-        /// <summary>
-        /// Información sobre una direccion aproximada.
-        /// </summary>
-        public string emps_Provincia { get; set; }
-        /// <summary>
-        /// Información sobre una direccion aproximada.
-        /// </summary>
-        public string emps_CodigoPostal { get; set; }
-        /// <summary>
-        /// Información sobre una direccion aproximada.
-        /// </summary>
-        public string emps_Pais { get; set; }
+        public string emps_Direccion { get; set; }
         /// <summary>
         /// Indica el estado actual de la persona.
         /// </summary>
         public bool? emps_EsActivo { get; set; }
-        public bool? emps_EsEliminado { get; set; }
-        public int? emps_UsuarioRegistra { get; set; }
-        public DateTime? emps_FechaRegistra { get; set; }
+        public bool emps_EsEliminado { get; set; }
+        public int emps_UsuarioRegistra { get; set; }
+        public DateTime emps_FechaRegistra { get; set; }
         public int? emps_UsuarioModifica { get; set; }
         public DateTime? emps_FechaModifica { get; set; }
 
-        public virtual ICollection<tbEmpleados> tbEmpleados { get; set; }
+        public virtual ICollection<tbPacientes> tbPacientes { get; set; }
     }
 }

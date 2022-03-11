@@ -86,7 +86,7 @@ namespace PROMEDICAL.Business.Services
                 tbJornadas mappedResult = _mapper.Map<tbJornadas>(dto);
                 apiServiceResult.Success = await _unitOfWork.Jornadas.AddAsync(mappedResult);
                 if (!apiServiceResult.Success)
-                    return apiServiceResult.Ok("Objeto Registro guardado exitosamente.");
+                    return apiServiceResult.Ok();
                 else
                     return apiServiceResult.Error();
             }

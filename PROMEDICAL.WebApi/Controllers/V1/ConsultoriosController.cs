@@ -2,6 +2,7 @@
 using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
 using PROMEDICAL.Business.Services;
+using PROMEDICAL.Business.Utilities;
 using PROMEDICAL.WebApi.Swagger.Example;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.Filters;
@@ -21,7 +22,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             _cargosService = cargosService;
         }
         
-        [HttpGet("cargos-list")]
+        [HttpGet(ApiUrl.Cargos.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListConsultoriosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> ConsultoriosFind()
@@ -29,7 +30,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _cargosService.ListAsync());
         }
 
-        [HttpGet("cargos-find")]
+        [HttpGet(ApiUrl.Cargos.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListConsultoriosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> ConsultoriosDetail(int id)
@@ -37,7 +38,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _cargosService.FindAsync(id));
         }
 
-        [HttpGet("cargos-detail")]
+        [HttpGet(ApiUrl.Cargos.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListConsultoriosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> ConsultoriosList(int id)
@@ -45,7 +46,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _cargosService.DetailAsync(id));
         }
 
-        [HttpPost("cargos-create")]
+        [HttpPost(ApiUrl.Cargos.Create)]
         [SwaggerRequestExample(typeof(ConsultoriosDto), typeof(CreateConsultoriosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateConsultoriosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -56,7 +57,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _cargosService.AddAsync(dto));
         }
 
-        [HttpPut("cargos-update")]
+        [HttpPut(ApiUrl.Cargos.Update)]
         [SwaggerRequestExample(typeof(ConsultoriosDto), typeof(UpdateConsultoriosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateConsultoriosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -67,7 +68,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _cargosService.EditAsync(dto));
         }
 
-        [HttpPut("cargos-delete")]
+        [HttpPut(ApiUrl.Cargos.Delete)]
         [SwaggerRequestExample(typeof(ConsultoriosDto), typeof(DeleteConsultoriosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteConsultoriosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]

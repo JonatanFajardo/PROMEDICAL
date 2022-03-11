@@ -2,6 +2,7 @@
 using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
 using PROMEDICAL.Business.Services;
+using PROMEDICAL.Business.Utilities;
 using PROMEDICAL.WebApi.Swagger.Example;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.Filters;
@@ -21,7 +22,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             _tipoconsultasService = tipoconsultasService;
         }
         
-        [HttpGet("tipoconsultas-list")]
+        [HttpGet(ApiUrl.TipoConsultas.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTipoConsultasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> TipoConsultasFind()
@@ -29,7 +30,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _tipoconsultasService.ListAsync());
         }
 
-        [HttpGet("tipoconsultas-find")]
+        [HttpGet(ApiUrl.TipoConsultas.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTipoConsultasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> TipoConsultasDetail(int id)
@@ -37,7 +38,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _tipoconsultasService.FindAsync(id));
         }
 
-        [HttpGet("tipoconsultas-detail")]
+        [HttpGet(ApiUrl.TipoConsultas.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTipoConsultasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> TipoConsultasList(int id)
@@ -45,7 +46,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _tipoconsultasService.DetailAsync(id));
         }
 
-        [HttpPost("tipoconsultas-create")]
+        [HttpPost(ApiUrl.TipoConsultas.Create)]
         [SwaggerRequestExample(typeof(TipoConsultasDto), typeof(CreateTipoConsultasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateTipoConsultasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -56,7 +57,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _tipoconsultasService.AddAsync(dto));
         }
 
-        [HttpPut("tipoconsultas-update")]
+        [HttpPut(ApiUrl.TipoConsultas.Update)]
         [SwaggerRequestExample(typeof(TipoConsultasDto), typeof(UpdateTipoConsultasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateTipoConsultasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -67,7 +68,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _tipoconsultasService.EditAsync(dto));
         }
 
-        [HttpPut("tipoconsultas-delete")]
+        [HttpPut(ApiUrl.TipoConsultas.Delete)]
         [SwaggerRequestExample(typeof(TipoConsultasDto), typeof(DeleteTipoConsultasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteTipoConsultasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]

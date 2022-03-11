@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
-using PROMEDICAL.DataAccess.DbContextContainer;
+using PROMEDICAL.Entities.DbContextContainer;
 using PROMEDICAL.Entities.Entities;
 using System;
 
-namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
+namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 {
     public partial class tbPacientesConfiguration : IEntityTypeConfiguration<tbPacientes>
     {
@@ -15,18 +15,36 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
             entity.HasKey(e => e.paci_Id)
                 .HasName("PK_tbPaciente");
 
+            entity.Property(e => e.paci_Id).HasComment("Identificador único de la tabla pacientes.");
+
             entity.Property(e => e.paci_FechaModifica).HasColumnType("datetime");
 
             entity.Property(e => e.paci_FechaRegistra).HasColumnType("datetime");
 
-            entity.Property(e => e.tipoSangre)
-                .HasMaxLength(2)
-                .IsUnicode(false);
+            entity.Property(e => e.peci_altura)
+                .HasColumnType("decimal(3, 2)")
+                .HasComment("Información de la altura en metros del pasiente.");
+
+            entity.Property(e => e.peci_peso).HasComment("Campo que contiene la información del peso en libras del paciente.");
+
+            entity.Property(e => e.pers_Id).HasComment("Este es el ID de la persona que hace referencia al primary key de la tabla tbPersonas.");
+
+            entity.Property(e => e.tipsan_Id).HasComment("Este es el ID del tipo de sangre que hace referencia al primary key de la tabla tbtbTiposSangre.");
+
+            entity.HasOne(d => d.emps)
+                .WithMany(p => p.tbPacientes)
+                .HasForeignKey(d => d.emps_Id);
 
             entity.HasOne(d => d.pers)
                 .WithMany(p => p.tbPacientes)
                 .HasForeignKey(d => d.pers_Id)
+                .OnDelete(DeleteBehavior.ClientSetNull)
                 .HasConstraintName("FK_tbPaciente_tbPersonas_pers_Id");
+
+            entity.HasOne(d => d.tipsan)
+                .WithMany(p => p.tbPacientes)
+                .HasForeignKey(d => d.tipsan_Id)
+                .OnDelete(DeleteBehavior.ClientSetNull);
 
             OnConfigurePartial(entity);
         }

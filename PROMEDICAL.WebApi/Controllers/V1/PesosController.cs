@@ -2,6 +2,7 @@
 using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
 using PROMEDICAL.Business.Services;
+using PROMEDICAL.Business.Utilities;
 using PROMEDICAL.WebApi.Swagger.Example;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.Filters;
@@ -15,37 +16,37 @@ namespace PROMEDICAL.WebApi.Controllers.V1
     [Produces("application/json")]
     public class PesosController : ApiBaseController
     {
-        private readonly PesosService _prescripcionesService;
-        public PesosController(PesosService prescripcionesService)
+        private readonly PesosService _pesosService;
+        public PesosController(PesosService pesosService)
         {
-            _prescripcionesService = prescripcionesService;
+            _pesosService = pesosService;
         }
         
-        [HttpGet("prescripciones-list")]
+        [HttpGet(ApiUrl.Pesos.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListPesosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> PesosFind()
         {
-            return ApiServiceResult(await _prescripcionesService.ListAsync());
+            return ApiServiceResult(await _pesosService.ListAsync());
         }
 
-        [HttpGet("prescripciones-find")]
+        [HttpGet(ApiUrl.Pesos.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListPesosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> PesosDetail(int id)
         {
-            return ApiServiceResult(await _prescripcionesService.FindAsync(id));
+            return ApiServiceResult(await _pesosService.FindAsync(id));
         }
 
-        [HttpGet("prescripciones-detail")]
+        [HttpGet(ApiUrl.Pesos.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListPesosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> PesosList(int id)
         {
-            return ApiServiceResult(await _prescripcionesService.DetailAsync(id));
+            return ApiServiceResult(await _pesosService.DetailAsync(id));
         }
 
-        [HttpPost("prescripciones-create")]
+        [HttpPost(ApiUrl.Pesos.Create)]
         [SwaggerRequestExample(typeof(PesosDto), typeof(CreatePesosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreatePesosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -53,10 +54,10 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
         public async Task<IActionResult> Create(PesosDto dto)
         {
-            return ApiServiceResult(await _prescripcionesService.AddAsync(dto));
+            return ApiServiceResult(await _pesosService.AddAsync(dto));
         }
 
-        [HttpPut("prescripciones-update")]
+        [HttpPut(ApiUrl.Pesos.Update)]
         [SwaggerRequestExample(typeof(PesosDto), typeof(UpdatePesosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdatePesosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -64,10 +65,10 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
         public async Task<IActionResult> Update(PesosDto dto)
         {
-            return ApiServiceResult(await _prescripcionesService.EditAsync(dto));
+            return ApiServiceResult(await _pesosService.EditAsync(dto));
         }
 
-        [HttpPut("prescripciones-delete")]
+        [HttpPut(ApiUrl.Pesos.Delete)]
         [SwaggerRequestExample(typeof(PesosDto), typeof(DeletePesosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeletePesosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -75,7 +76,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
         public async Task<IActionResult> Delete(int id)
         {
-            return ApiServiceResult(await _prescripcionesService.DeleteAsync(id));
+            return ApiServiceResult(await _pesosService.DeleteAsync(id));
         }
     }
 }

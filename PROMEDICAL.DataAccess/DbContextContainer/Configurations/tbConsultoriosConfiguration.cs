@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
-using PROMEDICAL.DataAccess.DbContextContainer;
+using PROMEDICAL.Entities.DbContextContainer;
 using PROMEDICAL.Entities.Entities;
 using System;
 
-namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
+namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 {
     public partial class tbConsultoriosConfiguration : IEntityTypeConfiguration<tbConsultorios>
     {
@@ -15,6 +15,7 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
             entity.HasKey(e => e.cons_Id);
 
             entity.Property(e => e.cons_Descripcion)
+                .IsRequired()
                 .HasMaxLength(50)
                 .HasComment("Informacion relevante de la ubicacion del consultorio.");
 

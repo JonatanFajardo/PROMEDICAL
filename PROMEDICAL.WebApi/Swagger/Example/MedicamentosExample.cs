@@ -20,12 +20,16 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                     new MedicamentosDto()
                     {
                         medi_Id = 854,
-                        medi_Nombre =    ""
+                        medi_Nombre = "",
+                        medi_Precio = 34,
+                        medi_Descripcion = ""
                     },
                     new MedicamentosDto()
                     {
                         medi_Id = 635,
-                        medi_Nombre =    ""
+                        medi_Nombre = "",
+                        medi_Precio = 34,
+                        medi_Descripcion = ""
                     }
                 }
             };
@@ -41,7 +45,10 @@ namespace PROMEDICAL.WebApi.Swagger.Example
             return new MedicamentosDto()
             {
                 medi_Id = 344,
-                medi_Nombre = ""
+                medi_Nombre = "",
+                medi_Precio = 34, 
+                medi_Descripcion = ""
+
             };
         }
     }
@@ -66,7 +73,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new ServiceResult()
             {
-                Message = "Operación completada exitosamente.",
+                Message = "Se ha producido un error al procesar la solicitud. Si el problema persiste, comuníquese con el administrador del sistema.",
                 Success = false,
                 Type = ServiceResultType.Error,
                 Data = null
@@ -83,7 +90,9 @@ namespace PROMEDICAL.WebApi.Swagger.Example
             return new MedicamentosDto()
             {
                 medi_Id = 19,
-                medi_Nombre = ""
+                medi_Nombre = "",
+                medi_Precio = 34,
+                medi_Descripcion = ""
             };
         }
     }
@@ -108,7 +117,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new ServiceResult()
             {
-                Message = "Operación completada exitosamente.",
+                Message = "Se ha producido un error al procesar la solicitud. Si el problema persiste, comuníquese con el administrador del sistema.",
                 Success = false,
                 Type = ServiceResultType.Error,
                 Data = null
@@ -149,7 +158,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new ServiceResult()
             {
-                Message = "Operación completada exitosamente.",
+                Message = "Se ha producido un error al procesar la solicitud. Si el problema persiste, comuníquese con el administrador del sistema.",
                 Success = false,
                 Type = ServiceResultType.Error,
                 Data = null

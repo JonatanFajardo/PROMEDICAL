@@ -2,6 +2,7 @@
 using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
 using PROMEDICAL.Business.Services;
+using PROMEDICAL.Business.Utilities;
 using PROMEDICAL.WebApi.Swagger.Example;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.Filters;
@@ -21,7 +22,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             _alergiasService = alergiasService;
         }
         
-        [HttpGet("alergias-list")]
+        [HttpGet(ApiUrl.Alergias.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListAlergiasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> AlergiasFind()
@@ -29,7 +30,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _alergiasService.ListAsync());
         }
 
-        [HttpGet("alergias-find")]
+        [HttpGet(ApiUrl.Alergias.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListAlergiasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> AlergiasDetail(int id)
@@ -37,7 +38,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _alergiasService.FindAsync(id));
         }
 
-        [HttpGet("alergias-detail")]
+        [HttpGet(ApiUrl.Alergias.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListAlergiasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> AlergiasList(int id)
@@ -45,18 +46,18 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _alergiasService.DetailAsync(id));
         }
 
-        [HttpPost("alergias-create")]
+        [HttpPost(ApiUrl.Alergias.Create)]
         [SwaggerRequestExample(typeof(AlergiasDto), typeof(CreateAlergiasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateAlergiasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreateAlergiasErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create(AlergiasDto dto)
+        public async Task<IActionResult> Create([FromBody] AlergiasDto dto)
         {
             return ApiServiceResult(await _alergiasService.AddAsync(dto));
         }
 
-        [HttpPut("alergias-update")]
+        [HttpPut(ApiUrl.Alergias.Update)]
         [SwaggerRequestExample(typeof(AlergiasDto), typeof(UpdateAlergiasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateAlergiasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -67,7 +68,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _alergiasService.EditAsync(dto));
         }
 
-        [HttpPut("alergias-delete")]
+        [HttpPut(ApiUrl.Alergias.Delete)]
         [SwaggerRequestExample(typeof(AlergiasDto), typeof(DeleteAlergiasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteAlergiasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]

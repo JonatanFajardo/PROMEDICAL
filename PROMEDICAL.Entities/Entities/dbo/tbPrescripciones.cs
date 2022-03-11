@@ -9,7 +9,7 @@ namespace PROMEDICAL.Entities.Entities
     {
         public int pres_Id { get; set; }
         public int cita_Id { get; set; }
-        public int? medi_Id { get; set; }
+        public int medi_Id { get; set; }
         public string pres_Descripcion { get; set; }
         public bool pres_EsEliminado { get; set; }
         public int pres_UsuarioRegistra { get; set; }

@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
-using PROMEDICAL.DataAccess.DbContextContainer;
+using PROMEDICAL.Entities.DbContextContainer;
 using PROMEDICAL.Entities.Entities;
 using System;
 
-namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
+namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 {
     public partial class tbPersonasConfiguration : IEntityTypeConfiguration<tbPersonas>
     {
@@ -14,15 +14,14 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
         {
             entity.HasKey(e => e.pers_Id);
 
-            entity.Property(e => e.pers_Id)
-                .ValueGeneratedNever()
-                .HasComment("Indica el identificador único de la persona.");
+            entity.Property(e => e.pers_Id).HasComment("Indica el identificador único de la persona.");
 
             entity.Property(e => e.pers_ApellidoMaterno)
                 .HasMaxLength(50)
                 .HasComment("Segundo apellido de la persona.");
 
             entity.Property(e => e.pers_ApellidoPaterno)
+                .IsRequired()
                 .HasMaxLength(50)
                 .HasComment("Primer apellido dado a la persona.");
 
@@ -44,10 +43,9 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
                 .HasComment("Medio por el cual permite ponerse en contacto mediante mensaje electronico con la persona.");
 
             entity.Property(e => e.pers_EsActivo)
+                .IsRequired()
                 .HasDefaultValueSql("((1))")
                 .HasComment("Indica el estado actual de la persona.");
-
-            entity.Property(e => e.pers_EsEliminado).HasDefaultValueSql("((0))");
 
             entity.Property(e => e.pers_FechaModifica).HasColumnType("datetime");
 
@@ -58,6 +56,7 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
             entity.Property(e => e.pers_FechaRegistra).HasColumnType("datetime");
 
             entity.Property(e => e.pers_Identidad)
+                .IsRequired()
                 .HasMaxLength(13)
                 .IsUnicode(false)
                 .HasComment("Serie de digitos dado por el registro nacional para distingir únicamente a una persona.");
@@ -67,6 +66,7 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
                 .HasComment("Información sobre una direccion aproximada.");
 
             entity.Property(e => e.pers_PrimerNombre)
+                .IsRequired()
                 .HasMaxLength(50)
                 .HasComment("Primer nombre de la persona.");
 
@@ -79,12 +79,14 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
                 .HasComment("Segundo nombre de la persona.");
 
             entity.Property(e => e.pers_Sexo)
+                .IsRequired()
                 .HasMaxLength(1)
                 .IsUnicode(false)
                 .IsFixedLength(true)
                 .HasComment("Indica el sexo de la persona.");
 
             entity.Property(e => e.pers_Telefono)
+                .IsRequired()
                 .HasMaxLength(9)
                 .IsUnicode(false)
                 .HasComment("Almacena una serie de digitos de telefono.");

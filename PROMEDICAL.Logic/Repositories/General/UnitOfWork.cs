@@ -12,7 +12,7 @@ namespace PROMEDICAL.Logic.Repositories.General
             ITipoCitasRepository TipoCitasRepository,
             ITipoConsultasRepository TipoConsultasRepository,
             IConsultoriosRepository ConsultoriosRepository,
-            IEspecialidadesRepository EspecialidadesRepository,
+            ITiposSangreRepository TiposSangreRepository,
             IJornadasRepository JornadasRepository,
             IMedicamentosRepository MedicamentosRepository,
             IPesosRepository PesosRepository,
@@ -30,7 +30,7 @@ namespace PROMEDICAL.Logic.Repositories.General
             TipoCitas = TipoCitasRepository;
             TipoConsultas = TipoConsultasRepository;
             Consultorios = ConsultoriosRepository;
-            Especialidades = EspecialidadesRepository;
+            TiposSangre = TiposSangreRepository;
             Jornadas = JornadasRepository;
             Medicamentos = MedicamentosRepository;
             Pesos = PesosRepository;
@@ -47,7 +47,7 @@ namespace PROMEDICAL.Logic.Repositories.General
         public ITipoCitasRepository TipoCitas { get; }
         public ITipoConsultasRepository TipoConsultas { get; }
         public IConsultoriosRepository Consultorios { get; }
-        public IEspecialidadesRepository Especialidades { get; }
+        public ITiposSangreRepository TiposSangre { get; }
         public IJornadasRepository Jornadas { get; }
         public IMedicamentosRepository Medicamentos { get; }
         public IPesosRepository Pesos { get; }

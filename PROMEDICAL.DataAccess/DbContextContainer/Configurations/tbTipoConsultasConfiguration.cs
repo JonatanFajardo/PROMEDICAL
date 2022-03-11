@@ -2,11 +2,11 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore;
-using PROMEDICAL.DataAccess.DbContextContainer;
+using PROMEDICAL.Entities.DbContextContainer;
 using PROMEDICAL.Entities.Entities;
 using System;
 
-namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
+namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 {
     public partial class tbTipoConsultasConfiguration : IEntityTypeConfiguration<tbTipoConsultas>
     {
@@ -17,7 +17,9 @@ namespace PROMEDICAL.DataAccess.DbContextContainer.Configurations
 
             entity.Property(e => e.tico_Id).ValueGeneratedNever();
 
-            entity.Property(e => e.tico_Descripcion).HasMaxLength(150);
+            entity.Property(e => e.tico_Descripcion)
+                .IsRequired()
+                .HasMaxLength(150);
 
             entity.Property(e => e.tico_FechaModifica).HasColumnType("datetime");
 

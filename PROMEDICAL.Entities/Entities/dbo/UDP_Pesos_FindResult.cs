@@ -8,7 +8,7 @@ namespace PROMEDICAL.Entities.Entities
     public partial class UDP_Pesos_FindResult
     {
         public int peso_Id { get; set; }
-        public int? paci_Id { get; set; }
+        public int paci_Id { get; set; }
         public string peso_Descripcion { get; set; }
     }
 }

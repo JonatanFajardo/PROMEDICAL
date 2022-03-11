@@ -14,7 +14,7 @@ namespace PROMEDICAL.Entities.Entities
 
         public int medi_Id { get; set; }
         public string medi_Nombre { get; set; }
-        public decimal? medi_Precio { get; set; }
+        public decimal medi_Precio { get; set; }
         public string medi_Descripcion { get; set; }
         public bool medi_EsEliminado { get; set; }
         public int medi_UsuarioRegistra { get; set; }

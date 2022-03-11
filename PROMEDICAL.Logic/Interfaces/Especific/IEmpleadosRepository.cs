@@ -1,6 +1,9 @@
-﻿namespace PROMEDICAL.Logic.Interfaces.Especific
+﻿using PROMEDICAL.Entities.Entities;
+using PROMEDICAL.Logic.Interfaces.General;
+
+namespace PROMEDICAL.Logic.Interfaces.Especific
 {
-    public interface IEmpleadosRepository
+    public interface IEmpleadosRepository : IGenericRepository<tbEmpleados, UDP_Empleados_FindResult>
     {
     }
 }

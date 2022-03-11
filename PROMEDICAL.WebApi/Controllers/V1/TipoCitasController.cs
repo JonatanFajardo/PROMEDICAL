@@ -2,6 +2,7 @@
 using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
 using PROMEDICAL.Business.Services;
+using PROMEDICAL.Business.Utilities;
 using PROMEDICAL.WebApi.Swagger.Example;
 using Swashbuckle.AspNetCore.Annotations;
 using Swashbuckle.AspNetCore.Filters;
@@ -21,7 +22,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             _tipocitasService = tipocitasService;
         }
         
-        [HttpGet("tipocitas-list")]
+        [HttpGet(ApiUrl.TipoCitas.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTipoCitasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> TipoCitasFind()
@@ -29,7 +30,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _tipocitasService.ListAsync());
         }
 
-        [HttpGet("tipocitas-find")]
+        [HttpGet(ApiUrl.TipoCitas.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTipoCitasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> TipoCitasDetail(int id)
@@ -37,7 +38,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _tipocitasService.FindAsync(id));
         }
 
-        [HttpGet("tipocitas-detail")]
+        [HttpGet(ApiUrl.TipoCitas.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTipoCitasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> TipoCitasList(int id)
@@ -45,7 +46,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _tipocitasService.DetailAsync(id));
         }
 
-        [HttpPost("tipocitas-create")]
+        [HttpPost(ApiUrl.TipoCitas.Create)]
         [SwaggerRequestExample(typeof(TipoCitasDto), typeof(CreateTipoCitasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateTipoCitasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -56,7 +57,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _tipocitasService.AddAsync(dto));
         }
 
-        [HttpPut("tipocitas-update")]
+        [HttpPut(ApiUrl.TipoCitas.Update)]
         [SwaggerRequestExample(typeof(TipoCitasDto), typeof(UpdateTipoCitasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateTipoCitasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
@@ -67,7 +68,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _tipocitasService.EditAsync(dto));
         }
 
-        [HttpPut("tipocitas-delete")]
+        [HttpPut(ApiUrl.TipoCitas.Delete)]
         [SwaggerRequestExample(typeof(TipoCitasDto), typeof(DeleteTipoCitasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteTipoCitasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
