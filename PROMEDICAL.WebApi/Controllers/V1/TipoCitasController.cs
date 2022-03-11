@@ -47,29 +47,29 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         }
 
         [HttpPost(ApiUrl.TipoCitas.Create)]
-        [SwaggerRequestExample(typeof(TipoCitasDto), typeof(CreateTipoCitasExamples))]
+        [SwaggerRequestExample(typeof(TipoCitas_CreateDto), typeof(CreateTipoCitasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateTipoCitasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreateTipoCitasErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create(TipoCitasDto dto)
+        public async Task<IActionResult> Create(TipoCitas_CreateDto dto)
         {
             return ApiServiceResult(await _tipocitasService.AddAsync(dto));
         }
 
         [HttpPut(ApiUrl.TipoCitas.Update)]
-        [SwaggerRequestExample(typeof(TipoCitasDto), typeof(UpdateTipoCitasExamples))]
+        [SwaggerRequestExample(typeof(TipoCitas_UpdateDto), typeof(UpdateTipoCitasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateTipoCitasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(UpdateTipoCitasErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Update(TipoCitasDto dto)
+        public async Task<IActionResult> Update(TipoCitas_UpdateDto dto)
         {
             return ApiServiceResult(await _tipocitasService.EditAsync(dto));
         }
 
         [HttpPut(ApiUrl.TipoCitas.Delete)]
-        [SwaggerRequestExample(typeof(TipoCitasDto), typeof(DeleteTipoCitasExamples))]
+        [SwaggerRequestExample(typeof(TipoCitas_CreateDto), typeof(DeleteTipoCitasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteTipoCitasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(DeleteTipoCitasErrorResponseExamples))]

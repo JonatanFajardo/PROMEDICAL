@@ -15,14 +15,14 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<TiposSangreDto>()
+                Data = new List<TiposSangre_SelectDto>()
                 {
-                    new TiposSangreDto()
+                    new TiposSangre_SelectDto()
                     {
                         tipsan_Id = 542,
                         tipsan_Descripcion =    ""
                     },
-                    new TiposSangreDto()
+                    new TiposSangre_SelectDto()
                     {
                         tipsan_Id = 182,
                         tipsan_Descripcion =    ""
@@ -34,13 +34,12 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreateTiposSangreExamples : IExamplesProvider<TiposSangreDto>
+    public class CreateTiposSangreExamples : IExamplesProvider<TiposSangre_CreateDto>
     {
-        public TiposSangreDto GetExamples()
+        public TiposSangre_CreateDto GetExamples()
         {
-            return new TiposSangreDto()
+            return new TiposSangre_CreateDto()
             {
-                tipsan_Id = 654,
                 tipsan_Descripcion = ""
             };
         }
@@ -76,11 +75,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdateTiposSangreExamples : IExamplesProvider<TiposSangreDto>
+    public class UpdateTiposSangreExamples : IExamplesProvider<TiposSangre_UpdateDto>
     {
-        public TiposSangreDto GetExamples()
+        public TiposSangre_UpdateDto GetExamples()
         {
-            return new TiposSangreDto()
+            return new TiposSangre_UpdateDto()
             {
                 tipsan_Id = 544,
                 tipsan_Descripcion = ""
@@ -118,11 +117,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeleteTiposSangreExamples : IExamplesProvider<TiposSangreDto>
+    public class DeleteTiposSangreExamples : IExamplesProvider<TiposSangre_DeleteDto>
     {
-        public TiposSangreDto GetExamples()
+        public TiposSangre_DeleteDto GetExamples()
         {
-            return new TiposSangreDto()
+            return new TiposSangre_DeleteDto()
             {
                 tipsan_Id = 422
             };

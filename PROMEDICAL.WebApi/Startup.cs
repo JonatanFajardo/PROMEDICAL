@@ -1,3 +1,4 @@
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -30,8 +31,10 @@ namespace PROMEDICAL.WebApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddControllersWithViews().AddFluentValidation();
             services.AddControllers();
             services.AddLogicLayer(Configuration.GetConnectionString("PromedicalConnectionString"));
+            services.AddValidatorServices();
             services.AddBusinessLayer();
 
 

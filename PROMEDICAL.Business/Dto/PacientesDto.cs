@@ -13,7 +13,6 @@ namespace PROMEDICAL.Business.Dto
         /// <summary>
         /// Identificador único de la tabla pacientes.
         /// </summary>
-        [Key]
         public int paci_Id { get; set; }
         /// <summary>
         /// Este es el ID de la persona que hace referencia al primary key de la tabla Personas.

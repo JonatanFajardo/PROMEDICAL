@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace PROMEDICAL.Business.Dto
+{
+    public class Pesos_UpdateDto
+    {
+
+        public int peso_Id { get; set; }
+        public int paci_Id { get; set; }
+        public string peso_Descripcion { get; set; }
+        public int? peso_UsuarioModifica { get; set; }
+    }
+}

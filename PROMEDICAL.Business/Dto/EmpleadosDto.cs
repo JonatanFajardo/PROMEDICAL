@@ -10,7 +10,6 @@ namespace PROMEDICAL.Business.Dto
 {
     public partial class EmpleadosDto
     {
-        [Key]
         public int empd_Id { get; set; }
         public int pers_Id { get; set; }
         public int carg_Id { get; set; }

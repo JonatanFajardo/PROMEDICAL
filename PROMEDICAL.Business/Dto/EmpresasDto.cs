@@ -10,42 +10,18 @@ namespace PROMEDICAL.Business.Dto
 {
     public partial class EmpresasDto
     {
-        [Key]
         public int emps_Id { get; set; }
-        [Required]
-        [StringLength(14)]
         public string emps_RTN { get; set; }
-        [Required]
-        [StringLength(250)]
         public string emps_NombreComercial { get; set; }
-        /// <summary>
-        /// Medio por el cual permite ponerse en contacto mediante mensaje electronico con la persona.
-        /// </summary>
-        [Required]
-        [StringLength(150)]
         public string emps_CorreoElectronico { get; set; }
-        /// <summary>
-        /// Almacena una serie de digitos de telefono.
-        /// </summary>
-        [Required]
-        [StringLength(8)]
         public string emps_Telefono { get; set; }
-        /// <summary>
-        /// Información sobre una direccion aproximada.
-        /// </summary>
-        [StringLength(700)]
         public string emps_Direccion { get; set; }
-        /// <summary>
-        /// Indica el estado actual de la persona.
-        /// </summary>
         [Required]
         public bool? emps_EsActivo { get; set; }
         public bool emps_EsEliminado { get; set; }
         public int emps_UsuarioRegistra { get; set; }
-        [Column(TypeName = "datetime")]
         public DateTime emps_FechaRegistra { get; set; }
         public int? emps_UsuarioModifica { get; set; }
-        [Column(TypeName = "datetime")]
         public DateTime? emps_FechaModifica { get; set; }
     }
 }

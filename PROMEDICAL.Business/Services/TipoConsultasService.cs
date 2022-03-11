@@ -60,7 +60,7 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ServiceResult> AddAsync(TipoConsultasDto dto)
+        public async Task<ServiceResult> AddAsync(TipoConsultas_CreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
@@ -78,7 +78,7 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ServiceResult> EditAsync(TipoConsultasDto dto)
+        public async Task<ServiceResult> EditAsync(TipoConsultas_UpdateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 

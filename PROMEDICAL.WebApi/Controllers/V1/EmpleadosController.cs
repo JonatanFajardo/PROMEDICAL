@@ -48,7 +48,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         //}
 
         [HttpPost(ApiUrl.Empleados.Create)]
-        [SwaggerRequestExample(typeof(EmpleadosDto), typeof(CreateEmpleadosExamples))]
+        [SwaggerRequestExample(typeof(Empleados_CreateDto), typeof(CreateEmpleadosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateEmpleadosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreateEmpleadosErrorResponseExamples))]
@@ -59,7 +59,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         }
 
         [HttpPut(ApiUrl.Empleados.Update)]
-        [SwaggerRequestExample(typeof(EmpleadosDto), typeof(UpdateEmpleadosExamples))]
+        [SwaggerRequestExample(typeof(Empleados_UpdateDto), typeof(UpdateEmpleadosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateEmpleadosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(UpdateEmpleadosErrorResponseExamples))]

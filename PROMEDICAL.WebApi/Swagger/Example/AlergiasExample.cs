@@ -15,14 +15,14 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<AlergiasDto>()
+                Data = new List<Alergias_SelectDto>()
                 {
-                    new AlergiasDto()
+                    new Alergias_SelectDto()
                     {
                         algi_Id = 198,
                         algi_Descripcion =    ""
                     },
-                    new AlergiasDto()
+                    new Alergias_SelectDto()
                     {
                         algi_Id = 92,
                         algi_Descripcion =    ""
@@ -34,13 +34,12 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreateAlergiasExamples : IExamplesProvider<AlergiasDto>
+    public class CreateAlergiasExamples : IExamplesProvider<Alergias_CreateDto>
     {
-        public AlergiasDto GetExamples()
+        public Alergias_CreateDto GetExamples()
         {
-            return new AlergiasDto()
-            {
-                algi_Id = 604,
+            return new Alergias_CreateDto()
+            {  
                 algi_Descripcion = ""
             };
         }
@@ -76,11 +75,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdateAlergiasExamples : IExamplesProvider<AlergiasDto>
+    public class UpdateAlergiasExamples : IExamplesProvider<Alergias_UpdateDto>
     {
-        public AlergiasDto GetExamples()
+        public Alergias_UpdateDto GetExamples()
         {
-            return new AlergiasDto()
+            return new Alergias_UpdateDto()
             {
                 algi_Id = 929,
                 algi_Descripcion = ""
@@ -118,11 +117,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeleteAlergiasExamples : IExamplesProvider<AlergiasDto>
+    public class DeleteAlergiasExamples : IExamplesProvider<Alergias_DeleteDto>
     {
-        public AlergiasDto GetExamples()
+        public Alergias_DeleteDto GetExamples()
         {
-            return new AlergiasDto()
+            return new Alergias_DeleteDto()
             {
                 algi_Id = 743
             };

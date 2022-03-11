@@ -26,7 +26,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<tbTipoCitas> repositoryResult = await _unitOfWork.TipoCitas.ListAsync();
-                apiServiceResult.Data = _mapper.Map<List<TipoCitasDto>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<TipoCitas_SelectDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -44,7 +44,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbTipoCitas repositoryResult = await _unitOfWork.TipoCitas.FindAsync(id);
-                apiServiceResult.Data = _mapper.Map<TipoCitasDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<TipoCitas_FindDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -63,7 +63,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbTipoCitas repositoryResult = await _unitOfWork.TipoCitas.DetailAsync(id);
-                apiServiceResult.Data = _mapper.Map<TipoCitasDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<TipoCitas_DetailDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -74,7 +74,7 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ServiceResult> AddAsync(TipoCitasDto dto)
+        public async Task<ServiceResult> AddAsync(TipoCitas_CreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
@@ -92,7 +92,7 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ServiceResult> EditAsync(TipoCitasDto dto)
+        public async Task<ServiceResult> EditAsync(TipoCitas_UpdateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 

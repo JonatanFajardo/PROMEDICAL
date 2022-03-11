@@ -47,29 +47,29 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         }
 
         [HttpPost(ApiUrl.Jornadas.Create)]
-        [SwaggerRequestExample(typeof(JornadasDto), typeof(CreateJornadasExamples))]
+        [SwaggerRequestExample(typeof(Jornadas_CreateDto), typeof(CreateJornadasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateJornadasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreateJornadasErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create(JornadasDto dto)
+        public async Task<IActionResult> Create(Jornadas_CreateDto dto)
         {
             return ApiServiceResult(await _jornadasService.AddAsync(dto));
         }
 
         [HttpPut(ApiUrl.Jornadas.Update)]
-        [SwaggerRequestExample(typeof(JornadasDto), typeof(UpdateJornadasExamples))]
+        [SwaggerRequestExample(typeof(Jornadas_UpdateDto), typeof(UpdateJornadasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateJornadasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(UpdateJornadasErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Update(JornadasDto dto)
+        public async Task<IActionResult> Update(Jornadas_UpdateDto dto)
         {
             return ApiServiceResult(await _jornadasService.EditAsync(dto));
         }
 
         [HttpPut(ApiUrl.Jornadas.Delete)]
-        [SwaggerRequestExample(typeof(JornadasDto), typeof(DeleteJornadasExamples))]
+        [SwaggerRequestExample(typeof(Jornadas_CreateDto), typeof(DeleteJornadasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteJornadasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(DeleteJornadasErrorResponseExamples))]

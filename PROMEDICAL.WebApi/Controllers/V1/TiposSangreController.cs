@@ -16,67 +16,67 @@ namespace PROMEDICAL.WebApi.Controllers.V1
     [Produces("application/json")]
     public class TiposSangreController : ApiBaseController
     {
-        private readonly TiposSangreService _especialidadesService;
-        public TiposSangreController(TiposSangreService especialidadesService)
+        private readonly TiposSangreService _tiposSangreService;
+        public TiposSangreController(TiposSangreService tiposSangreService)
         {
-            _especialidadesService = especialidadesService;
+            _tiposSangreService = tiposSangreService;
         }
         
-        [HttpGet(ApiUrl.Especialidades.List)]
+        [HttpGet(ApiUrl.TiposSangre.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTiposSangreResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> TiposSangreFind()
         {
-            return ApiServiceResult(await _especialidadesService.ListAsync());
+            return ApiServiceResult(await _tiposSangreService.ListAsync());
         }
 
-        [HttpGet(ApiUrl.Especialidades.Find)]
+        [HttpGet(ApiUrl.TiposSangre.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTiposSangreResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> TiposSangreDetail(int id)
         {
-            return ApiServiceResult(await _especialidadesService.FindAsync(id));
+            return ApiServiceResult(await _tiposSangreService.FindAsync(id));
         }
 
-        [HttpGet(ApiUrl.Especialidades.Detail)]
+        [HttpGet(ApiUrl.TiposSangre.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTiposSangreResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> TiposSangreList(int id)
         {
-            return ApiServiceResult(await _especialidadesService.DetailAsync(id));
+            return ApiServiceResult(await _tiposSangreService.DetailAsync(id));
         }
 
-        [HttpPost(ApiUrl.Especialidades.Create)]
-        [SwaggerRequestExample(typeof(TiposSangreDto), typeof(CreateTiposSangreExamples))]
+        [HttpPost(ApiUrl.TiposSangre.Create)]
+        [SwaggerRequestExample(typeof(TiposSangre_CreateDto), typeof(CreateTiposSangreExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateTiposSangreOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreateTiposSangreErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create(TiposSangreDto dto)
+        public async Task<IActionResult> Create(TiposSangre_CreateDto dto)
         {
-            return ApiServiceResult(await _especialidadesService.AddAsync(dto));
+            return ApiServiceResult(await _tiposSangreService.AddAsync(dto));
         }
 
-        [HttpPut(ApiUrl.Especialidades.Update)]
-        [SwaggerRequestExample(typeof(TiposSangreDto), typeof(UpdateTiposSangreExamples))]
+        [HttpPut(ApiUrl.TiposSangre.Update)]
+        [SwaggerRequestExample(typeof(TiposSangre_UpdateDto), typeof(UpdateTiposSangreExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateTiposSangreOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(UpdateTiposSangreErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Update(TiposSangreDto dto)
+        public async Task<IActionResult> Update(TiposSangre_UpdateDto dto)
         {
-            return ApiServiceResult(await _especialidadesService.EditAsync(dto));
+            return ApiServiceResult(await _tiposSangreService.EditAsync(dto));
         }
 
-        [HttpPut(ApiUrl.Especialidades.Delete)]
-        [SwaggerRequestExample(typeof(TiposSangreDto), typeof(DeleteTiposSangreExamples))]
+        [HttpPut(ApiUrl.TiposSangre.Delete)]
+        [SwaggerRequestExample(typeof(TiposSangre_UpdateDto), typeof(DeleteTiposSangreExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteTiposSangreOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(DeleteTiposSangreErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
         public async Task<IActionResult> Delete(int id)
         {
-            return ApiServiceResult(await _especialidadesService.DeleteAsync(id));
+            return ApiServiceResult(await _tiposSangreService.DeleteAsync(id));
         }
     }
 }

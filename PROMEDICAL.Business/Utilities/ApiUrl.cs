@@ -176,5 +176,15 @@ namespace PROMEDICAL.Business.Utilities
             public const string Update = Base + "-update";
             public const string Delete = Base + "-delete";
         }
+        public class TiposSangre
+        {
+            public const string Base = "tiposSangre";
+            public const string List = Base + "-list";
+            public const string Find = Base + "-find";
+            public const string Detail = Base + "-detail";
+            public const string Create = Base + "-create";
+            public const string Update = Base + "-update";
+            public const string Delete = Base + "-delete";
+        }
     }
 }

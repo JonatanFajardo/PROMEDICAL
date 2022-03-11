@@ -27,7 +27,7 @@ namespace PROMEDICAL.Business.Services
         //    try
         //    {
         //        IEnumerable<tbEmpresas> repositoryResult = await _unitOfWork.Empresas.ListAsync();
-        //        apiServiceResult.Data = _mapper.Map<List<EmpresasDto>(serviceResult);
+        //        apiServiceResult.Data = _mapper.Map<List<Empresas_SelectDto>(serviceResult);
                 //return apiServiceResult.Ok(apiServiceResult);
         //    }
         //    catch (Exception e)
@@ -43,7 +43,7 @@ namespace PROMEDICAL.Business.Services
         //    try
         //    {
         //        tbEmpresas repositoryResult = await _unitOfWork.Empresas.FindAsync(id);
-        //        apiServiceResult.Data = _mapper.Map<EmpresasDto>(serviceResult);
+        //        apiServiceResult.Data = _mapper.Map<Empresas_FindDto>(serviceResult);
                 //return apiServiceResult.Ok(apiServiceResult);
         //    }
         //    catch (Exception e)
@@ -59,7 +59,7 @@ namespace PROMEDICAL.Business.Services
         //    try
         //    {
         //        tbEmpresas repositoryResult = await _unitOfWork.Empresas.DetailAsync(id);
-        //        apiServiceResult.Data = _mapper.Map<EmpresasDto>(serviceResult);
+        //        apiServiceResult.Data = _mapper.Map<Empresas_DetailDto>(serviceResult);
                 //return apiServiceResult.Ok(apiServiceResult);
         //    }
         //    catch (Exception e)

@@ -27,7 +27,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<tbJornadas> repositoryResult = await _unitOfWork.Jornadas.ListAsync();
-                apiServiceResult.Data = _mapper.Map<List<JornadasDto>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<Jornadas_SelectDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -46,7 +46,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbJornadas repositoryResult = await _unitOfWork.Jornadas.FindAsync(id);
-                apiServiceResult.Data = _mapper.Map<JornadasDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<Jornadas_FindDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -65,7 +65,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbJornadas repositoryResult = await _unitOfWork.Jornadas.DetailAsync(id);
-                apiServiceResult.Data = _mapper.Map<JornadasDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<Jornadas_DetailDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -77,7 +77,7 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ServiceResult> AddAsync(JornadasDto dto)
+        public async Task<ServiceResult> AddAsync(Jornadas_CreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
@@ -96,7 +96,7 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ServiceResult> EditAsync(JornadasDto dto)
+        public async Task<ServiceResult> EditAsync(Jornadas_UpdateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 

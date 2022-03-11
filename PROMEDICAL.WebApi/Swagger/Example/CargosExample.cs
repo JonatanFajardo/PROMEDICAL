@@ -15,14 +15,14 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<CargosDto>()
+                Data = new List<Cargos_SelectDto>()
                 {
-                    new CargosDto()
+                    new Cargos_SelectDto()
                     {
                         carg_Id = 383,
                         carg_Descripcion =    ""
                     },
-                    new CargosDto()
+                    new Cargos_SelectDto()
                     {
                         carg_Id = 15,
                         carg_Descripcion =    ""
@@ -34,13 +34,12 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreateCargosExamples : IExamplesProvider<CargosDto>
+    public class CreateCargosExamples : IExamplesProvider<Cargos_CreateDto>
     {
-        public CargosDto GetExamples()
+        public Cargos_CreateDto GetExamples()
         {
-            return new CargosDto()
+            return new Cargos_CreateDto()
             {
-                carg_Id = 445,
                 carg_Descripcion = ""
             };
         }
@@ -76,11 +75,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdateCargosExamples : IExamplesProvider<CargosDto>
+    public class UpdateCargosExamples : IExamplesProvider<Cargos_UpdateDto>
     {
-        public CargosDto GetExamples()
+        public Cargos_UpdateDto GetExamples()
         {
-            return new CargosDto()
+            return new Cargos_UpdateDto()
             {
                 carg_Id = 491,
                 carg_Descripcion = ""
@@ -118,11 +117,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeleteCargosExamples : IExamplesProvider<CargosDto>
+    public class DeleteCargosExamples : IExamplesProvider<Cargos_DeleteDto>
     {
-        public CargosDto GetExamples()
+        public Cargos_DeleteDto GetExamples()
         {
-            return new CargosDto()
+            return new Cargos_DeleteDto()
             {
                 carg_Id = 758
             };

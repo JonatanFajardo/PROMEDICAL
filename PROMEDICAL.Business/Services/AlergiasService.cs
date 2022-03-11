@@ -28,7 +28,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<tbAlergias> repositoryResult = await _unitOfWork.Alergias.ListAsync();
-                apiServiceResult.Data = _mapper.Map<List<AlergiasDto>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<Alergias_UpdateDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -47,7 +47,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbAlergias repositoryResult = await _unitOfWork.Alergias.FindAsync(id);
-                apiServiceResult.Data = _mapper.Map<AlergiasDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<Alergias_UpdateDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -66,7 +66,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbAlergias repositoryResult = await _unitOfWork.Alergias.DetailAsync(id);
-                apiServiceResult.Data = _mapper.Map<AlergiasDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<Alergias_UpdateDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -78,7 +78,7 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ServiceResult> AddAsync(AlergiasDto dto)
+        public async Task<ServiceResult> AddAsync(Alergias_CreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
@@ -96,7 +96,7 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ServiceResult> EditAsync(AlergiasDto dto)
+        public async Task<ServiceResult> EditAsync(Alergias_UpdateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 

@@ -71,6 +71,68 @@ namespace PROMEDICAL.Business.Extensions
             return empleados;
         }
 
+        internal static tbPacientes Map(Pacientes_CreateDto dto)
+        {
+            tbPacientes pacientes = new tbPacientes()
+            {
+                emps_Id = dto.emps_Id,
+                tipsan_Id = dto.tipsan_Id,
+                peci_altura = dto.peci_altura,
+                peci_peso = dto.peci_peso,
+                pers = new tbPersonas()
+                {
+                    pers_Identidad = dto.pers_Identidad,
+                    pers_PrimerNombre = dto.pers_PrimerNombre,
+                    pers_SegundoNombre = dto.pers_SegundoNombre,
+                    pers_ApellidoPaterno = dto.pers_ApellidoPaterno,
+                    pers_ApellidoMaterno = dto.pers_ApellidoMaterno,
+                    pers_FechaNacimiento = dto.pers_FechaNacimiento,
+                    pers_CorreoElectronico = dto.pers_CorreoElectronico,
+                    pers_Telefono = dto.pers_Telefono,
+                    pers_Calle = dto.pers_Calle,
+                    pers_Ciudad = dto.pers_Ciudad,
+                    pers_Provincia = dto.pers_Provincia,
+                    pers_CodigoPostal = dto.pers_CodigoPostal,
+                    pers_Pais = dto.pers_Pais,
+                    pers_Sexo = dto.pers_Sexo,
+                    pers_UsuarioRegistra = dto.pers_UsuarioRegistra
+                }
+            };
+            return pacientes;
+        }
+
+        internal static tbPacientes Map(Pacientes_UpdateDto dto)
+        {
+            tbPacientes pacientes = new tbPacientes()
+            {
+                paci_Id = dto.paci_Id,
+                emps_Id = dto.emps_Id,
+                tipsan_Id = dto.tipsan_Id,
+                peci_altura = dto.peci_altura,
+                peci_peso = dto.peci_peso,
+                pers = new tbPersonas()
+                {
+                    pers_Id = dto.pers_Id,
+                    pers_Identidad = dto.pers_Identidad,
+                    pers_PrimerNombre = dto.pers_PrimerNombre,
+                    pers_SegundoNombre = dto.pers_SegundoNombre,
+                    pers_ApellidoPaterno = dto.pers_ApellidoPaterno,
+                    pers_ApellidoMaterno = dto.pers_ApellidoMaterno,
+                    pers_FechaNacimiento = dto.pers_FechaNacimiento,
+                    pers_CorreoElectronico = dto.pers_CorreoElectronico,
+                    pers_Telefono = dto.pers_Telefono,
+                    pers_Calle = dto.pers_Calle,
+                    pers_Ciudad = dto.pers_Ciudad,
+                    pers_Provincia = dto.pers_Provincia,
+                    pers_CodigoPostal = dto.pers_CodigoPostal,
+                    pers_Pais = dto.pers_Pais,
+                    pers_Sexo = dto.pers_Sexo,
+                    pers_UsuarioModifica = dto.pers_UsuarioModifica
+                }
+            };
+            return pacientes;
+        }
+
         //public static void Map(Empleados_CreateDto dto)
         //{
 

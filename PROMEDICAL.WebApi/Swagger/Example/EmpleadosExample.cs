@@ -54,33 +54,17 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<Empleados_FindDto>()
+                Data = new List<Empleados_SelectDto>()
                 {
-                    new Empleados_FindDto()
+                    new Empleados_SelectDto()
                     {
                         empd_Id = 13,
-                        carg_Id = 13,
                         carg_Descripcion = "Trabajadores sociales",
-                        cons_Id = 13,
                         cons_Descripcion = "A13",
-                        jorn_Id = 1,
                         jorn_Descripcion = "Matutina",
-                        pers_Id = 13,
                         pers_Identidad = "1613201217740",
                         pers_PrimerNombre = "Beverly",
-                        pers_SegundoNombre = "Angelina",
-                        pers_ApellidoPaterno = "Rápalo",
-                        pers_ApellidoMaterno = "Aguilar",
-                        pers_FechaNacimiento = Convert.ToDateTime("1954-01-10"),
-                        pers_CorreoElectronico = "beverlyangelina653@gmail.com",
-                        pers_Telefono = "99746324",
-                        pers_Calle = "5589 Velvet Robin Meadow",
-                        pers_Ciudad = "Lazy Lake",
-                        pers_Provincia = "Alabama",
-                        pers_CodigoPostal = "36753-3578",
-                        pers_Pais = "US",
-                        pers_Sexo = "F",
-                        pers_EsActivo = true
+                        pers_ApellidoPaterno = "Rápalo"
                     }
                 }
             };
@@ -209,11 +193,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeleteEmpleadosExamples : IExamplesProvider<EmpleadosDto>
+    public class DeleteEmpleadosExamples : IExamplesProvider<Empleados_DeleteDto>
     {
-        public EmpleadosDto GetExamples()
+        public Empleados_DeleteDto GetExamples()
         {
-            return new EmpleadosDto()
+            return new Empleados_DeleteDto()
             {
                 empd_Id = 758
             };

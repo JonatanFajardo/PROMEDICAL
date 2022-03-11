@@ -16,67 +16,67 @@ namespace PROMEDICAL.WebApi.Controllers.V1
     [Produces("application/json")]
     public class ConsultoriosController : ApiBaseController
     {
-        private readonly ConsultoriosService _cargosService;
-        public ConsultoriosController(ConsultoriosService cargosService)
+        private readonly ConsultoriosService _consultoriosService;
+        public ConsultoriosController(ConsultoriosService consultoriosService)
         {
-            _cargosService = cargosService;
+            _consultoriosService = consultoriosService;
         }
         
-        [HttpGet(ApiUrl.Cargos.List)]
+        [HttpGet(ApiUrl.Consultorios.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListConsultoriosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> ConsultoriosFind()
         {
-            return ApiServiceResult(await _cargosService.ListAsync());
+            return ApiServiceResult(await _consultoriosService.ListAsync());
         }
 
-        [HttpGet(ApiUrl.Cargos.Find)]
+        [HttpGet(ApiUrl.Consultorios.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListConsultoriosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> ConsultoriosDetail(int id)
         {
-            return ApiServiceResult(await _cargosService.FindAsync(id));
+            return ApiServiceResult(await _consultoriosService.FindAsync(id));
         }
 
-        [HttpGet(ApiUrl.Cargos.Detail)]
+        [HttpGet(ApiUrl.Consultorios.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListConsultoriosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         public async Task<IActionResult> ConsultoriosList(int id)
         {
-            return ApiServiceResult(await _cargosService.DetailAsync(id));
+            return ApiServiceResult(await _consultoriosService.DetailAsync(id));
         }
 
-        [HttpPost(ApiUrl.Cargos.Create)]
-        [SwaggerRequestExample(typeof(ConsultoriosDto), typeof(CreateConsultoriosExamples))]
+        [HttpPost(ApiUrl.Consultorios.Create)]
+        [SwaggerRequestExample(typeof(Consultorios_CreateDto), typeof(CreateConsultoriosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateConsultoriosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreateConsultoriosErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create(ConsultoriosDto dto)
+        public async Task<IActionResult> Create(Consultorios_CreateDto dto)
         {
-            return ApiServiceResult(await _cargosService.AddAsync(dto));
+            return ApiServiceResult(await _consultoriosService.AddAsync(dto));
         }
 
-        [HttpPut(ApiUrl.Cargos.Update)]
-        [SwaggerRequestExample(typeof(ConsultoriosDto), typeof(UpdateConsultoriosExamples))]
+        [HttpPut(ApiUrl.Consultorios.Update)]
+        [SwaggerRequestExample(typeof(Consultorios_UpdateDto), typeof(UpdateConsultoriosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateConsultoriosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(UpdateConsultoriosErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Update(ConsultoriosDto dto)
+        public async Task<IActionResult> Update(Consultorios_UpdateDto dto)
         {
-            return ApiServiceResult(await _cargosService.EditAsync(dto));
+            return ApiServiceResult(await _consultoriosService.EditAsync(dto));
         }
 
-        [HttpPut(ApiUrl.Cargos.Delete)]
-        [SwaggerRequestExample(typeof(ConsultoriosDto), typeof(DeleteConsultoriosExamples))]
+        [HttpPut(ApiUrl.Consultorios.Delete)]
+        [SwaggerRequestExample(typeof(Consultorios_CreateDto), typeof(DeleteConsultoriosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteConsultoriosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(DeleteConsultoriosErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
         public async Task<IActionResult> Delete(int id)
         {
-            return ApiServiceResult(await _cargosService.DeleteAsync(id));
+            return ApiServiceResult(await _consultoriosService.DeleteAsync(id));
         }
     }
 }

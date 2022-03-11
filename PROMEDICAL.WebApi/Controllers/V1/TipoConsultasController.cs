@@ -47,29 +47,29 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         }
 
         [HttpPost(ApiUrl.TipoConsultas.Create)]
-        [SwaggerRequestExample(typeof(TipoConsultasDto), typeof(CreateTipoConsultasExamples))]
+        [SwaggerRequestExample(typeof(TipoConsultas_CreateDto), typeof(CreateTipoConsultasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateTipoConsultasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreateTipoConsultasErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create(TipoConsultasDto dto)
+        public async Task<IActionResult> Create(TipoConsultas_CreateDto dto)
         {
             return ApiServiceResult(await _tipoconsultasService.AddAsync(dto));
         }
 
         [HttpPut(ApiUrl.TipoConsultas.Update)]
-        [SwaggerRequestExample(typeof(TipoConsultasDto), typeof(UpdateTipoConsultasExamples))]
+        [SwaggerRequestExample(typeof(TipoConsultas_UpdateDto), typeof(UpdateTipoConsultasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateTipoConsultasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(UpdateTipoConsultasErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Update(TipoConsultasDto dto)
+        public async Task<IActionResult> Update(TipoConsultas_UpdateDto dto)
         {
             return ApiServiceResult(await _tipoconsultasService.EditAsync(dto));
         }
 
         [HttpPut(ApiUrl.TipoConsultas.Delete)]
-        [SwaggerRequestExample(typeof(TipoConsultasDto), typeof(DeleteTipoConsultasExamples))]
+        [SwaggerRequestExample(typeof(TipoConsultas_UpdateDto), typeof(DeleteTipoConsultasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteTipoConsultasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(DeleteTipoConsultasErrorResponseExamples))]

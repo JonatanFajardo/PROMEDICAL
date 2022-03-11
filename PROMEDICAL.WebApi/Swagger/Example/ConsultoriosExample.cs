@@ -15,14 +15,14 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<ConsultoriosDto>()
+                Data = new List<Consultorios_SelectDto>()
                 {
-                    new ConsultoriosDto()
+                    new Consultorios_SelectDto()
                     {
                         cons_Id = 449,
                         cons_Descripcion =    ""
                     },
-                    new ConsultoriosDto()
+                    new Consultorios_SelectDto()
                     {
                         cons_Id = 857,
                         cons_Descripcion =    ""
@@ -34,13 +34,12 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreateConsultoriosExamples : IExamplesProvider<ConsultoriosDto>
+    public class CreateConsultoriosExamples : IExamplesProvider<Consultorios_CreateDto>
     {
-        public ConsultoriosDto GetExamples()
+        public Consultorios_CreateDto GetExamples()
         {
-            return new ConsultoriosDto()
+            return new Consultorios_CreateDto()
             {
-                cons_Id = 698,
                 cons_Descripcion = ""
             };
         }
@@ -76,11 +75,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdateConsultoriosExamples : IExamplesProvider<ConsultoriosDto>
+    public class UpdateConsultoriosExamples : IExamplesProvider<Consultorios_UpdateDto>
     {
-        public ConsultoriosDto GetExamples()
+        public Consultorios_UpdateDto GetExamples()
         {
-            return new ConsultoriosDto()
+            return new Consultorios_UpdateDto()
             {
                 cons_Id = 264,
                 cons_Descripcion = ""
@@ -118,11 +117,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeleteConsultoriosExamples : IExamplesProvider<ConsultoriosDto>
+    public class DeleteConsultoriosExamples : IExamplesProvider<Consultorios_DeleteDto>
     {
-        public ConsultoriosDto GetExamples()
+        public Consultorios_DeleteDto GetExamples()
         {
-            return new ConsultoriosDto()
+            return new Consultorios_DeleteDto()
             {
                 cons_Id = 346
             };

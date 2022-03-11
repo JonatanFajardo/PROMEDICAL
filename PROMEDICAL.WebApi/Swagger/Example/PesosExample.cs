@@ -15,15 +15,15 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<PesosDto>()
+                Data = new List<Pesos_SelectDto>()
                 {
-                    new PesosDto()
+                    new Pesos_SelectDto()
                     {
                         peso_Id = 566,
                         paci_Id = 0,
                         peso_Descripcion =    ""
                     },
-                    new PesosDto()
+                    new Pesos_SelectDto()
                     {
                         peso_Id = 217,
                         paci_Id = 0,
@@ -36,13 +36,12 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreatePesosExamples : IExamplesProvider<PesosDto>
+    public class CreatePesosExamples : IExamplesProvider<Pesos_CreateDto>
     {
-        public PesosDto GetExamples()
+        public Pesos_CreateDto GetExamples()
         {
-            return new PesosDto()
+            return new Pesos_CreateDto()
             {
-                peso_Id = 592,
                 paci_Id = 0,
                 peso_Descripcion = ""
             };
@@ -79,11 +78,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdatePesosExamples : IExamplesProvider<PesosDto>
+    public class UpdatePesosExamples : IExamplesProvider<Pesos_UpdateDto>
     {
-        public PesosDto GetExamples()
+        public Pesos_UpdateDto GetExamples()
         {
-            return new PesosDto()
+            return new Pesos_UpdateDto()
             {
                 peso_Id = 373,
                 paci_Id = 0,
@@ -122,11 +121,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeletePesosExamples : IExamplesProvider<PesosDto>
+    public class DeletePesosExamples : IExamplesProvider<Pesos_DeleteDto>
     {
-        public PesosDto GetExamples()
+        public Pesos_DeleteDto GetExamples()
         {
-            return new PesosDto()
+            return new Pesos_DeleteDto()
             {
                 peso_Id = 204
             };

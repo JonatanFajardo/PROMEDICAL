@@ -10,7 +10,6 @@ namespace PROMEDICAL.Business.Dto
 {
     public partial class FrecuenciasCardiacasDto
     {
-        [Key]
         public int rica_Id { get; set; }
         /// <summary>
         /// Identificador del paciente

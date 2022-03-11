@@ -15,14 +15,14 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<CirugiasDto>()
+                Data = new List<Cirugias_SelectDto>()
                 {
-                    new CirugiasDto()
+                    new Cirugias_SelectDto()
                     {
                         ciru_Id = 445,
                         ciru_Descripcion =    ""
                     },
-                    new CirugiasDto()
+                    new Cirugias_SelectDto()
                     {
                         ciru_Id = 123,
                         ciru_Descripcion =    ""
@@ -34,13 +34,12 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreateCirugiasExamples : IExamplesProvider<CirugiasDto>
+    public class CreateCirugiasExamples : IExamplesProvider<Cirugias_CreateDto>
     {
-        public CirugiasDto GetExamples()
+        public Cirugias_CreateDto GetExamples()
         {
-            return new CirugiasDto()
+            return new Cirugias_CreateDto()
             {
-                ciru_Id = 528,
                 ciru_Descripcion = ""
             };
         }
@@ -76,11 +75,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdateCirugiasExamples : IExamplesProvider<CirugiasDto>
+    public class UpdateCirugiasExamples : IExamplesProvider<Cirugias_UpdateDto>
     {
-        public CirugiasDto GetExamples()
+        public Cirugias_UpdateDto GetExamples()
         {
-            return new CirugiasDto()
+            return new Cirugias_UpdateDto()
             {
                 ciru_Id = 172,
                 ciru_Descripcion = ""
@@ -118,11 +117,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeleteCirugiasExamples : IExamplesProvider<CirugiasDto>
+    public class DeleteCirugiasExamples : IExamplesProvider<Cirugias_DeleteDto>
     {
-        public CirugiasDto GetExamples()
+        public Cirugias_DeleteDto GetExamples()
         {
-            return new CirugiasDto()
+            return new Cirugias_DeleteDto()
             {
                 ciru_Id = 983
             };

@@ -27,7 +27,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<tbPesos> repositoryResult = await _unitOfWork.Pesos.ListAsync();
-                apiServiceResult.Data = _mapper.Map<List<MedicamentosDto>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<Medicamentos_SelectDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -46,7 +46,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbPesos repositoryResult = await _unitOfWork.Pesos.FindAsync(id);
-                apiServiceResult.Data = _mapper.Map<PesosDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<Pesos_FindDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -65,7 +65,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbPesos repositoryResult = await _unitOfWork.Pesos.DetailAsync(id);
-                apiServiceResult.Data = _mapper.Map<PesosDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<Pesos_DetailDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -78,7 +78,7 @@ namespace PROMEDICAL.Business.Services
         }
 
 
-        public async Task<ServiceResult> AddAsync(PesosDto dto)
+        public async Task<ServiceResult> AddAsync(Pesos_CreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
@@ -96,7 +96,7 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ServiceResult> EditAsync(PesosDto dto)
+        public async Task<ServiceResult> EditAsync(Pesos_UpdateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 

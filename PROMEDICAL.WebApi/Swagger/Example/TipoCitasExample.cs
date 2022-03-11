@@ -15,14 +15,14 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<TipoCitasDto>()
+                Data = new List<TipoCitas_SelectDto>()
                 {
-                    new TipoCitasDto()
+                    new TipoCitas_SelectDto()
                     {
                         tici_Id = 908,
                         tici_Descripcion =    ""
                     },
-                    new TipoCitasDto()
+                    new TipoCitas_SelectDto()
                     {
                         tici_Id = 492,
                         tici_Descripcion =    ""
@@ -34,13 +34,12 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreateTipoCitasExamples : IExamplesProvider<TipoCitasDto>
+    public class CreateTipoCitasExamples : IExamplesProvider<TipoCitas_CreateDto>
     {
-        public TipoCitasDto GetExamples()
+        public TipoCitas_CreateDto GetExamples()
         {
-            return new TipoCitasDto()
+            return new TipoCitas_CreateDto()
             {
-                tici_Id = 801,
                 tici_Descripcion = ""
             };
         }
@@ -76,11 +75,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdateTipoCitasExamples : IExamplesProvider<TipoCitasDto>
+    public class UpdateTipoCitasExamples : IExamplesProvider<TipoCitas_UpdateDto>
     {
-        public TipoCitasDto GetExamples()
+        public TipoCitas_UpdateDto GetExamples()
         {
-            return new TipoCitasDto()
+            return new TipoCitas_UpdateDto()
             {
                 tici_Id = 924,
                 tici_Descripcion = ""
@@ -118,11 +117,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeleteTipoCitasExamples : IExamplesProvider<TipoCitasDto>
+    public class DeleteTipoCitasExamples : IExamplesProvider<TipoCitas_DeleteDto>
     {
-        public TipoCitasDto GetExamples()
+        public TipoCitas_DeleteDto GetExamples()
         {
-            return new TipoCitasDto()
+            return new TipoCitas_DeleteDto()
             {
                 tici_Id = 540
             };

@@ -13,7 +13,6 @@ namespace PROMEDICAL.Business.Dto
         /// <summary>
         /// Indica el identificador único de la persona.
         /// </summary>
-        [Key]
         public int pers_Id { get; set; }
         /// <summary>
         /// Serie de digitos dado por el registro nacional para distingir únicamente a una persona.

@@ -27,7 +27,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<tbMedicamentos> repositoryResult = await _unitOfWork.Medicamentos.ListAsync();
-                apiServiceResult.Data = _mapper.Map<List<MedicamentosDto>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<Medicamentos_SelectDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -46,7 +46,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbMedicamentos repositoryResult = await _unitOfWork.Medicamentos.FindAsync(id);
-                apiServiceResult.Data = _mapper.Map<MedicamentosDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<Medicamentos_FindDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -65,7 +65,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbMedicamentos repositoryResult = await _unitOfWork.Medicamentos.DetailAsync(id);
-                apiServiceResult.Data = _mapper.Map<MedicamentosDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<Medicamentos_DetailDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -77,7 +77,7 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ServiceResult> AddAsync(MedicamentosDto dto)
+        public async Task<ServiceResult> AddAsync(Medicamentos_CreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
@@ -95,7 +95,7 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ServiceResult> EditAsync(MedicamentosDto dto)
+        public async Task<ServiceResult> EditAsync(Medicamentos_UpdateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 

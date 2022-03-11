@@ -16,15 +16,15 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<PrescripcionesDto>()
+                Data = new List<Prescripciones_SelectDto>()
                 {
-                    new PrescripcionesDto()
+                    new Prescripciones_SelectDto()
                     {
                         pres_Id = 796,
                         medi_Id = 644,
                         pres_Descripcion =    ""
                     },
-                    new PrescripcionesDto()
+                    new Prescripciones_SelectDto()
                     {
                         pres_Id = 659,
                         medi_Id = 215,
@@ -37,13 +37,12 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreatePrescripcionesExamples : IExamplesProvider<PrescripcionesDto>
+    public class CreatePrescripcionesExamples : IExamplesProvider<Prescripciones_CreateDto>
     {
-        public PrescripcionesDto GetExamples()
+        public Prescripciones_CreateDto GetExamples()
         {
-            return new PrescripcionesDto()
+            return new Prescripciones_CreateDto()
             {
-                pres_Id = 939,
                 medi_Id = 817,
                 pres_Descripcion = ""
             };
@@ -80,11 +79,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdatePrescripcionesExamples : IExamplesProvider<PrescripcionesDto>
+    public class UpdatePrescripcionesExamples : IExamplesProvider<Prescripciones_UpdateDto>
     {
-        public PrescripcionesDto GetExamples()
+        public Prescripciones_UpdateDto GetExamples()
         {
-            return new PrescripcionesDto()
+            return new Prescripciones_UpdateDto()
             {
                 pres_Id = 63,
                 medi_Id = 189,
@@ -123,11 +122,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeletePrescripcionesExamples : IExamplesProvider<PrescripcionesDto>
+    public class DeletePrescripcionesExamples : IExamplesProvider<Prescripciones_DeleteDto>
     {
-        public PrescripcionesDto GetExamples()
+        public Prescripciones_DeleteDto GetExamples()
         {
-            return new PrescripcionesDto()
+            return new Prescripciones_DeleteDto()
             {
                 pres_Id = 832
             };

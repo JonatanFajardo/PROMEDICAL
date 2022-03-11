@@ -47,29 +47,29 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         }
 
         [HttpPost(ApiUrl.Pesos.Create)]
-        [SwaggerRequestExample(typeof(PesosDto), typeof(CreatePesosExamples))]
+        [SwaggerRequestExample(typeof(Pesos_CreateDto), typeof(CreatePesosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreatePesosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreatePesosErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create(PesosDto dto)
+        public async Task<IActionResult> Create(Pesos_CreateDto dto)
         {
             return ApiServiceResult(await _pesosService.AddAsync(dto));
         }
 
         [HttpPut(ApiUrl.Pesos.Update)]
-        [SwaggerRequestExample(typeof(PesosDto), typeof(UpdatePesosExamples))]
+        [SwaggerRequestExample(typeof(Pesos_UpdateDto), typeof(UpdatePesosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdatePesosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(UpdatePesosErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Update(PesosDto dto)
+        public async Task<IActionResult> Update(Pesos_UpdateDto dto)
         {
             return ApiServiceResult(await _pesosService.EditAsync(dto));
         }
 
         [HttpPut(ApiUrl.Pesos.Delete)]
-        [SwaggerRequestExample(typeof(PesosDto), typeof(DeletePesosExamples))]
+        [SwaggerRequestExample(typeof(Pesos_CreateDto), typeof(DeletePesosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeletePesosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(DeletePesosErrorResponseExamples))]

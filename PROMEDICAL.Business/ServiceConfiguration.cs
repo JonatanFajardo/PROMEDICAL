@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.DependencyInjection;
+using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
 using PROMEDICAL.Business.Services;
 using PROMEDICAL.Business.Validations;
@@ -50,8 +52,28 @@ namespace PROMEDICAL.Business
 
         public static void AddBusinessLayer(this IServiceCollection services)
         {
-            services.AddMvc().AddFluentValidation();
-            services.AddTransient<AlergiasValidation> ();
+            //services.AddMvc().AddFluentValidation();
+            services.AddTransient<IValidator<Alergias_CreateDto>, AlergiasCreateValidator>();
+            services.AddTransient<IValidator<Cargos_CreateDto>, CargosCreateValidator>();
+            services.AddTransient<IValidator<Cirugias_CreateDto>, CirugiasCreateValidator>();
+            services.AddTransient<IValidator<Consultorios_CreateDto>, ConsultoriosCreateValidator>();
+            services.AddTransient<IValidator<Jornadas_CreateDto>, JornadasCreateValidator>();
+            services.AddTransient<IValidator<Medicamentos_CreateDto>, MedicamentosCreateValidator>();
+            services.AddTransient<IValidator<Pesos_CreateDto>, PesosCreateValidator>();
+            services.AddTransient<IValidator<Prescripciones_CreateDto>, PrescripcionesCreateValidator>();
+            services.AddTransient<IValidator<TipoCitas_CreateDto>, TipoCitasCreateValidator>();
+            services.AddTransient<IValidator<TipoConsultas_CreateDto>, TipoConsultasCreateValidator>();
+            services.AddTransient<IValidator<Alergias_UpdateDto>, AlergiasUpdateValidator>();
+            services.AddTransient<IValidator<Cargos_UpdateDto>, CargosUpdateValidator>();
+            services.AddTransient<IValidator<Cirugias_UpdateDto>, CirugiasUpdateValidator>();
+            services.AddTransient<IValidator<Consultorios_UpdateDto>, ConsultoriosUpdateValidator>();
+            //services.AddTransient<IValidator<Especialidades_UpdateDto>, EspecialidadesUpdateValidator>();
+            services.AddTransient<IValidator<Jornadas_UpdateDto>, JornadasUpdateValidator>();
+            services.AddTransient<IValidator<Medicamentos_UpdateDto>, MedicamentosUpdateValidator>();
+            services.AddTransient<IValidator<Pesos_UpdateDto>, PesosUpdateValidator>();
+            services.AddTransient<IValidator<Prescripciones_UpdateDto>, PrescripcionesUpdateValidator>();
+            //services.AddTransient<IValidator<TipoCitas_UpdateDto>, TipoCitasUpdateValidator>();
+            services.AddTransient<IValidator<TipoConsultas_UpdateDto>, TipoConsultasUpdateValidator>();
             //services.AddAutoMapper(x => x.AddProfile<MappingProfileExtensions>(), AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<AlergiasService>();
@@ -81,9 +103,28 @@ namespace PROMEDICAL.Business
             services.AddSingleton(mapper);
         }
 
-        public static void AddMoreServices(this IServiceCollection services)
+        public static void AddValidatorServices(this IServiceCollection services)
         {
-
+            services.AddTransient<IValidator<Alergias_CreateDto>, AlergiasCreateValidator>();
+            services.AddTransient<IValidator<Cargos_CreateDto>, CargosCreateValidator>();
+            services.AddTransient<IValidator<Cirugias_CreateDto>, CirugiasCreateValidator>();
+            services.AddTransient<IValidator<Consultorios_CreateDto>, ConsultoriosCreateValidator>();
+            services.AddTransient<IValidator<Jornadas_CreateDto>, JornadasCreateValidator>();
+            services.AddTransient<IValidator<Medicamentos_CreateDto>, MedicamentosCreateValidator>();
+            services.AddTransient<IValidator<Pesos_CreateDto>, PesosCreateValidator>();
+            services.AddTransient<IValidator<Prescripciones_CreateDto>, PrescripcionesCreateValidator>();
+            services.AddTransient<IValidator<TipoCitas_CreateDto>, TipoCitasCreateValidator>();
+            services.AddTransient<IValidator<TipoConsultas_CreateDto>, TipoConsultasCreateValidator>();
+            services.AddTransient<IValidator<Alergias_UpdateDto>, AlergiasUpdateValidator>();
+            services.AddTransient<IValidator<Cargos_UpdateDto>, CargosUpdateValidator>();
+            services.AddTransient<IValidator<Cirugias_UpdateDto>, CirugiasUpdateValidator>();
+            services.AddTransient<IValidator<Consultorios_UpdateDto>, ConsultoriosUpdateValidator>();
+            services.AddTransient<IValidator<Jornadas_UpdateDto>, JornadasUpdateValidator>();
+            services.AddTransient<IValidator<Medicamentos_UpdateDto>, MedicamentosUpdateValidator>();
+            services.AddTransient<IValidator<Pesos_UpdateDto>, PesosUpdateValidator>();
+            services.AddTransient<IValidator<Prescripciones_UpdateDto>, PrescripcionesUpdateValidator>();
+            services.AddTransient<IValidator<TipoCitas_UpdateDto>, TipoCitasUpdateValidator>();
+            services.AddTransient<IValidator<TipoConsultas_UpdateDto>, TipoConsultasUpdateValidator>();
         }
     }
 }

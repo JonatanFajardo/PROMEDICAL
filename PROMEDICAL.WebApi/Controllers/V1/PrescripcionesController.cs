@@ -47,29 +47,29 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         }
 
         [HttpPost(ApiUrl.Prescripciones.Create)]
-        [SwaggerRequestExample(typeof(PrescripcionesDto), typeof(CreatePrescripcionesExamples))]
+        [SwaggerRequestExample(typeof(Prescripciones_CreateDto), typeof(CreatePrescripcionesExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreatePrescripcionesOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreatePrescripcionesErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create(PrescripcionesDto dto)
+        public async Task<IActionResult> Create(Prescripciones_CreateDto dto)
         {
             return ApiServiceResult(await _prescripcionesService.AddAsync(dto));
         }
 
         [HttpPut(ApiUrl.Prescripciones.Update)]
-        [SwaggerRequestExample(typeof(PrescripcionesDto), typeof(UpdatePrescripcionesExamples))]
+        [SwaggerRequestExample(typeof(Prescripciones_UpdateDto), typeof(UpdatePrescripcionesExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdatePrescripcionesOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(UpdatePrescripcionesErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Update(PrescripcionesDto dto)
+        public async Task<IActionResult> Update(Prescripciones_UpdateDto dto)
         {
             return ApiServiceResult(await _prescripcionesService.EditAsync(dto));
         }
 
         [HttpPut(ApiUrl.Prescripciones.Delete)]
-        [SwaggerRequestExample(typeof(PrescripcionesDto), typeof(DeletePrescripcionesExamples))]
+        [SwaggerRequestExample(typeof(Prescripciones_CreateDto), typeof(DeletePrescripcionesExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeletePrescripcionesOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(DeletePrescripcionesErrorResponseExamples))]
