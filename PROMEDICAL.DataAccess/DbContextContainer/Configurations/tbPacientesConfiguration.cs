@@ -17,10 +17,7 @@ namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 
             entity.Property(e => e.paci_Id).HasComment("Identificador único de la tabla pacientes.");
 
-            entity.Property(e => e.paci_FechaModifica).HasColumnType("datetime");
-
-            entity.Property(e => e.paci_FechaRegistra).HasColumnType("datetime");
-
+          
             entity.Property(e => e.peci_altura)
                 .HasColumnType("decimal(3, 2)")
                 .HasComment("Información de la altura en metros del pasiente.");

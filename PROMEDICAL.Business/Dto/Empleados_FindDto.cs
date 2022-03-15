@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace PROMEDICAL.Business.Dto
 {
-    public partial class Empleados_FindDtoDto
+    public partial class Empleados_FindDto
     {
         public int empd_Id { get; set; }
         public int carg_Id { get; set; }

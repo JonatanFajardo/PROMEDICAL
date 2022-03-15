@@ -91,7 +91,7 @@ namespace PROMEDICAL.Business
             services.AddScoped<EmpleadosService>();
             services.AddScoped<EmpresasService>();
             //services.AddScoped<FrecuenciasCardiacasService>();
-            //services.AddScoped<PacientesService>();
+            services.AddScoped<PacientesService>();
 
             /// Auto Mapper Configurations
             var mapperConfig = new MapperConfiguration(mc =>

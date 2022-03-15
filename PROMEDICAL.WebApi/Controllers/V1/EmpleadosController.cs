@@ -39,14 +39,6 @@ namespace PROMEDICAL.WebApi.Controllers.V1
             return ApiServiceResult(await _empleadosService.FindAsync(id));
         }
 
-        //[HttpGet(ApiUrl.Empleados.Detail)]
-        //[SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListEmpleadosResponseExamples))]
-        //[SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        //public async Task<IActionResult> EmpleadosList(int id)
-        //{
-        //    return ApiServiceResult(await _empleadosService.DetailAsync(id));
-        //}
-
         [HttpPost(ApiUrl.Empleados.Create)]
         [SwaggerRequestExample(typeof(Empleados_CreateDto), typeof(CreateEmpleadosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateEmpleadosOKResponseExamples))]

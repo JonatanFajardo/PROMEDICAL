@@ -10,7 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Interfaces\Especific\NewFolder\" />
-    <Folder Include="Repositories\NewFolder\" />
   </ItemGroup>
 
   <ItemGroup>

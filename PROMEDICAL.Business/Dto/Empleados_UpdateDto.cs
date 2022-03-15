@@ -13,15 +13,10 @@ namespace PROMEDICAL.Business.Dto
         
         public int jorn_Id { get; set; }
         
-        public int pers_Id { get; set; }
-        public string pers_Identidad { get; set; }
-        
         public string pers_PrimerNombre { get; set; }
         public string pers_SegundoNombre { get; set; }
-        
         public string pers_ApellidoPaterno { get; set; }
         public string pers_ApellidoMaterno { get; set; }
-        
         public DateTime pers_FechaNacimiento { get; set; }
         public string pers_CorreoElectronico { get; set; }
         public string pers_Telefono { get; set; }

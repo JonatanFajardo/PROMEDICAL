@@ -8,6 +8,7 @@ namespace PROMEDICAL.Business.Validations
         public PesosCreateValidator()
         {
             RuleFor(x => x.peso_Descripcion).NotNull().NotEmpty().Matches("[a-zA-Z]");
+            RuleFor(x => x.paci_Id).NotEmpty().NotEqual(0);
             RuleFor(x => x.peso_UsuarioRegistra).NotEmpty().NotEqual(0);
         }
     }
@@ -16,6 +17,7 @@ namespace PROMEDICAL.Business.Validations
         public PesosUpdateValidator()
         {
             RuleFor(x => x.peso_Id).NotEmpty().NotEqual(0);
+            RuleFor(x => x.paci_Id).NotEmpty().NotEqual(0);
             RuleFor(x => x.peso_Descripcion).NotNull().NotEmpty().Matches("[a-zA-Z]");
             RuleFor(x => x.peso_UsuarioModifica).NotEmpty().NotEqual(0);
         }

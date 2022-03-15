@@ -16,25 +16,18 @@ namespace PROMEDICAL.Logic.Repositories
             const string sqlQuery = "UDP_Pacientes_Select";
             return await Transaction.SelectAsync<UDP_Pacientes_FindResult>(sqlQuery);
         }
-        //public async Task<UDP_Pacientes_DetailResult> DetailAsync(int id)
-        //{
-        //    const string sqlQuery = "UDP_Pacientes_Detail";
-        //    var parameter = new DynamicParameters();
-        //    parameter.Add("@empd_Id", id, DbType.Int32, ParameterDirection.Input);
-        //    return await Transaction.FindAsync<UDP_Pacientes_DetailResult>(sqlQuery, parameter);
-        //}
+
         public async Task<UDP_Pacientes_FindResult> FindAsync(int id)
         {
             const string sqlQuery = "UDP_Pacientes_Find";
             var parameter = new DynamicParameters();
-            parameter.Add("@empd_Id", id, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@paci_Id", id, DbType.Int32, ParameterDirection.Input);
             return await Transaction.FindAsync<UDP_Pacientes_FindResult>(sqlQuery, parameter);
         }
         public async Task<Boolean> AddAsync(tbPacientes entity)
         {
             const string sqlQuery = "UDP_Pacientes_Insert";
             var parameter = new DynamicParameters();
-            parameter.Add("@pers_Id", entity.pers_Id, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@emps_Id", entity.emps_Id, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@tipsan_Id", entity.tipsan_Id, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@peci_altura", entity.peci_altura, DbType.Decimal, ParameterDirection.Input);
@@ -61,13 +54,10 @@ namespace PROMEDICAL.Logic.Repositories
             const string sqlQuery = "UDP_Pacientes_Update";
             var parameter = new DynamicParameters();
             parameter.Add("@paci_Id", entity.paci_Id, DbType.Int32, ParameterDirection.Input);
-            parameter.Add("@pers_Id", entity.pers_Id, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@emps_Id", entity.emps_Id, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@tipsan_Id", entity.tipsan_Id, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@peci_altura", entity.peci_altura, DbType.Decimal, ParameterDirection.Input);
             parameter.Add("@peci_peso", entity.peci_peso, DbType.Int32, ParameterDirection.Input);
-            parameter.Add("@pers_Id", entity.pers.pers_Id, DbType.Int32, ParameterDirection.Input);
-            parameter.Add("@pers_Identidad", entity.pers.pers_Identidad, DbType.String, ParameterDirection.Input);
             parameter.Add("@pers_PrimerNombre", entity.pers.pers_PrimerNombre, DbType.String, ParameterDirection.Input);
             parameter.Add("@pers_SegundoNombre", entity.pers.pers_SegundoNombre, DbType.String, ParameterDirection.Input);
             parameter.Add("@pers_ApellidoPaterno", entity.pers.pers_ApellidoPaterno, DbType.String, ParameterDirection.Input);
@@ -89,7 +79,7 @@ namespace PROMEDICAL.Logic.Repositories
         {
             const string sqlQuery = "UDP_Pacientes_Delete";
             var parameter = new DynamicParameters();
-            parameter.Add("@empd_Id", id, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@paci_Id", id, DbType.Int32, ParameterDirection.Input);
             return await Transaction.DeleteAsync(sqlQuery, parameter);
         }
     }

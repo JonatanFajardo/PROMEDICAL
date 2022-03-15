@@ -8,6 +8,9 @@ namespace PROMEDICAL.Entities.Entities
     public partial class UDP_Pacientes_FindResult
     {
         public int paci_Id { get; set; }
+        public int tipsan_Id { get; set; }
+        public string peci_altura { get; set; }
+        public int peci_peso { get; set; }
         public int pers_Id { get; set; }
         public string pers_Identidad { get; set; }
         public string pers_PrimerNombre { get; set; }
@@ -24,9 +27,6 @@ namespace PROMEDICAL.Entities.Entities
         public string pers_Pais { get; set; }
         public string pers_Sexo { get; set; }
         public bool pers_EsActivo { get; set; }
-        public int tipsan_Id { get; set; }
-        public string peci_altura { get; set; }
-        public int peci_peso { get; set; }
         public int? emps_Id { get; set; }
         public string emps_NombreComercial { get; set; }
         public string emps_RTN { get; set; }

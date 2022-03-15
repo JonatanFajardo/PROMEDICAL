@@ -20,6 +20,15 @@ namespace PROMEDICAL.Business.Extensions
             CreateMap<UDP_Empleados_FindResult, Empleados_UpdateDto>().ReverseMap();
             CreateMap<UDP_Empleados_FindResult, Empleados_DetailDto>().ReverseMap();
             CreateMap<UDP_Empleados_FindResult, UDP_Empleados_SelectResult>().ReverseMap();
+            // Pacientes
+            CreateMap<tbPacientes, PacientesDto>().ReverseMap();
+            CreateMap<UDP_Pacientes_FindResult, tbPacientes>().ReverseMap();
+            CreateMap<UDP_Pacientes_FindResult, Pacientes_CreateDto>().ReverseMap();
+            CreateMap<UDP_Pacientes_FindResult, Pacientes_UpdateDto>().ReverseMap();
+            CreateMap<UDP_Pacientes_FindResult, Pacientes_SelectDto>().ReverseMap();
+            CreateMap<UDP_Pacientes_FindResult, Pacientes_FindDto>().ReverseMap();
+            CreateMap<UDP_Pacientes_FindResult, Pacientes_DetailDto>().ReverseMap();
+            CreateMap<UDP_Pacientes_FindResult, UDP_Pacientes_SelectResult>().ReverseMap();
             // Citas
             CreateMap<tbCitas, CitasDto>().ReverseMap();
             CreateMap<UDP_Citas_FindResult, tbCitas>().ReverseMap();

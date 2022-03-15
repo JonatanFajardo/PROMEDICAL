@@ -31,10 +31,6 @@ namespace PROMEDICAL.Entities.Entities
         public int tipsan_Id { get; set; }
         public string peci_altura { get; set; }
         public int peci_peso { get; set; }
-        public int paci_UsuarioRegistra { get; set; }
-        public DateTime paci_FechaRegistra { get; set; }
-        public int? paci_UsuarioModifica { get; set; }
-        public DateTime? paci_FechaModifica { get; set; }
         public string emps_NombreComercial { get; set; }
         public string emps_RTN { get; set; }
         public string emps_CorreoElectronico { get; set; }

@@ -16,13 +16,7 @@ namespace PROMEDICAL.Logic.Repositories
             const string sqlQuery = "UDP_Empleados_Select";
             return await Transaction.SelectAsync<UDP_Empleados_FindResult>(sqlQuery);
         }
-        //public async Task<UDP_Empleados_DetailResult> DetailAsync(int id)
-        //{
-        //    const string sqlQuery = "UDP_Empleados_Detail";
-        //    var parameter = new DynamicParameters();
-        //    parameter.Add("@empd_Id", id, DbType.Int32, ParameterDirection.Input);
-        //    return await Transaction.FindAsync<UDP_Empleados_DetailResult>(sqlQuery, parameter);
-        //}
+
         public async Task<UDP_Empleados_FindResult> FindAsync(int id)
         {
             const string sqlQuery = "UDP_Empleados_Find";
@@ -62,8 +56,6 @@ namespace PROMEDICAL.Logic.Repositories
             parameter.Add("@carg_Id", entity.carg_Id, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@cons_Id", entity.cons_Id, DbType.Int32, ParameterDirection.Input);
             parameter.Add("@jorn_Id", entity.jorn_Id, DbType.Int32, ParameterDirection.Input);
-            parameter.Add("@pers_Id", entity.pers.pers_Id, DbType.Int32, ParameterDirection.Input);
-            parameter.Add("@pers_Identidad", entity.pers.pers_Identidad, DbType.String, ParameterDirection.Input);
             parameter.Add("@pers_PrimerNombre", entity.pers.pers_PrimerNombre, DbType.String, ParameterDirection.Input);
             parameter.Add("@pers_SegundoNombre", entity.pers.pers_SegundoNombre, DbType.String, ParameterDirection.Input);
             parameter.Add("@pers_ApellidoPaterno", entity.pers.pers_ApellidoPaterno, DbType.String, ParameterDirection.Input);

@@ -60,31 +60,19 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        //public async Task<ServiceResult> DetailAsync(int id)
-        //{
-        //    ServiceResult apiServiceResult = new ServiceResult();
-
-        //    try
-        //    {
-        //        tbEmpleados repositoryResult = await _unitOfWork.Empleados.DetailAsync(id);
-        //        apiServiceResult.Data = _mapper.Map<EmpleadosDto>(repositoryResult);
-        //        if (apiServiceResult.Data == null)
-        //            return apiServiceResult.Error();
-
-        //        return apiServiceResult.Ok();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return apiServiceResult.Error();
-        //    }
-        //}
-
         public async Task<ServiceResult> AddAsync(Empleados_CreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
+                // Validacion de pers_Identidad
+                IEnumerable<UDP_Empleados_FindResult> UQIdentidad = await _unitOfWork.Empleados.ListAsync();
+                // Se hace una busqueda por identidad y si retorna diferente de nulo indicaria que ya existe.
+                if (!UQIdentidad.Where(x => x.pers_Identidad == dto.pers_Identidad).ToList().Count.Equals(0))
+                    return apiServiceResult.Error("El campo pers_Identidad ya se ha implementado.");
+                
+                // Actualizar
                 tbEmpleados mappedResult = MappingCustom.Map(dto);
                 apiServiceResult.Success = await _unitOfWork.Empleados.AddAsync(mappedResult);
                 if (!apiServiceResult.Success)

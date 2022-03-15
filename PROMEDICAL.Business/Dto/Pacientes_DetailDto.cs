@@ -23,7 +23,6 @@ namespace PROMEDICAL.Business.Dto
         public string pers_Pais { get; set; }
         public string pers_Sexo { get; set; }
         public bool pers_EsActivo { get; set; }
-        public bool pers_EsEliminado { get; set; }
         public int pers_UsuarioRegistra { get; set; }
         public DateTime pers_FechaRegistra { get; set; }
         public int? pers_UsuarioModifica { get; set; }
@@ -41,7 +40,6 @@ namespace PROMEDICAL.Business.Dto
         public string emps_Telefono { get; set; }
         public string emps_Direccion { get; set; }
         public bool emps_EsActivo { get; set; }
-        public bool emps_EsEliminado { get; set; }
         public int emps_UsuarioRegistra { get; set; }
         public DateTime emps_FechaRegistra { get; set; }
         public int? emps_UsuarioModifica { get; set; }

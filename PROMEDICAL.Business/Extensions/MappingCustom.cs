@@ -48,8 +48,6 @@ namespace PROMEDICAL.Business.Extensions
                 jorn_Id = dto.jorn_Id,
                 pers = new tbPersonas()
                 {
-                    pers_Id = dto.pers_Id,
-                    pers_Identidad = dto.pers_Identidad,
                     pers_PrimerNombre = dto.pers_PrimerNombre,
                     pers_SegundoNombre = dto.pers_SegundoNombre,
                     pers_ApellidoPaterno = dto.pers_ApellidoPaterno,
@@ -112,8 +110,6 @@ namespace PROMEDICAL.Business.Extensions
                 peci_peso = dto.peci_peso,
                 pers = new tbPersonas()
                 {
-                    pers_Id = dto.pers_Id,
-                    pers_Identidad = dto.pers_Identidad,
                     pers_PrimerNombre = dto.pers_PrimerNombre,
                     pers_SegundoNombre = dto.pers_SegundoNombre,
                     pers_ApellidoPaterno = dto.pers_ApellidoPaterno,
@@ -127,6 +123,7 @@ namespace PROMEDICAL.Business.Extensions
                     pers_CodigoPostal = dto.pers_CodigoPostal,
                     pers_Pais = dto.pers_Pais,
                     pers_Sexo = dto.pers_Sexo,
+                    pers_EsActivo = dto.pers_EsActivo,
                     pers_UsuarioModifica = dto.pers_UsuarioModifica
                 }
             };

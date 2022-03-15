@@ -29,7 +29,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<UDP_Pacientes_FindResult> repositoryResult = await _unitOfWork.Pacientes.ListAsync();
-                apiServiceResult.Data = _mapper.Map <List<Pacientes_SelectDto>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<Pacientes_SelectDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -60,31 +60,19 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        //public async Task<ServiceResult> DetailAsync(int id)
-        //{
-        //    ServiceResult apiServiceResult = new ServiceResult();
-
-        //    try
-        //    {
-        //        tbPacientes repositoryResult = await _unitOfWork.Pacientes.DetailAsync(id);
-        //        apiServiceResult.Data = _mapper.Map<PacientesDto>(repositoryResult);
-        //        if (apiServiceResult.Data == null)
-        //            return apiServiceResult.Error();
-
-        //        return apiServiceResult.Ok();
-        //    }
-        //    catch (Exception e)
-        //    {
-        //        return apiServiceResult.Error();
-        //    }
-        //}
-
         public async Task<ServiceResult> AddAsync(Pacientes_CreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
+                // Validacion de pers_Identidad
+                IEnumerable<UDP_Pacientes_FindResult> UQIdentidad = await _unitOfWork.Pacientes.ListAsync();
+                // Se hace una busqueda por identidad y si retorna diferente de nulo indicaria que ya existe.
+                if (!UQIdentidad.Where(x => x.pers_Identidad == dto.pers_Identidad).ToList().Count.Equals(0))
+                    return apiServiceResult.Error("El campo pers_Identidad ya se ha implementado.");
+                
+                // Actualizar
                 tbPacientes mappedResult = MappingCustom.Map(dto);
                 apiServiceResult.Success = await _unitOfWork.Pacientes.AddAsync(mappedResult);
                 if (!apiServiceResult.Success)
