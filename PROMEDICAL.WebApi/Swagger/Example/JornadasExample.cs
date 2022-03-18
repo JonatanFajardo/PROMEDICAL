@@ -20,12 +20,12 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                     new Jornadas_SelectDto()
                     {
                         jorn_Id = 704,
-                        jorn_Descripcion =    ""
+                        jorn_Descripcion =    "Matutina"
                     },
                     new Jornadas_SelectDto()
                     {
                         jorn_Id = 224,
-                        jorn_Descripcion =    ""
+                        jorn_Descripcion =    "Vespertina"
                     }
                 }
             };
@@ -40,7 +40,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new Jornadas_CreateDto()
             {
-                jorn_Descripcion = ""
+                jorn_Descripcion = "Vespertina"
             };
         }
     }
@@ -82,7 +82,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
             return new Jornadas_UpdateDto()
             {
                 jorn_Id = 758,
-                jorn_Descripcion = ""
+                jorn_Descripcion = "Matutina"
             };
         }
     }

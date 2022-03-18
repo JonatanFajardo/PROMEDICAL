@@ -8,9 +8,18 @@ namespace PROMEDICAL.Business.Dto
     public partial class Citas_SelectDto
     {
         public int cita_Id { get; set; }
-        public string paci_Nombre { get; set; }
-        public string empd_Nombre { get; set; }
-        public string carg_Descripcion { get; set; }
+        public int paci_Id { get; set; }
+        public string paci_PrimerNombre { get; set; }
+        public string paci_ApellidoPaterno { get; set; }
+        public int empd_Id { get; set; }
+        public string empd_PrimerNombre { get; set; }
+        public string empd_ApellidoPaterno { get; set; }
+        public int tici_Id { get; set; }
         public string tici_Descripcion { get; set; }
+        public DateTime cita_FechaCita { get; set; }
+        public int cita_UsuarioRegistra { get; set; }
+        public DateTime cita_FechaRegistra { get; set; }
+        public int? cita_UsuarioModifica { get; set; }
+        public DateTime? cita_FechaModifica { get; set; }
     }
 }

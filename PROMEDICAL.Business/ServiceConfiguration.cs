@@ -38,7 +38,7 @@ namespace PROMEDICAL.Business
             services.AddScoped<IEmpresasRepository, EmpresasRepository>();
             services.AddScoped<IFrecuenciasCardiacasRepository, FrecuenciasCardiacasRepository>();
             services.AddScoped<IPacientesRepository, PacientesRepository>();
-            services.AddScoped<IPersonasRepository, PersonasRepository>();
+            //services.AddScoped<IPersonasRepository, PersonasRepository>();
             services.AddScoped<IUnitOfWork, UnitOfWork>();
 
             ////https://www.it-swarm.dev/es/c%23/obtencion-de-url-absolutas-utilizando-asp.net-core/1053425403/
@@ -87,10 +87,10 @@ namespace PROMEDICAL.Business
             services.AddScoped<JornadasServices>();
             services.AddScoped<MedicamentosService>();
             services.AddScoped<PesosService>();
-            //services.AddScoped<CitasService>();
+            services.AddScoped<CitasService>();
             services.AddScoped<EmpleadosService>();
             services.AddScoped<EmpresasService>();
-            //services.AddScoped<FrecuenciasCardiacasService>();
+            services.AddScoped<FrecuenciasCardiacasService>();
             services.AddScoped<PacientesService>();
 
             /// Auto Mapper Configurations

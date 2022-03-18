@@ -20,16 +20,16 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                     new Medicamentos_SelectDto()
                     {
                         medi_Id = 854,
-                        medi_Nombre = "",
+                        medi_Nombre = "BRONCOPULMIN GOTAS X 30 ML",
                         medi_Precio = 34,
-                        medi_Descripcion = ""
+                        medi_Descripcion = "Este producto no requiere refrigeración."
                     },
                     new Medicamentos_SelectDto()
                     {
                         medi_Id = 635,
-                        medi_Nombre = "",
+                        medi_Nombre = "BRONCOPULMIN JARABE X 120 ML",
                         medi_Precio = 34,
-                        medi_Descripcion = ""
+                        medi_Descripcion = "Este producto no requiere refrigeración."
                     }
                 }
             };
@@ -44,9 +44,9 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new Medicamentos_CreateDto()
             {
-                medi_Nombre = "",
+                medi_Nombre = "BORBALAN GOTAS X 30 M",
                 medi_Precio = 34, 
-                medi_Descripcion = ""
+                medi_Descripcion = "Este producto no requiere refrigeración."
 
             };
         }
@@ -89,9 +89,9 @@ namespace PROMEDICAL.WebApi.Swagger.Example
             return new Medicamentos_UpdateDto()
             {
                 medi_Id = 19,
-                medi_Nombre = "",
+                medi_Nombre = "BORBALAN JARABE X 120 ML",
                 medi_Precio = 34,
-                medi_Descripcion = ""
+                medi_Descripcion = "Este producto no requiere refrigeración."
             };
         }
     }

@@ -98,7 +98,6 @@ namespace PROMEDICAL.Business.Extensions
             };
             return pacientes;
         }
-
         internal static tbPacientes Map(Pacientes_UpdateDto dto)
         {
             tbPacientes pacientes = new tbPacientes()
@@ -129,6 +128,37 @@ namespace PROMEDICAL.Business.Extensions
             };
             return pacientes;
         }
+
+        internal static tbEmpresas Map(Empresas_CreateDto dto)
+        {
+            tbEmpresas empresas = new tbEmpresas()
+            {
+                emps_RTN = dto.emps_RTN,
+                emps_NombreComercial = dto.emps_NombreComercial,
+                emps_CorreoElectronico = dto.emps_CorreoElectronico,
+                emps_Telefono = dto.emps_Telefono,
+                emps_Direccion = dto.emps_Direccion,
+                emps_UsuarioRegistra = dto.emps_UsuarioRegistra
+            };
+            return empresas;
+        }
+
+        internal static tbEmpresas Map(Empresas_UpdateDto dto)
+        {
+            tbEmpresas empresas = new tbEmpresas()
+            {
+                emps_Id = dto.emps_Id,
+                emps_NombreComercial = dto.emps_NombreComercial,
+                emps_CorreoElectronico = dto.emps_CorreoElectronico,
+                emps_Telefono = dto.emps_Telefono,
+                emps_Direccion = dto.emps_Direccion,
+                emps_EsActivo = dto.emps_EsActivo,
+                emps_UsuarioModifica = dto.emps_UsuarioModifica
+            };
+            return empresas;
+        }
+
+        
 
         //public static void Map(Empleados_CreateDto dto)
         //{

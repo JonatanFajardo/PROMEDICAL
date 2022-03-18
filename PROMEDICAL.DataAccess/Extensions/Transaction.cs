@@ -30,7 +30,7 @@ namespace PROMEDICAL.DataAccess.Extensions
             using (var database = new SqlConnection(AppPromedicalDbContext.ConnectionString))
             {
                 database.Open();
-                var result = await database.QueryAsync<T>(sqlQuery, commandType: CommandType.StoredProcedure);
+                var result = await database.QueryAsync<T>(sqlQuery, parameters, commandType: CommandType.StoredProcedure);
                 database.Close();
                 database.Dispose();
                 //if (result == null && result.Count() > 0)
@@ -113,7 +113,7 @@ namespace PROMEDICAL.DataAccess.Extensions
         private static Boolean Affected(object result)
         {
             //result == null && result.Count() > 0
-            if (!result.Equals(null))
+            if (result != null)
                 return false;
 
             return true;

@@ -21,7 +21,6 @@ namespace PROMEDICAL.Business.Extensions
             CreateMap<UDP_Empleados_FindResult, Empleados_DetailDto>().ReverseMap();
             CreateMap<UDP_Empleados_FindResult, UDP_Empleados_SelectResult>().ReverseMap();
             // Pacientes
-            CreateMap<tbPacientes, PacientesDto>().ReverseMap();
             CreateMap<UDP_Pacientes_FindResult, tbPacientes>().ReverseMap();
             CreateMap<UDP_Pacientes_FindResult, Pacientes_CreateDto>().ReverseMap();
             CreateMap<UDP_Pacientes_FindResult, Pacientes_UpdateDto>().ReverseMap();
@@ -30,14 +29,21 @@ namespace PROMEDICAL.Business.Extensions
             CreateMap<UDP_Pacientes_FindResult, Pacientes_DetailDto>().ReverseMap();
             CreateMap<UDP_Pacientes_FindResult, UDP_Pacientes_SelectResult>().ReverseMap();
             // Citas
-            CreateMap<tbCitas, CitasDto>().ReverseMap();
+            //CreateMap<tbCitas, CitasDto>().ReverseMap();
             CreateMap<UDP_Citas_FindResult, tbCitas>().ReverseMap();
             CreateMap<UDP_Citas_FindResult, Citas_CreateDto>().ReverseMap();
-            CreateMap<UDP_Citas_FindResult, Citas_UpdateDto>().ReverseMap();
-            CreateMap<UDP_Citas_FindResult, Citas_FindDto>().ReverseMap();
+            //CreateMap<UDP_Citas_FindResult, Citas_UpdateDto>().ReverseMap();
+            //CreateMap<UDP_Citas_FindResult, Citas_FindDto>().ReverseMap();
             CreateMap<UDP_Citas_FindResult, UDP_Citas_SelectResult>().ReverseMap();
+            //Empresas
+            CreateMap<tbEmpresas, Empresas_CreateDto>().ReverseMap();
+            CreateMap<tbEmpresas, Empresas_UpdateDto>().ReverseMap();
+            CreateMap<UDP_Empresas_FindResult, Empresas_SelectDto>().ReverseMap();
+            CreateMap<UDP_Empresas_FindResult, Empresas_FindDto>().ReverseMap();
+            CreateMap<UDP_Empresas_FindResult, Empresas_DetailDto>().ReverseMap();
+            //CreateMap<tbEmpresas, Empresas_DeleteDto>().ReverseMap();
 
-            CreateMap<tbEmpresas, EmpresasDto>().ReverseMap();
+
             CreateMap<tbTiposSangre, TiposSangre_UpdateDto>().ReverseMap();
             CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacasDto>().ReverseMap();
             CreateMap<tbJornadas, Jornadas_CreateDto>().ReverseMap();
@@ -53,7 +59,13 @@ namespace PROMEDICAL.Business.Extensions
 
 
 
-
+            //FrecuenciasCardiacas
+            CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacas_CreateDto>().ReverseMap();
+            //CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacas_UpdateDto>().ReverseMap();
+            CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacas_SelectDto>().ReverseMap();
+            //CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacas_FindDto>().ReverseMap();
+            //CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacas_DetailDto>().ReverseMap();
+            //CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacas_DeleteDto>().ReverseMap();
             //Alergias
             CreateMap<tbAlergias, Alergias_CreateDto>().ReverseMap();
             CreateMap<tbAlergias, Alergias_UpdateDto>().ReverseMap();
@@ -124,6 +136,7 @@ namespace PROMEDICAL.Business.Extensions
             CreateMap<tbTipoConsultas, TipoConsultas_FindDto>().ReverseMap();
             CreateMap<tbTipoConsultas, TipoConsultas_DetailDto>().ReverseMap();
             CreateMap<tbTipoConsultas, TipoConsultas_DeleteDto>().ReverseMap();
+            
         }
     }
 }

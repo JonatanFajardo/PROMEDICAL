@@ -20,12 +20,12 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                     new Consultorios_SelectDto()
                     {
                         cons_Id = 449,
-                        cons_Descripcion =    ""
+                        cons_Descripcion =    "A2"
                     },
                     new Consultorios_SelectDto()
                     {
                         cons_Id = 857,
-                        cons_Descripcion =    ""
+                        cons_Descripcion =    "A3"
                     }
                 }
             };
@@ -40,7 +40,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new Consultorios_CreateDto()
             {
-                cons_Descripcion = ""
+                cons_Descripcion = "A4"
             };
         }
     }
@@ -82,7 +82,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
             return new Consultorios_UpdateDto()
             {
                 cons_Id = 264,
-                cons_Descripcion = ""
+                cons_Descripcion = "A5"
             };
         }
     }

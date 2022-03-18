@@ -5,12 +5,14 @@ namespace PROMEDICAL.DataAccess
 {
     public class AppPromedicalDbContext : DbContext
     {
+        private readonly static string _connectionString = "Data Source=JOHN-EB;Initial Catalog=MEDICALSYSTEM;User ID=JonnaH;Password=admin";
         public static string ConnectionString { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer(ConnectionString);
+                optionsBuilder.UseSqlServer(_connectionString);
             }
             base.OnConfiguring(optionsBuilder);
         }
@@ -19,7 +21,7 @@ namespace PROMEDICAL.DataAccess
         {
             var connString = new SqlConnectionStringBuilder()
             {
-                ConnectionString = connectionString
+                ConnectionString = _connectionString
             };
             ConnectionString = connString.ConnectionString;
         }

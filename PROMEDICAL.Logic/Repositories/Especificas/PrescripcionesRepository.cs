@@ -13,9 +13,17 @@ namespace PROMEDICAL.Logic.Repositories
     {
         public async Task<IEnumerable<tbPrescripciones>> ListAsync()
         {
-            const string sqlQuery = "UDP_Prescripciones_Select";
-            return await Transaction.SelectAsync<tbPrescripciones>(sqlQuery);
+            throw new NotImplementedException();
         }
+
+        public async Task<IEnumerable<tbPrescripciones>> ListAsync(int id)
+        {
+            const string sqlQuery = "UDP_Prescripciones_Select";
+            var parameter = new DynamicParameters();
+            parameter.Add("@cita_Id", id, DbType.Int32, ParameterDirection.Input);
+            return await Transaction.SelectAsync<tbPrescripciones>(sqlQuery, parameter);
+        }
+
         public async Task<tbPrescripciones> DetailAsync(int id)
         {
             const string sqlQuery = "UDP_Prescripciones_Detail";

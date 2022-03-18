@@ -1,12 +1,13 @@
 ﻿using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
 using Swashbuckle.AspNetCore.Filters;
+using System;
 using System.Collections.Generic;
 
 namespace PROMEDICAL.WebApi.Swagger.Example
 {
     #region List
-    public class ListAlergiasResponseExamples : IExamplesProvider<ServiceResult>
+    public class ListFrecuenciasCardiacasResponseExamples : IExamplesProvider<ServiceResult>
     {
         public ServiceResult GetExamples()
         {
@@ -15,17 +16,27 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<Alergias_SelectDto>()
+                Data = new List<FrecuenciasCardiacas_SelectDto>()
                 {
-                    new Alergias_SelectDto()
+                    new FrecuenciasCardiacas_SelectDto()
                     {
-                        algi_Id = 198,
-                        algi_Descripcion =    "En realidad, las alergias a las mascotas no son una reacción al pelo de su mascota, sino a las proteínas de las células cutáneas del animal."
+                        rica_Id = 383,
+                        rica_Alta = 126,
+                        rica_Baja = 104,
+                        rica_UsuarioRegistra = 1,
+                        rica_FechaRegistra = Convert.ToDateTime("16/03/2022"),
+                        rica_UsuarioModifica = 1,
+                        rica_FechaModifica = Convert.ToDateTime("16/03/2022")
                     },
-                    new Alergias_SelectDto()
+                    new FrecuenciasCardiacas_SelectDto()
                     {
-                        algi_Id = 92,
-                        algi_Descripcion =    "Las alergias cutáneas son una reacción alérgica que causa una inflamación cutánea que provoca una erupción abultada y que pica en la piel."
+                        rica_Id = 15,
+                        rica_Alta = 151,
+                        rica_Baja = 126,
+                        rica_UsuarioRegistra = 1,
+                        rica_FechaRegistra = Convert.ToDateTime("16/03/2022"),
+                        rica_UsuarioModifica = 1,
+                        rica_FechaModifica = Convert.ToDateTime("16/03/2022")
                     }
                 }
             };
@@ -34,20 +45,21 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreateAlergiasExamples : IExamplesProvider<Alergias_CreateDto>
+    public class CreateFrecuenciasCardiacasExamples : IExamplesProvider<FrecuenciasCardiacas_CreateDto>
     {
-        public Alergias_CreateDto GetExamples()
+        public FrecuenciasCardiacas_CreateDto GetExamples()
         {
-            return new Alergias_CreateDto()
-            {  
-                algi_Nombre = "Alergia estacional",
-                algi_Descripcion = "Alergias causadas por alérgenos de exteriores como el polen. Estos alérgenos son muy ligeros y pueden ser transportados por el aire con facilidad.",
-                algi_UsuarioRegistra = 1
+            return new FrecuenciasCardiacas_CreateDto()
+            {
+                paci_Id = 42,
+                rica_Alta = 160,
+                rica_Baja = 130,
+                rica_UsuarioRegistra = 1,
             };
         }
     }
 
-    public class CreateAlergiasOKResponseExamples : IExamplesProvider<ServiceResult>
+    public class CreateFrecuenciasCardiacasOKResponseExamples : IExamplesProvider<ServiceResult>
     {
         public ServiceResult GetExamples()
         {
@@ -61,7 +73,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         }
     }
 
-    public class CreateAlergiasErrorResponseExamples : IExamplesProvider<ServiceResult>
+    public class CreateFrecuenciasCardiacasErrorResponseExamples : IExamplesProvider<ServiceResult>
     {
         public ServiceResult GetExamples()
         {
@@ -77,21 +89,22 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdateAlergiasExamples : IExamplesProvider<Alergias_UpdateDto>
+    public class UpdateFrecuenciasCardiacasExamples : IExamplesProvider<FrecuenciasCardiacas_UpdateDto>
     {
-        public Alergias_UpdateDto GetExamples()
+        public FrecuenciasCardiacas_UpdateDto GetExamples()
         {
-            return new Alergias_UpdateDto()
+            return new FrecuenciasCardiacas_UpdateDto()
             {
-                algi_Id = 929,
-                algi_Nombre = "Alergias de interior",
-                algi_Descripcion = "Las alergias de interior son desencadenadas por cosas como los ácaros del polvo que prosperan en entornos templados y húmedos.",
-                algi_UsuarioModifica = 1
+                rica_Id = 491,
+                paci_Id = 23,
+                rica_Alta = 150,
+                rica_Baja = 122,
+                rica_UsuarioModifica = 1,
             };
         }
     }
 
-    public class UpdateAlergiasOKResponseExamples : IExamplesProvider<ServiceResult>
+    public class UpdateFrecuenciasCardiacasOKResponseExamples : IExamplesProvider<ServiceResult>
     {
         public ServiceResult GetExamples()
         {
@@ -105,7 +118,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         }
     }
 
-    public class UpdateAlergiasErrorResponseExamples : IExamplesProvider<ServiceResult>
+    public class UpdateFrecuenciasCardiacasErrorResponseExamples : IExamplesProvider<ServiceResult>
     {
         public ServiceResult GetExamples()
         {
@@ -121,18 +134,18 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeleteAlergiasExamples : IExamplesProvider<Alergias_DeleteDto>
+    public class DeleteFrecuenciasCardiacasExamples : IExamplesProvider<FrecuenciasCardiacas_DeleteDto>
     {
-        public Alergias_DeleteDto GetExamples()
+        public FrecuenciasCardiacas_DeleteDto GetExamples()
         {
-            return new Alergias_DeleteDto()
+            return new FrecuenciasCardiacas_DeleteDto()
             {
-                algi_Id = 743
+                rica_Id = 758
             };
         }
     }
 
-    public class DeleteAlergiasOKResponseExamples : IExamplesProvider<ServiceResult>
+    public class DeleteFrecuenciasCardiacasOKResponseExamples : IExamplesProvider<ServiceResult>
     {
         public ServiceResult GetExamples()
         {
@@ -146,7 +159,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         }
     }
 
-    public class DeleteAlergiasErrorResponseExamples : IExamplesProvider<ServiceResult>
+    public class DeleteFrecuenciasCardiacasErrorResponseExamples : IExamplesProvider<ServiceResult>
     {
         public ServiceResult GetExamples()
         {

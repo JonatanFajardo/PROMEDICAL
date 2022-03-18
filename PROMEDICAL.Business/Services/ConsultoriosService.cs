@@ -28,7 +28,7 @@ namespace PROMEDICAL.Business.Services
             {
                 IEnumerable<tbConsultorios> repositoryResult = await _unitOfWork.Consultorios.ListAsync();
                 apiServiceResult.Data = _mapper.Map<List<Consultorios_SelectDto>>(repositoryResult.ToList());
-                if (apiServiceResult.Data = null)
+                if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
                 return apiServiceResult.Ok();

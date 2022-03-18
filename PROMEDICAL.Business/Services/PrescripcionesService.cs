@@ -20,13 +20,13 @@ namespace PROMEDICAL.Business.Services
             _unitOfWork = IUnitOfWork;
         }
 
-        public async Task<ServiceResult> ListAsync()
+        public async Task<ServiceResult> ListAsync(int id)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
             try
             {
-                IEnumerable<tbPrescripciones> repositoryResult = await _unitOfWork.Prescripciones.ListAsync();
+                IEnumerable<tbPrescripciones> repositoryResult = await _unitOfWork.Prescripciones.ListAsync(id);
                 apiServiceResult.Data = _mapper.Map<List<Prescripciones_SelectDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();

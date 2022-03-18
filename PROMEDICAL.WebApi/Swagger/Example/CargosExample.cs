@@ -20,12 +20,12 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                     new Cargos_SelectDto()
                     {
                         carg_Id = 383,
-                        carg_Descripcion =    ""
+                        carg_Descripcion =    "Defensor del paciente"
                     },
                     new Cargos_SelectDto()
                     {
                         carg_Id = 15,
-                        carg_Descripcion =    ""
+                        carg_Descripcion =    "Fisioterapeutas"
                     }
                 }
             };
@@ -40,7 +40,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new Cargos_CreateDto()
             {
-                carg_Descripcion = ""
+                carg_Descripcion = "Logopedas"
             };
         }
     }
@@ -82,7 +82,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
             return new Cargos_UpdateDto()
             {
                 carg_Id = 491,
-                carg_Descripcion = ""
+                carg_Descripcion = "Trabajadores sociales"
             };
         }
     }

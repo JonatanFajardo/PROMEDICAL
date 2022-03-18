@@ -238,6 +238,10 @@
          "ObjectType": 1
       },
       {
+         "Name": "[dbo].[UDP_Empresas_Find]",
+         "ObjectType": 1
+      },
+      {
          "Name": "[dbo].[UDP_Empresas_Insert]",
          "ObjectType": 1
       },

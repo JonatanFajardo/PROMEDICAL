@@ -22,13 +22,13 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                     {
                         pres_Id = 796,
                         medi_Id = 644,
-                        pres_Descripcion =    ""
+                        pres_Descripcion =    "1 tableta cada 8 horas."
                     },
                     new Prescripciones_SelectDto()
                     {
                         pres_Id = 659,
                         medi_Id = 215,
-                        pres_Descripcion =    ""
+                        pres_Descripcion =    "1 tableta cada 4 horas."
                     }
                 }
             };
@@ -44,7 +44,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
             return new Prescripciones_CreateDto()
             {
                 medi_Id = 817,
-                pres_Descripcion = ""
+                pres_Descripcion = "1 tableta cada 3 horas"
             };
         }
     }
@@ -87,7 +87,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
             {
                 pres_Id = 63,
                 medi_Id = 189,
-                pres_Descripcion = ""
+                pres_Descripcion = "1 tableta cada 6 horas"
             };
         }
     }

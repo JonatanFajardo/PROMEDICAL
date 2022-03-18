@@ -20,12 +20,12 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                     new Cirugias_SelectDto()
                     {
                         ciru_Id = 445,
-                        ciru_Descripcion =    ""
+                        ciru_Descripcion =    "Cirugía menor"
                     },
                     new Cirugias_SelectDto()
                     {
                         ciru_Id = 123,
-                        ciru_Descripcion =    ""
+                        ciru_Descripcion =    "Cirugía electiva"
                     }
                 }
             };
@@ -40,7 +40,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new Cirugias_CreateDto()
             {
-                ciru_Descripcion = ""
+                ciru_Descripcion = "Cirugía de emergencia o de urgencia"
             };
         }
     }
@@ -82,7 +82,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
             return new Cirugias_UpdateDto()
             {
                 ciru_Id = 172,
-                ciru_Descripcion = ""
+                ciru_Descripcion = "Cirugía mayor"
             };
         }
     }

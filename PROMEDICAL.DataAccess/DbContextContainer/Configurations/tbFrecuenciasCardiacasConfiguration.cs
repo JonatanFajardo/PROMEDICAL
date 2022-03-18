@@ -23,11 +23,7 @@ namespace PROMEDICAL.Entities.DbContextContainer.Configurations
 
             entity.Property(e => e.rica_FechaRegistra).HasColumnType("datetime");
 
-            entity.Property(e => e.rica_Informacion)
-                .HasMaxLength(150)
-                .IsUnicode(false)
-                .HasComment("Frecuencia cardíaca del paciente");
-
+            
             entity.HasOne(d => d.paci)
                 .WithMany(p => p.tbFrecuenciasCardiacas)
                 .HasForeignKey(d => d.paci_Id)

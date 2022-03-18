@@ -13,9 +13,13 @@ namespace PROMEDICAL.Entities.Entities
         /// </summary>
         public int paci_Id { get; set; }
         /// <summary>
-        /// Frecuencia cardíaca del paciente
+        /// Frecuencia cardíaca alta del paciente
         /// </summary>
-        public string rica_Informacion { get; set; }
+        public int rica_Alta { get; set; }
+        /// <summary>
+        /// Frecuencia cardíaca baja del paciente
+        /// </summary>
+        public int rica_Baja { get; set; }
         public bool rica_EsEliminado { get; set; }
         public int rica_UsuarioRegistra { get; set; }
         public DateTime rica_FechaRegistra { get; set; }

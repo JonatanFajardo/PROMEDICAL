@@ -1,6 +1,9 @@
-﻿namespace PROMEDICAL.Logic.Interfaces.Especific
+﻿using PROMEDICAL.Entities.Entities;
+using PROMEDICAL.Logic.Interfaces.General;
+
+namespace PROMEDICAL.Logic.Interfaces.Especific
 {
-    public interface ICitasRepository
+    public interface ICitasRepository : IGenericRepository<tbCitas, UDP_Citas_SelectResult>
     {
     }
 }
