@@ -24,9 +24,9 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                         rica_Alta = 126,
                         rica_Baja = 104,
                         rica_UsuarioRegistra = 1,
-                        rica_FechaRegistra = Convert.ToDateTime("16/03/2022"),
+                        rica_FechaRegistra = Convert.ToDateTime("16-03-2022"),
                         rica_UsuarioModifica = 1,
-                        rica_FechaModifica = Convert.ToDateTime("16/03/2022")
+                        rica_FechaModifica = Convert.ToDateTime("16-03-2022")
                     },
                     new FrecuenciasCardiacas_SelectDto()
                     {
@@ -34,9 +34,9 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                         rica_Alta = 151,
                         rica_Baja = 126,
                         rica_UsuarioRegistra = 1,
-                        rica_FechaRegistra = Convert.ToDateTime("16/03/2022"),
+                        rica_FechaRegistra = Convert.ToDateTime("16-03-2022"),
                         rica_UsuarioModifica = 1,
-                        rica_FechaModifica = Convert.ToDateTime("16/03/2022")
+                        rica_FechaModifica = Convert.ToDateTime("16-03-2022")
                     }
                 }
             };

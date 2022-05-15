@@ -3,7 +3,6 @@ using Microsoft.Data.SqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
-using System.Linq;
 using System.Threading.Tasks;
 
 namespace PROMEDICAL.DataAccess.Extensions
@@ -36,7 +35,7 @@ namespace PROMEDICAL.DataAccess.Extensions
                 //if (result == null && result.Count() > 0)
                 if (Affected(result))
                     return null;
-                
+
                 return result;
                 //answer.ErrorGeneral = error.Message;
                 //answer.ErrorDetails = error.ToString();
@@ -54,7 +53,7 @@ namespace PROMEDICAL.DataAccess.Extensions
                 database.Dispose();
                 if (Affected(result))
                     return true;
-                
+
                 return false;
             }
         }
@@ -99,7 +98,7 @@ namespace PROMEDICAL.DataAccess.Extensions
         {
             if (!result.Equals(0))
                 return false;
-            
+
             return true;
         }
 

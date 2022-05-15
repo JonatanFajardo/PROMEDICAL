@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using FluentValidation;
-using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
@@ -14,13 +13,12 @@ using PROMEDICAL.Logic.Interfaces.Especific;
 using PROMEDICAL.Logic.Interfaces.General;
 using PROMEDICAL.Logic.Repositories;
 using PROMEDICAL.Logic.Repositories.General;
-using System;
 
 namespace PROMEDICAL.Business
 {
     public static class ServiceConfiguration
     {
-        public static void AddLogicLayer(this IServiceCollection services, string connectionString)
+        public static void AddLogicLayer(this IServiceCollection services)
         {
             services.AddScoped<IAlergiasRepository, AlergiasRepository>();
             services.AddScoped<ICirugiasRepository, CirugiasRepository>();
@@ -47,7 +45,7 @@ namespace PROMEDICAL.Business
                 .GetRequiredService<IUrlHelperFactory>()
                 .GetUrlHelper(x.GetRequiredService<IActionContextAccessor>().ActionContext));
 
-            AppPromedicalDbContext.BuildConnectionString(connectionString);
+            AppPromedicalDbContext.BuildConnectionString();
         }
 
         public static void AddBusinessLayer(this IServiceCollection services)
@@ -93,7 +91,7 @@ namespace PROMEDICAL.Business
             services.AddScoped<FrecuenciasCardiacasService>();
             services.AddScoped<PacientesService>();
 
-            /// Auto Mapper Configurations
+            // Auto Mapper Configurations
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());
