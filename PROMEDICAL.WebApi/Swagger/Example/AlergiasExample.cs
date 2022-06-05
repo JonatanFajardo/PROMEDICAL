@@ -39,7 +39,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         public Alergias_CreateDto GetExamples()
         {
             return new Alergias_CreateDto()
-            {  
+            {
                 algi_Nombre = "Alergia estacional",
                 algi_Descripcion = "Alergias causadas por alérgenos de exteriores como el polen. Estos alérgenos son muy ligeros y pueden ser transportados por el aire con facilidad.",
                 algi_UsuarioRegistra = 1

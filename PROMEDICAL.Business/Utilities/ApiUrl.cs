@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PROMEDICAL.Business.Utilities
+﻿namespace PROMEDICAL.Business.Utilities
 {
     public class ApiUrl
     {

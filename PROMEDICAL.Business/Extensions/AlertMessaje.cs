@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace PROMEDICAL.Business.Extensions
+﻿namespace PROMEDICAL.Business.Extensions
 {
     internal class AlertMessaje
     {

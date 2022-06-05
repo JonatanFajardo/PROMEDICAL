@@ -21,7 +21,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         {
             _alergiasService = alergiasService;
         }
-        
+
         [HttpGet(ApiUrl.Alergias.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListAlergiasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]

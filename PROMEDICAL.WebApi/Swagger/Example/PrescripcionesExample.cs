@@ -1,6 +1,5 @@
 ﻿using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
-using PROMEDICAL.Entities.Entities;
 using Swashbuckle.AspNetCore.Filters;
 using System.Collections.Generic;
 

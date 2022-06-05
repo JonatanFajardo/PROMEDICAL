@@ -23,7 +23,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         {
             _frecuenciasCardiacas = FrecuenciasCardiacasService;
         }
-        
+
         [HttpGet(ApiUrl.FrecuenciasCardiacas.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListFrecuenciasCardiacasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]

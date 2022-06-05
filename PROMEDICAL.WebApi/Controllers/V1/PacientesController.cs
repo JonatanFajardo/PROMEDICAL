@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
-using PROMEDICAL.Business.Filters;
 using PROMEDICAL.Business.Services;
 using PROMEDICAL.Business.Utilities;
 using PROMEDICAL.WebApi.Swagger.Example;

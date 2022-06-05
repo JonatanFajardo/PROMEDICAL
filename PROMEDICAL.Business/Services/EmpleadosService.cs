@@ -29,7 +29,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<UDP_Empleados_FindResult> repositoryResult = await _unitOfWork.Empleados.ListAsync();
-                apiServiceResult.Data = _mapper.Map <List<UDP_Empleados_SelectResult>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<UDP_Empleados_SelectResult>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -71,7 +71,7 @@ namespace PROMEDICAL.Business.Services
                 // Se hace una busqueda por identidad y si retorna diferente de nulo indicaria que ya existe.
                 if (!UQIdentidad.Where(x => x.pers_Identidad == dto.pers_Identidad).ToList().Count.Equals(0))
                     return apiServiceResult.Error("El campo pers_Identidad ya se ha implementado.");
-                
+
                 // Actualizar
                 tbEmpleados mappedResult = MappingCustom.Map(dto);
                 apiServiceResult.Success = await _unitOfWork.Empleados.AddAsync(mappedResult);

@@ -1,8 +1,5 @@
 ﻿using FluentValidation;
 using PROMEDICAL.Business.Dto;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PROMEDICAL.Business.Validations
 {

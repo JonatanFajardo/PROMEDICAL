@@ -1,18 +1,17 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
 namespace PROMEDICAL.Business.Dto
 {
     public class Empleados_UpdateDto
     {
-        
+
         public int empd_Id { get; set; }
-        
+
         public int carg_Id { get; set; }
         public int? cons_Id { get; set; }
-        
+
         public int jorn_Id { get; set; }
-        
+
         public string pers_PrimerNombre { get; set; }
         public string pers_SegundoNombre { get; set; }
         public string pers_ApellidoPaterno { get; set; }
@@ -25,11 +24,11 @@ namespace PROMEDICAL.Business.Dto
         public string pers_Provincia { get; set; }
         public string pers_CodigoPostal { get; set; }
         public string pers_Pais { get; set; }
-        
+
         public string pers_Sexo { get; set; }
-        
+
         public bool pers_EsActivo { get; set; }
-        
+
         public int? pers_UsuarioModifica { get; set; }
     }
 }

@@ -1,12 +1,4 @@
-﻿
-
-using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-
-namespace PROMEDICAL.Business.Dto
+﻿namespace PROMEDICAL.Business.Dto
 {
     public partial class Jornadas_CreateDto
     {

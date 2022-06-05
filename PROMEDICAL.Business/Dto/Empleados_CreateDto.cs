@@ -32,6 +32,6 @@ namespace PROMEDICAL.Business.Dto
         public string pers_Sexo { get; set; }
         [Required]
         public int pers_UsuarioRegistra { get; set; }
-        
+
     }
 }

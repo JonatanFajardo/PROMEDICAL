@@ -21,7 +21,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         {
             _jornadasService = jornadasService;
         }
-        
+
         [HttpGet(ApiUrl.Jornadas.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListJornadasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]

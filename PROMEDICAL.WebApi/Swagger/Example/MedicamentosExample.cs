@@ -45,7 +45,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
             return new Medicamentos_CreateDto()
             {
                 medi_Nombre = "BORBALAN GOTAS X 30 M",
-                medi_Precio = 34, 
+                medi_Precio = 34,
                 medi_Descripcion = "Este producto no requiere refrigeración."
 
             };

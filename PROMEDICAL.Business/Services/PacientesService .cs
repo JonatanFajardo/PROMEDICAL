@@ -71,7 +71,7 @@ namespace PROMEDICAL.Business.Services
                 // Se hace una busqueda por identidad y si retorna diferente de nulo indicaria que ya existe.
                 if (!UQIdentidad.Where(x => x.pers_Identidad == dto.pers_Identidad).ToList().Count.Equals(0))
                     return apiServiceResult.Error("El campo pers_Identidad ya se ha implementado.");
-                
+
                 // Actualizar
                 tbPacientes mappedResult = MappingCustom.Map(dto);
                 apiServiceResult.Success = await _unitOfWork.Pacientes.AddAsync(mappedResult);

@@ -136,7 +136,7 @@ namespace PROMEDICAL.Business.Extensions
             CreateMap<tbTipoConsultas, TipoConsultas_FindDto>().ReverseMap();
             CreateMap<tbTipoConsultas, TipoConsultas_DetailDto>().ReverseMap();
             CreateMap<tbTipoConsultas, TipoConsultas_DeleteDto>().ReverseMap();
-            
+
         }
     }
 }

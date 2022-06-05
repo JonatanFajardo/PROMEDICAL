@@ -1,8 +1,5 @@
 ﻿using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Entities.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace PROMEDICAL.Business.Extensions
 {
@@ -158,7 +155,7 @@ namespace PROMEDICAL.Business.Extensions
             return empresas;
         }
 
-        
+
 
         //public static void Map(Empleados_CreateDto dto)
         //{

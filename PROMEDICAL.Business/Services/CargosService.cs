@@ -29,7 +29,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<tbCargos> repositoryResult = await _unitOfWork.Cargos.ListAsync();
-                apiServiceResult.Data = _mapper.Map <List<Cargos_SelectDto>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<Cargos_SelectDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 

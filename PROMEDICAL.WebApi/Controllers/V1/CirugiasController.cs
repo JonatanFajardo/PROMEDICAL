@@ -23,7 +23,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         {
             _cirugiasService = cirugiasService;
         }
-        
+
         [HttpGet(ApiUrl.Cirugias.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListCirugiasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]

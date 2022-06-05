@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
-using PROMEDICAL.Business.Filters;
 using PROMEDICAL.Business.Services;
 using PROMEDICAL.Business.Utilities;
 using PROMEDICAL.WebApi.Swagger.Example;
@@ -22,7 +21,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         {
             _empleadosService = empleadosService;
         }
-        
+
         [HttpGet(ApiUrl.Empleados.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListEmpleadosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]

@@ -27,7 +27,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<tbFrecuenciasCardiacas> repositoryResult = await _unitOfWork.FrecuenciasCardiacas.ListAsync(id);
-                apiServiceResult.Data = _mapper.Map <List<FrecuenciasCardiacas_SelectDto>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<FrecuenciasCardiacas_SelectDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 

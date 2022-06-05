@@ -21,7 +21,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         {
             _medicamentosService = medicamentosService;
         }
-        
+
         [HttpGet(ApiUrl.Medicamentos.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListMedicamentosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]

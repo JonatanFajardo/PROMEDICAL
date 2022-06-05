@@ -1,7 +1,6 @@
 ﻿using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
 using Swashbuckle.AspNetCore.Filters;
-using System;
 using System.Collections.Generic;
 
 namespace PROMEDICAL.WebApi.Swagger.Example

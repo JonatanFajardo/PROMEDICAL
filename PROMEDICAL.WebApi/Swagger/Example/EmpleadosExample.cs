@@ -153,25 +153,25 @@ namespace PROMEDICAL.WebApi.Swagger.Example
         {
             return new Empleados_UpdateDto()
             {
-                    empd_Id = 34,
-                    carg_Id = 34,
-                    cons_Id = 6,
-                    jorn_Id = 2,
-                    pers_PrimerNombre = "Junior",
-                    pers_SegundoNombre = "Axel",
-                    pers_ApellidoPaterno = "Fajardo",
-                    pers_ApellidoMaterno = "Ortez",
-                    pers_FechaNacimiento = Convert.ToDateTime("2020-08-28"),
-                    pers_CorreoElectronico = "junioraxel309@gmail.com",
-                    pers_Telefono = "98588377",
-                    pers_Calle = "4287 Easy View",
-                    pers_Ciudad = "",
-                    pers_Provincia = "Delaware",
-                    pers_CodigoPostal = "19810-7489",
-                    pers_Pais = "US",
-                    pers_Sexo = "M",
-                    pers_EsActivo = true,
-                    pers_UsuarioModifica = 1
+                empd_Id = 34,
+                carg_Id = 34,
+                cons_Id = 6,
+                jorn_Id = 2,
+                pers_PrimerNombre = "Junior",
+                pers_SegundoNombre = "Axel",
+                pers_ApellidoPaterno = "Fajardo",
+                pers_ApellidoMaterno = "Ortez",
+                pers_FechaNacimiento = Convert.ToDateTime("2020-08-28"),
+                pers_CorreoElectronico = "junioraxel309@gmail.com",
+                pers_Telefono = "98588377",
+                pers_Calle = "4287 Easy View",
+                pers_Ciudad = "",
+                pers_Provincia = "Delaware",
+                pers_CodigoPostal = "19810-7489",
+                pers_Pais = "US",
+                pers_Sexo = "M",
+                pers_EsActivo = true,
+                pers_UsuarioModifica = 1
             };
         }
     }

@@ -21,7 +21,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         {
             _tipoconsultasService = tipoconsultasService;
         }
-        
+
         [HttpGet(ApiUrl.TipoConsultas.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTipoConsultasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
