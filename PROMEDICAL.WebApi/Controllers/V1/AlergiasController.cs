@@ -25,7 +25,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Alergias.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListAlergiasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> AlergiasFind()
+        public async Task<IActionResult> AlergiasList()
         {
             return ApiServiceResult(await _alergiasService.ListAsync());
         }
@@ -33,7 +33,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Alergias.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListAlergiasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> AlergiasDetail(int id)
+        public async Task<IActionResult> AlergiasFind(int id)
         {
             return ApiServiceResult(await _alergiasService.FindAsync(id));
         }
@@ -41,7 +41,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Alergias.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListAlergiasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> AlergiasList(int id)
+        public async Task<IActionResult> AlergiasDetail(int id)
         {
             return ApiServiceResult(await _alergiasService.DetailAsync(id));
         }

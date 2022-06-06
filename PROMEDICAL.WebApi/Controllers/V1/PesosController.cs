@@ -25,7 +25,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Pesos.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListPesosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> PesosFind()
+        public async Task<IActionResult> PesosList()
         {
             return ApiServiceResult(await _pesosService.ListAsync());
         }
@@ -33,7 +33,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Pesos.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListPesosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> PesosDetail(int id)
+        public async Task<IActionResult> PesosFind(int id)
         {
             return ApiServiceResult(await _pesosService.FindAsync(id));
         }
@@ -41,7 +41,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Pesos.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListPesosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> PesosList(int id)
+        public async Task<IActionResult> PesosDetail(int id)
         {
             return ApiServiceResult(await _pesosService.DetailAsync(id));
         }

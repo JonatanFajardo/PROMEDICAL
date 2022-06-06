@@ -38,11 +38,6 @@ namespace PROMEDICAL.WebApi
             services.AddBusinessLayer();
 
 
-            //            services.AddControllersWithViews()
-            //            .AddNewtonsoftJson(options =>
-            //            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-            //);
-
             /*Inicio configuración Swagger*/
             services.AddVersionedApiExplorer(opt =>
             {
@@ -93,19 +88,16 @@ namespace PROMEDICAL.WebApi
         {
             if (env.IsDevelopment())
             {
+                app.UseDeveloperExceptionPage();
             }
-            app.UseDeveloperExceptionPage();
 
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
-            //app.UseDeveloperExceptionPage();
             /*Inicio configuración Swagger*/
             app.UseSwagger();
-            app.UseSwaggerUI(
-            //c => c.SwaggerEndpoint("http://promedical.somee.com/swagger/v1/swagger.json", "DosPistones v1"));
-            c =>
+            app.UseSwaggerUI(c =>
             {
                 foreach (var description in provider.ApiVersionDescriptions.OrderByDescending(o => o.GroupName))
                 {
@@ -114,7 +106,6 @@ namespace PROMEDICAL.WebApi
                         description.GroupName.ToUpperInvariant());
                 }
             });
-
             /*Fin configuración Swagger*/
 
             app.UseAuthorization();

@@ -27,7 +27,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Cirugias.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListCirugiasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> CirugiasFind()
+        public async Task<IActionResult> CirugiasList()
         {
             return ApiServiceResult(await _cirugiasService.ListAsync());
         }
@@ -35,7 +35,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Cirugias.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListCirugiasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> CirugiasDetail(int id)
+        public async Task<IActionResult> CirugiasFind(int id)
         {
             return ApiServiceResult(await _cirugiasService.FindAsync(id));
         }
@@ -43,7 +43,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Cirugias.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListCirugiasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> CirugiasList(int id)
+        public async Task<IActionResult> CirugiasDetail(int id)
         {
             return ApiServiceResult(await _cirugiasService.DetailAsync(id));
         }

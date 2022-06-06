@@ -25,7 +25,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.TipoConsultas.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTipoConsultasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> TipoConsultasFind()
+        public async Task<IActionResult> TipoConsultasList()
         {
             return ApiServiceResult(await _tipoconsultasService.ListAsync());
         }
@@ -33,7 +33,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.TipoConsultas.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTipoConsultasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> TipoConsultasDetail(int id)
+        public async Task<IActionResult> TipoConsultasFind(int id)
         {
             return ApiServiceResult(await _tipoconsultasService.FindAsync(id));
         }
@@ -41,7 +41,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.TipoConsultas.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTipoConsultasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> TipoConsultasList(int id)
+        public async Task<IActionResult> TipoConsultasDetail(int id)
         {
             return ApiServiceResult(await _tipoconsultasService.DetailAsync(id));
         }

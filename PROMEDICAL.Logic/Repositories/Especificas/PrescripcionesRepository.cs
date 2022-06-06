@@ -20,7 +20,7 @@ namespace PROMEDICAL.Logic.Repositories
         {
             const string sqlQuery = "UDP_Prescripciones_Select";
             var parameter = new DynamicParameters();
-            parameter.Add("@cita_Id", id, DbType.Int32, ParameterDirection.Input);
+            parameter.Add("@pres_Id", id, DbType.Int32, ParameterDirection.Input);
             return await Transaction.SelectAsync<tbPrescripciones>(sqlQuery, parameter);
         }
 

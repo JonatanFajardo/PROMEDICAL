@@ -27,7 +27,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Cargos.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListCargosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> CargosFind()
+        public async Task<IActionResult> CargosList()
         {
             return ApiServiceResult(await _cargosService.ListAsync());
         }
@@ -35,7 +35,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Cargos.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListCargosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> CargosDetail(int id)
+        public async Task<IActionResult> CargosFind(int id)
         {
             return ApiServiceResult(await _cargosService.FindAsync(id));
         }
@@ -43,7 +43,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Cargos.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListCargosResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> CargosList(int id)
+        public async Task<IActionResult> CargosDetail(int id)
         {
             return ApiServiceResult(await _cargosService.DetailAsync(id));
         }

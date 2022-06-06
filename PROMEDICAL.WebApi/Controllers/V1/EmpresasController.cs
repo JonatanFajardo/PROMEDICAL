@@ -33,7 +33,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Empresas.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(FindEmpresasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> EmpresasDetail(int id)
+        public async Task<IActionResult> EmpresasFind(int id)
         {
             return ApiServiceResult(await _empresasService.FindAsync(id));
         }

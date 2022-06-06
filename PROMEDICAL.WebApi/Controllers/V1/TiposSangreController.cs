@@ -25,7 +25,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.TiposSangre.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTiposSangreResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> TiposSangreFind()
+        public async Task<IActionResult> TiposSangreList()
         {
             return ApiServiceResult(await _tiposSangreService.ListAsync());
         }
@@ -33,7 +33,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.TiposSangre.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTiposSangreResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> TiposSangreDetail(int id)
+        public async Task<IActionResult> TiposSangreFind(int id)
         {
             return ApiServiceResult(await _tiposSangreService.FindAsync(id));
         }
@@ -41,7 +41,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.TiposSangre.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTiposSangreResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> TiposSangreList(int id)
+        public async Task<IActionResult> TiposSangreDetail(int id)
         {
             return ApiServiceResult(await _tiposSangreService.DetailAsync(id));
         }

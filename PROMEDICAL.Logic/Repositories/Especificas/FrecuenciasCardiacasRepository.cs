@@ -42,22 +42,10 @@ namespace PROMEDICAL.Logic.Repositories
         }
         public async Task<Boolean> EditAsync(tbFrecuenciasCardiacas entity)
         {
-            //const string sqlQuery = "UDP_FrecuenciasCardiacas_Update";
-            //var parameter = new DynamicParameters();
-            //parameter.Add("@rica_Id", entity.rica_Id, DbType.Int32, ParameterDirection.Input);
-            //parameter.Add("@paci_Id", entity.paci_Id, DbType.Int32, ParameterDirection.Input);
-            //parameter.Add("@rica_Alta", entity.rica_Alta, DbType.Int32, ParameterDirection.Input);
-            //parameter.Add("@rica_Baja", entity.rica_Baja, DbType.Int32, ParameterDirection.Input);
-            //parameter.Add("@rica_UsuarioModifica", entity.rica_UsuarioRegistra, DbType.Int32, ParameterDirection.Input);
-            //return await Transaction.SendAsync(sqlQuery, parameter);
             throw new NotImplementedException();
         }
         public async Task<Boolean> RemoveAsync(int id)
         {
-            //const string sqlQuery = "UDP_FrecuenciasCardiacas_Delete";
-            //var parameter = new DynamicParameters();
-            //parameter.Add("@rica_Id", id, DbType.Int32, ParameterDirection.Input);
-            //return await Transaction.DeleteAsync(sqlQuery, parameter);
             throw new NotImplementedException();
         }
     }

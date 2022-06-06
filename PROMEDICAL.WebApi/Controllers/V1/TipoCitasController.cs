@@ -25,7 +25,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.TipoCitas.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTipoCitasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> TipoCitasFind()
+        public async Task<IActionResult> TipoCitasList()
         {
             return ApiServiceResult(await _tipocitasService.ListAsync());
         }
@@ -33,7 +33,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.TipoCitas.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTipoCitasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> TipoCitasDetail(int id)
+        public async Task<IActionResult> TipoCitasFind(int id)
         {
             return ApiServiceResult(await _tipocitasService.FindAsync(id));
         }
@@ -41,7 +41,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.TipoCitas.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListTipoCitasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> TipoCitasList(int id)
+        public async Task<IActionResult> TipoCitasDetail(int id)
         {
             return ApiServiceResult(await _tipocitasService.DetailAsync(id));
         }

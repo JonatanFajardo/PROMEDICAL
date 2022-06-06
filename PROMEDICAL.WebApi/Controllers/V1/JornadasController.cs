@@ -25,7 +25,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Jornadas.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListJornadasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> JornadasFind()
+        public async Task<IActionResult> JornadasList()
         {
             return ApiServiceResult(await _jornadasService.ListAsync());
         }
@@ -33,7 +33,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Jornadas.Find)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListJornadasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> JornadasDetail(int id)
+        public async Task<IActionResult> JornadasFind(int id)
         {
             return ApiServiceResult(await _jornadasService.FindAsync(id));
         }
@@ -41,7 +41,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Jornadas.Detail)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListJornadasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> JornadasList(int id)
+        public async Task<IActionResult> JornadasDetail(int id)
         {
             return ApiServiceResult(await _jornadasService.DetailAsync(id));
         }

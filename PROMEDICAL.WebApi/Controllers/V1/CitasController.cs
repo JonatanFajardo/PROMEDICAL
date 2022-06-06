@@ -25,7 +25,7 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         [HttpGet(ApiUrl.Citas.List)]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(ListCitasResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> CitasFind()
+        public async Task<IActionResult> CitasList()
         {
             return ApiServiceResult(await _CitasService.ListAsync());
         }
