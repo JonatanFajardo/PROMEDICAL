@@ -27,7 +27,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<tbFrecuenciasCardiacas> repositoryResult = await _unitOfWork.FrecuenciasCardiacas.ListAsync(id);
-                apiServiceResult.Data = _mapper.Map<List<FrecuenciasCardiacas_SelectDto>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<FrecuenciasCardiacasSelectDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -39,7 +39,7 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ServiceResult> AddAsync(FrecuenciasCardiacas_CreateDto dto)
+        public async Task<ServiceResult> AddAsync(FrecuenciasCardiacasCreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
@@ -58,7 +58,7 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        //public async Task<ServiceResult> EditAsync(FrecuenciasCardiacas_UpdateDto dto)
+        //public async Task<ServiceResult> EditAsync(FrecuenciasCardiacasUpdateDto dto)
         //{
         //    ServiceResult apiServiceResult = new ServiceResult();
 

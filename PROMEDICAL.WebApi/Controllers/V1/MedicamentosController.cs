@@ -47,29 +47,29 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         }
 
         [HttpPost(ApiUrl.Medicamentos.Create)]
-        [SwaggerRequestExample(typeof(Medicamentos_CreateDto), typeof(CreateMedicamentosExamples))]
+        [SwaggerRequestExample(typeof(MedicamentosCreateDto), typeof(CreateMedicamentosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateMedicamentosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreateMedicamentosErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create(Medicamentos_CreateDto dto)
+        public async Task<IActionResult> Create(MedicamentosCreateDto dto)
         {
             return ApiServiceResult(await _medicamentosService.AddAsync(dto));
         }
 
         [HttpPut(ApiUrl.Medicamentos.Update)]
-        [SwaggerRequestExample(typeof(Medicamentos_UpdateDto), typeof(UpdateMedicamentosExamples))]
+        [SwaggerRequestExample(typeof(MedicamentosUpdateDto), typeof(UpdateMedicamentosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateMedicamentosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(UpdateMedicamentosErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Update(Medicamentos_UpdateDto dto)
+        public async Task<IActionResult> Update(MedicamentosUpdateDto dto)
         {
             return ApiServiceResult(await _medicamentosService.EditAsync(dto));
         }
 
         [HttpPut(ApiUrl.Medicamentos.Delete)]
-        [SwaggerRequestExample(typeof(Medicamentos_UpdateDto), typeof(DeleteMedicamentosExamples))]
+        [SwaggerRequestExample(typeof(MedicamentosUpdateDto), typeof(DeleteMedicamentosExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteMedicamentosOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(DeleteMedicamentosErrorResponseExamples))]

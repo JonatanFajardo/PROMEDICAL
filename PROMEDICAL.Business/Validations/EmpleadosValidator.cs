@@ -3,7 +3,7 @@ using PROMEDICAL.Business.Dto;
 
 namespace PROMEDICAL.Business.Validations
 {
-    public class EmpleadosCreateValidator : AbstractValidator<Empleados_CreateDto>
+    public class EmpleadosCreateValidator : AbstractValidator<EmpleadosCreateDto>
     {
         public EmpleadosCreateValidator()
         {
@@ -27,7 +27,7 @@ namespace PROMEDICAL.Business.Validations
             RuleFor(x => x.pers_UsuarioRegistra).NotNull().NotEmpty();
         }
     }
-    public class EmpleadosUpdateValidator : AbstractValidator<Empleados_UpdateDto>
+    public class EmpleadosUpdateValidator : AbstractValidator<EmpleadosUpdateDto>
     {
         public EmpleadosUpdateValidator()
         {

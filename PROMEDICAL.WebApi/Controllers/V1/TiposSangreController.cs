@@ -47,29 +47,29 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         }
 
         [HttpPost(ApiUrl.TiposSangre.Create)]
-        [SwaggerRequestExample(typeof(TiposSangre_CreateDto), typeof(CreateTiposSangreExamples))]
+        [SwaggerRequestExample(typeof(TiposSangreCreateDto), typeof(CreateTiposSangreExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateTiposSangreOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreateTiposSangreErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create(TiposSangre_CreateDto dto)
+        public async Task<IActionResult> Create(TiposSangreCreateDto dto)
         {
             return ApiServiceResult(await _tiposSangreService.AddAsync(dto));
         }
 
         [HttpPut(ApiUrl.TiposSangre.Update)]
-        [SwaggerRequestExample(typeof(TiposSangre_UpdateDto), typeof(UpdateTiposSangreExamples))]
+        [SwaggerRequestExample(typeof(TiposSangreUpdateDto), typeof(UpdateTiposSangreExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateTiposSangreOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(UpdateTiposSangreErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Update(TiposSangre_UpdateDto dto)
+        public async Task<IActionResult> Update(TiposSangreUpdateDto dto)
         {
             return ApiServiceResult(await _tiposSangreService.EditAsync(dto));
         }
 
         [HttpPut(ApiUrl.TiposSangre.Delete)]
-        [SwaggerRequestExample(typeof(TiposSangre_UpdateDto), typeof(DeleteTiposSangreExamples))]
+        [SwaggerRequestExample(typeof(TiposSangreUpdateDto), typeof(DeleteTiposSangreExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteTiposSangreOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(DeleteTiposSangreErrorResponseExamples))]

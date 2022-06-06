@@ -15,14 +15,14 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<Cargos_SelectDto>()
+                Data = new List<CargosSelectDto>()
                 {
-                    new Cargos_SelectDto()
+                    new CargosSelectDto()
                     {
                         carg_Id = 383,
                         carg_Descripcion =    "Defensor del paciente"
                     },
-                    new Cargos_SelectDto()
+                    new CargosSelectDto()
                     {
                         carg_Id = 15,
                         carg_Descripcion =    "Fisioterapeutas"
@@ -34,11 +34,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreateCargosExamples : IExamplesProvider<Cargos_CreateDto>
+    public class CreateCargosExamples : IExamplesProvider<CargosCreateDto>
     {
-        public Cargos_CreateDto GetExamples()
+        public CargosCreateDto GetExamples()
         {
-            return new Cargos_CreateDto()
+            return new CargosCreateDto()
             {
                 carg_Descripcion = "Logopedas"
             };
@@ -75,11 +75,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdateCargosExamples : IExamplesProvider<Cargos_UpdateDto>
+    public class UpdateCargosExamples : IExamplesProvider<CargosUpdateDto>
     {
-        public Cargos_UpdateDto GetExamples()
+        public CargosUpdateDto GetExamples()
         {
-            return new Cargos_UpdateDto()
+            return new CargosUpdateDto()
             {
                 carg_Id = 491,
                 carg_Descripcion = "Trabajadores sociales"
@@ -117,11 +117,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeleteCargosExamples : IExamplesProvider<Cargos_DeleteDto>
+    public class DeleteCargosExamples : IExamplesProvider<CargosDeleteDto>
     {
-        public Cargos_DeleteDto GetExamples()
+        public CargosDeleteDto GetExamples()
         {
-            return new Cargos_DeleteDto()
+            return new CargosDeleteDto()
             {
                 carg_Id = 758
             };

@@ -3,7 +3,7 @@ using PROMEDICAL.Business.Dto;
 
 namespace PROMEDICAL.Business.Validations
 {
-    public class JornadasCreateValidator : AbstractValidator<Jornadas_CreateDto>
+    public class JornadasCreateValidator : AbstractValidator<JornadasCreateDto>
     {
         public JornadasCreateValidator()
         {
@@ -11,7 +11,7 @@ namespace PROMEDICAL.Business.Validations
             RuleFor(x => x.jorn_UsuarioRegistra).NotEmpty().NotEqual(0);
         }
     }
-    public class JornadasUpdateValidator : AbstractValidator<Jornadas_UpdateDto>
+    public class JornadasUpdateValidator : AbstractValidator<JornadasUpdateDto>
     {
         public JornadasUpdateValidator()
         {

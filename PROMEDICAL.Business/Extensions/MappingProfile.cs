@@ -8,134 +8,134 @@ namespace PROMEDICAL.Business.Extensions
     {
         public MappingProfile()
         {
-            CreateMap<tbAlergias, Alergias_UpdateDto>().ReverseMap();
-            CreateMap<tbCargos, Cargos_CreateDto>().ReverseMap();
-            CreateMap<tbCirugias, Cirugias_CreateDto>().ReverseMap();
+            CreateMap<tbAlergias, AlergiasUpdateDto>().ReverseMap();
+            CreateMap<tbCargos, CargosCreateDto>().ReverseMap();
+            CreateMap<tbCirugias, CirugiasCreateDto>().ReverseMap();
             CreateMap<tbCitas, CitasDto>().ReverseMap();
-            CreateMap<tbConsultorios, Consultorios_CreateDto>().ReverseMap();
+            CreateMap<tbConsultorios, ConsultoriosCreateDto>().ReverseMap();
             // Empleados
             CreateMap<tbEmpleados, EmpleadosDto>().ReverseMap();
             CreateMap<UDP_Empleados_FindResult, tbEmpleados>().ReverseMap();
-            CreateMap<UDP_Empleados_FindResult, Empleados_CreateDto>().ReverseMap();
-            CreateMap<UDP_Empleados_FindResult, Empleados_UpdateDto>().ReverseMap();
-            CreateMap<UDP_Empleados_FindResult, Empleados_DetailDto>().ReverseMap();
+            CreateMap<UDP_Empleados_FindResult, EmpleadosCreateDto>().ReverseMap();
+            CreateMap<UDP_Empleados_FindResult, EmpleadosUpdateDto>().ReverseMap();
+            CreateMap<UDP_Empleados_FindResult, EmpleadosDetailDto>().ReverseMap();
             CreateMap<UDP_Empleados_FindResult, UDP_Empleados_SelectResult>().ReverseMap();
             // Pacientes
             CreateMap<UDP_Pacientes_FindResult, tbPacientes>().ReverseMap();
-            CreateMap<UDP_Pacientes_FindResult, Pacientes_CreateDto>().ReverseMap();
-            CreateMap<UDP_Pacientes_FindResult, Pacientes_UpdateDto>().ReverseMap();
-            CreateMap<UDP_Pacientes_FindResult, Pacientes_SelectDto>().ReverseMap();
-            CreateMap<UDP_Pacientes_FindResult, Pacientes_FindDto>().ReverseMap();
-            CreateMap<UDP_Pacientes_FindResult, Pacientes_DetailDto>().ReverseMap();
+            CreateMap<UDP_Pacientes_FindResult, PacientesCreateDto>().ReverseMap();
+            CreateMap<UDP_Pacientes_FindResult, PacientesUpdateDto>().ReverseMap();
+            CreateMap<UDP_Pacientes_FindResult, PacientesSelectDto>().ReverseMap();
+            CreateMap<UDP_Pacientes_FindResult, PacientesFindDto>().ReverseMap();
+            CreateMap<UDP_Pacientes_FindResult, PacientesDetailDto>().ReverseMap();
             CreateMap<UDP_Pacientes_FindResult, UDP_Pacientes_SelectResult>().ReverseMap();
             // Citas
             //CreateMap<tbCitas, CitasDto>().ReverseMap();
             CreateMap<UDP_Citas_FindResult, tbCitas>().ReverseMap();
-            CreateMap<UDP_Citas_FindResult, Citas_CreateDto>().ReverseMap();
-            //CreateMap<UDP_Citas_FindResult, Citas_UpdateDto>().ReverseMap();
-            //CreateMap<UDP_Citas_FindResult, Citas_FindDto>().ReverseMap();
+            CreateMap<UDP_Citas_FindResult, CitasCreateDto>().ReverseMap();
+            //CreateMap<UDP_Citas_FindResult, CitasUpdateDto>().ReverseMap();
+            //CreateMap<UDP_Citas_FindResult, CitasFindDto>().ReverseMap();
             CreateMap<UDP_Citas_FindResult, UDP_Citas_SelectResult>().ReverseMap();
             //Empresas
-            CreateMap<tbEmpresas, Empresas_CreateDto>().ReverseMap();
-            CreateMap<tbEmpresas, Empresas_UpdateDto>().ReverseMap();
-            CreateMap<UDP_Empresas_FindResult, Empresas_SelectDto>().ReverseMap();
-            CreateMap<UDP_Empresas_FindResult, Empresas_FindDto>().ReverseMap();
-            CreateMap<UDP_Empresas_FindResult, Empresas_DetailDto>().ReverseMap();
-            //CreateMap<tbEmpresas, Empresas_DeleteDto>().ReverseMap();
+            CreateMap<tbEmpresas, EmpresasCreateDto>().ReverseMap();
+            CreateMap<tbEmpresas, EmpresasUpdateDto>().ReverseMap();
+            CreateMap<UDP_Empresas_FindResult, EmpresasSelectDto>().ReverseMap();
+            CreateMap<UDP_Empresas_FindResult, EmpresasFindDto>().ReverseMap();
+            CreateMap<UDP_Empresas_FindResult, EmpresasDetailDto>().ReverseMap();
+            //CreateMap<tbEmpresas, EmpresasDeleteDto>().ReverseMap();
 
 
-            CreateMap<tbTiposSangre, TiposSangre_UpdateDto>().ReverseMap();
+            CreateMap<tbTiposSangre, TiposSangreUpdateDto>().ReverseMap();
             CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacasDto>().ReverseMap();
-            CreateMap<tbJornadas, Jornadas_CreateDto>().ReverseMap();
-            CreateMap<tbMedicamentos, Medicamentos_UpdateDto>().ReverseMap();
+            CreateMap<tbJornadas, JornadasCreateDto>().ReverseMap();
+            CreateMap<tbMedicamentos, MedicamentosUpdateDto>().ReverseMap();
             CreateMap<tbPacientes, PacientesDto>().ReverseMap();
             //CreateMap<tbPacientes_tbAlergias, Pacientes_tbAlergiasDto>().ReverseMap();
             //CreateMap<tbPacientes_tbCirugias, Pacientes_tbCirugiasDto>().ReverseMap();
             CreateMap<tbPersonas, PersonasDto>().ReverseMap();
-            CreateMap<tbPesos, Pesos_CreateDto>().ReverseMap();
-            CreateMap<tbPrescripciones, Prescripciones_CreateDto>().ReverseMap();
-            CreateMap<tbTipoCitas, TipoCitas_CreateDto>().ReverseMap();
-            CreateMap<tbTipoConsultas, TipoConsultas_UpdateDto>().ReverseMap();
+            CreateMap<tbPesos, PesosCreateDto>().ReverseMap();
+            CreateMap<tbPrescripciones, PrescripcionesCreateDto>().ReverseMap();
+            CreateMap<tbTipoCitas, TipoCitasCreateDto>().ReverseMap();
+            CreateMap<tbTipoConsultas, TipoConsultasUpdateDto>().ReverseMap();
 
 
 
             //FrecuenciasCardiacas
-            CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacas_CreateDto>().ReverseMap();
-            //CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacas_UpdateDto>().ReverseMap();
-            CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacas_SelectDto>().ReverseMap();
-            //CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacas_FindDto>().ReverseMap();
-            //CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacas_DetailDto>().ReverseMap();
-            //CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacas_DeleteDto>().ReverseMap();
+            CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacasCreateDto>().ReverseMap();
+            //CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacasUpdateDto>().ReverseMap();
+            CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacasSelectDto>().ReverseMap();
+            //CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacasFindDto>().ReverseMap();
+            //CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacasDetailDto>().ReverseMap();
+            //CreateMap<tbFrecuenciasCardiacas, FrecuenciasCardiacasDeleteDto>().ReverseMap();
             //Alergias
-            CreateMap<tbAlergias, Alergias_CreateDto>().ReverseMap();
-            CreateMap<tbAlergias, Alergias_UpdateDto>().ReverseMap();
-            CreateMap<tbAlergias, Alergias_SelectDto>().ReverseMap();
-            CreateMap<tbAlergias, Alergias_FindDto>().ReverseMap();
-            CreateMap<tbAlergias, Alergias_DetailDto>().ReverseMap();
-            CreateMap<tbAlergias, Alergias_DeleteDto>().ReverseMap();
+            CreateMap<tbAlergias, AlergiasCreateDto>().ReverseMap();
+            CreateMap<tbAlergias, AlergiasUpdateDto>().ReverseMap();
+            CreateMap<tbAlergias, AlergiasSelectDto>().ReverseMap();
+            CreateMap<tbAlergias, AlergiasFindDto>().ReverseMap();
+            CreateMap<tbAlergias, AlergiasDetailDto>().ReverseMap();
+            CreateMap<tbAlergias, AlergiasDeleteDto>().ReverseMap();
             //Cargos
-            CreateMap<tbCargos, Cargos_CreateDto>().ReverseMap();
-            CreateMap<tbCargos, Cargos_UpdateDto>().ReverseMap();
-            CreateMap<tbCargos, Cargos_SelectDto>().ReverseMap();
-            CreateMap<tbCargos, Cargos_FindDto>().ReverseMap();
-            CreateMap<tbCargos, Cargos_DetailDto>().ReverseMap();
-            CreateMap<tbCargos, Cargos_DeleteDto>().ReverseMap();
+            CreateMap<tbCargos, CargosCreateDto>().ReverseMap();
+            CreateMap<tbCargos, CargosUpdateDto>().ReverseMap();
+            CreateMap<tbCargos, CargosSelectDto>().ReverseMap();
+            CreateMap<tbCargos, CargosFindDto>().ReverseMap();
+            CreateMap<tbCargos, CargosDetailDto>().ReverseMap();
+            CreateMap<tbCargos, CargosDeleteDto>().ReverseMap();
             //Cirugias
-            CreateMap<tbCirugias, Cirugias_CreateDto>().ReverseMap();
-            CreateMap<tbCirugias, Cirugias_UpdateDto>().ReverseMap();
-            CreateMap<tbCirugias, Cirugias_SelectDto>().ReverseMap();
-            CreateMap<tbCirugias, Cirugias_FindDto>().ReverseMap();
-            CreateMap<tbCirugias, Cirugias_DetailDto>().ReverseMap();
-            CreateMap<tbCirugias, Cirugias_DeleteDto>().ReverseMap();
+            CreateMap<tbCirugias, CirugiasCreateDto>().ReverseMap();
+            CreateMap<tbCirugias, CirugiasUpdateDto>().ReverseMap();
+            CreateMap<tbCirugias, CirugiasSelectDto>().ReverseMap();
+            CreateMap<tbCirugias, CirugiasFindDto>().ReverseMap();
+            CreateMap<tbCirugias, CirugiasDetailDto>().ReverseMap();
+            CreateMap<tbCirugias, CirugiasDeleteDto>().ReverseMap();
             //Consultorios
-            CreateMap<tbConsultorios, Consultorios_CreateDto>().ReverseMap();
-            CreateMap<tbConsultorios, Consultorios_UpdateDto>().ReverseMap();
-            CreateMap<tbConsultorios, Consultorios_SelectDto>().ReverseMap();
-            CreateMap<tbConsultorios, Consultorios_FindDto>().ReverseMap();
-            CreateMap<tbConsultorios, Consultorios_DetailDto>().ReverseMap();
-            CreateMap<tbConsultorios, Consultorios_DeleteDto>().ReverseMap();
+            CreateMap<tbConsultorios, ConsultoriosCreateDto>().ReverseMap();
+            CreateMap<tbConsultorios, ConsultoriosUpdateDto>().ReverseMap();
+            CreateMap<tbConsultorios, ConsultoriosSelectDto>().ReverseMap();
+            CreateMap<tbConsultorios, ConsultoriosFindDto>().ReverseMap();
+            CreateMap<tbConsultorios, ConsultoriosDetailDto>().ReverseMap();
+            CreateMap<tbConsultorios, ConsultoriosDeleteDto>().ReverseMap();
             //Jornadas
-            CreateMap<tbJornadas, Jornadas_CreateDto>().ReverseMap();
-            CreateMap<tbJornadas, Jornadas_UpdateDto>().ReverseMap();
-            CreateMap<tbJornadas, Jornadas_SelectDto>().ReverseMap();
-            CreateMap<tbJornadas, Jornadas_FindDto>().ReverseMap();
-            CreateMap<tbJornadas, Jornadas_DetailDto>().ReverseMap();
-            CreateMap<tbJornadas, Jornadas_DeleteDto>().ReverseMap();
+            CreateMap<tbJornadas, JornadasCreateDto>().ReverseMap();
+            CreateMap<tbJornadas, JornadasUpdateDto>().ReverseMap();
+            CreateMap<tbJornadas, JornadasSelectDto>().ReverseMap();
+            CreateMap<tbJornadas, JornadasFindDto>().ReverseMap();
+            CreateMap<tbJornadas, JornadasDetailDto>().ReverseMap();
+            CreateMap<tbJornadas, JornadasDeleteDto>().ReverseMap();
             //Medicamentos
-            CreateMap<tbMedicamentos, Medicamentos_CreateDto>().ReverseMap();
-            CreateMap<tbMedicamentos, Medicamentos_UpdateDto>().ReverseMap();
-            CreateMap<tbMedicamentos, Medicamentos_SelectDto>().ReverseMap();
-            CreateMap<tbMedicamentos, Medicamentos_FindDto>().ReverseMap();
-            CreateMap<tbMedicamentos, Medicamentos_DetailDto>().ReverseMap();
-            CreateMap<tbMedicamentos, Medicamentos_DeleteDto>().ReverseMap();
+            CreateMap<tbMedicamentos, MedicamentosCreateDto>().ReverseMap();
+            CreateMap<tbMedicamentos, MedicamentosUpdateDto>().ReverseMap();
+            CreateMap<tbMedicamentos, MedicamentosSelectDto>().ReverseMap();
+            CreateMap<tbMedicamentos, MedicamentosFindDto>().ReverseMap();
+            CreateMap<tbMedicamentos, MedicamentosDetailDto>().ReverseMap();
+            CreateMap<tbMedicamentos, MedicamentosDeleteDto>().ReverseMap();
             //Pesos
-            CreateMap<tbPesos, Pesos_CreateDto>().ReverseMap();
-            CreateMap<tbPesos, Pesos_UpdateDto>().ReverseMap();
-            CreateMap<tbPesos, Pesos_SelectDto>().ReverseMap();
-            CreateMap<tbPesos, Pesos_FindDto>().ReverseMap();
-            CreateMap<tbPesos, Pesos_DetailDto>().ReverseMap();
-            CreateMap<tbPesos, Pesos_DeleteDto>().ReverseMap();
+            CreateMap<tbPesos, PesosCreateDto>().ReverseMap();
+            CreateMap<tbPesos, PesosUpdateDto>().ReverseMap();
+            CreateMap<tbPesos, PesosSelectDto>().ReverseMap();
+            CreateMap<tbPesos, PesosFindDto>().ReverseMap();
+            CreateMap<tbPesos, PesosDetailDto>().ReverseMap();
+            CreateMap<tbPesos, PesosDeleteDto>().ReverseMap();
             //Prescripciones
-            CreateMap<tbPrescripciones, Prescripciones_CreateDto>().ReverseMap();
-            CreateMap<tbPrescripciones, Prescripciones_UpdateDto>().ReverseMap();
-            CreateMap<tbPrescripciones, Prescripciones_SelectDto>().ReverseMap();
-            CreateMap<tbPrescripciones, Prescripciones_FindDto>().ReverseMap();
-            CreateMap<tbPrescripciones, Prescripciones_DetailDto>().ReverseMap();
-            CreateMap<tbPrescripciones, Prescripciones_DeleteDto>().ReverseMap();
+            CreateMap<tbPrescripciones, PrescripcionesCreateDto>().ReverseMap();
+            CreateMap<tbPrescripciones, PrescripcionesUpdateDto>().ReverseMap();
+            CreateMap<tbPrescripciones, PrescripcionesSelectDto>().ReverseMap();
+            CreateMap<tbPrescripciones, PrescripcionesFindDto>().ReverseMap();
+            CreateMap<tbPrescripciones, PrescripcionesDetailDto>().ReverseMap();
+            CreateMap<tbPrescripciones, PrescripcionesDeleteDto>().ReverseMap();
             //TipoCitas
-            CreateMap<tbTipoCitas, TipoCitas_CreateDto>().ReverseMap();
-            CreateMap<tbTipoCitas, TipoCitas_UpdateDto>().ReverseMap();
-            CreateMap<tbTipoCitas, TipoCitas_SelectDto>().ReverseMap();
-            CreateMap<tbTipoCitas, TipoCitas_FindDto>().ReverseMap();
-            CreateMap<tbTipoCitas, TipoCitas_DetailDto>().ReverseMap();
-            CreateMap<tbTipoCitas, TipoCitas_DeleteDto>().ReverseMap();
+            CreateMap<tbTipoCitas, TipoCitasCreateDto>().ReverseMap();
+            CreateMap<tbTipoCitas, TipoCitasUpdateDto>().ReverseMap();
+            CreateMap<tbTipoCitas, TipoCitasSelectDto>().ReverseMap();
+            CreateMap<tbTipoCitas, TipoCitasFindDto>().ReverseMap();
+            CreateMap<tbTipoCitas, TipoCitasDetailDto>().ReverseMap();
+            CreateMap<tbTipoCitas, TipoCitasDeleteDto>().ReverseMap();
             //TipoConsultas
-            CreateMap<tbTipoConsultas, TipoConsultas_CreateDto>().ReverseMap();
-            CreateMap<tbTipoConsultas, TipoConsultas_UpdateDto>().ReverseMap();
-            CreateMap<tbTipoConsultas, TipoConsultas_SelectDto>().ReverseMap();
-            CreateMap<tbTipoConsultas, TipoConsultas_FindDto>().ReverseMap();
-            CreateMap<tbTipoConsultas, TipoConsultas_DetailDto>().ReverseMap();
-            CreateMap<tbTipoConsultas, TipoConsultas_DeleteDto>().ReverseMap();
+            CreateMap<tbTipoConsultas, TipoConsultasCreateDto>().ReverseMap();
+            CreateMap<tbTipoConsultas, TipoConsultasUpdateDto>().ReverseMap();
+            CreateMap<tbTipoConsultas, TipoConsultasSelectDto>().ReverseMap();
+            CreateMap<tbTipoConsultas, TipoConsultasFindDto>().ReverseMap();
+            CreateMap<tbTipoConsultas, TipoConsultasDetailDto>().ReverseMap();
+            CreateMap<tbTipoConsultas, TipoConsultasDeleteDto>().ReverseMap();
 
         }
     }

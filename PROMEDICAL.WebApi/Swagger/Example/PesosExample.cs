@@ -15,15 +15,15 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<Pesos_SelectDto>()
+                Data = new List<PesosSelectDto>()
                 {
-                    new Pesos_SelectDto()
+                    new PesosSelectDto()
                     {
                         peso_Id = 566,
                         paci_Id = 0,
                         peso_Descripcion =    ""
                     },
-                    new Pesos_SelectDto()
+                    new PesosSelectDto()
                     {
                         peso_Id = 217,
                         paci_Id = 0,
@@ -36,11 +36,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreatePesosExamples : IExamplesProvider<Pesos_CreateDto>
+    public class CreatePesosExamples : IExamplesProvider<PesosCreateDto>
     {
-        public Pesos_CreateDto GetExamples()
+        public PesosCreateDto GetExamples()
         {
-            return new Pesos_CreateDto()
+            return new PesosCreateDto()
             {
                 paci_Id = 0,
                 peso_Descripcion = ""
@@ -78,11 +78,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdatePesosExamples : IExamplesProvider<Pesos_UpdateDto>
+    public class UpdatePesosExamples : IExamplesProvider<PesosUpdateDto>
     {
-        public Pesos_UpdateDto GetExamples()
+        public PesosUpdateDto GetExamples()
         {
-            return new Pesos_UpdateDto()
+            return new PesosUpdateDto()
             {
                 peso_Id = 373,
                 paci_Id = 0,
@@ -121,11 +121,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeletePesosExamples : IExamplesProvider<Pesos_DeleteDto>
+    public class DeletePesosExamples : IExamplesProvider<PesosDeleteDto>
     {
-        public Pesos_DeleteDto GetExamples()
+        public PesosDeleteDto GetExamples()
         {
-            return new Pesos_DeleteDto()
+            return new PesosDeleteDto()
             {
                 peso_Id = 204
             };

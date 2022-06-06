@@ -16,9 +16,9 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<FrecuenciasCardiacas_SelectDto>()
+                Data = new List<FrecuenciasCardiacasSelectDto>()
                 {
-                    new FrecuenciasCardiacas_SelectDto()
+                    new FrecuenciasCardiacasSelectDto()
                     {
                         rica_Id = 383,
                         rica_Alta = 126,
@@ -28,7 +28,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                         rica_UsuarioModifica = 1,
                         rica_FechaModifica = Convert.ToDateTime("16-03-2022")
                     },
-                    new FrecuenciasCardiacas_SelectDto()
+                    new FrecuenciasCardiacasSelectDto()
                     {
                         rica_Id = 15,
                         rica_Alta = 151,
@@ -45,11 +45,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreateFrecuenciasCardiacasExamples : IExamplesProvider<FrecuenciasCardiacas_CreateDto>
+    public class CreateFrecuenciasCardiacasExamples : IExamplesProvider<FrecuenciasCardiacasCreateDto>
     {
-        public FrecuenciasCardiacas_CreateDto GetExamples()
+        public FrecuenciasCardiacasCreateDto GetExamples()
         {
-            return new FrecuenciasCardiacas_CreateDto()
+            return new FrecuenciasCardiacasCreateDto()
             {
                 paci_Id = 42,
                 rica_Alta = 160,
@@ -89,11 +89,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdateFrecuenciasCardiacasExamples : IExamplesProvider<FrecuenciasCardiacas_UpdateDto>
+    public class UpdateFrecuenciasCardiacasExamples : IExamplesProvider<FrecuenciasCardiacasUpdateDto>
     {
-        public FrecuenciasCardiacas_UpdateDto GetExamples()
+        public FrecuenciasCardiacasUpdateDto GetExamples()
         {
-            return new FrecuenciasCardiacas_UpdateDto()
+            return new FrecuenciasCardiacasUpdateDto()
             {
                 rica_Id = 491,
                 paci_Id = 23,
@@ -134,11 +134,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeleteFrecuenciasCardiacasExamples : IExamplesProvider<FrecuenciasCardiacas_DeleteDto>
+    public class DeleteFrecuenciasCardiacasExamples : IExamplesProvider<FrecuenciasCardiacasDeleteDto>
     {
-        public FrecuenciasCardiacas_DeleteDto GetExamples()
+        public FrecuenciasCardiacasDeleteDto GetExamples()
         {
-            return new FrecuenciasCardiacas_DeleteDto()
+            return new FrecuenciasCardiacasDeleteDto()
             {
                 rica_Id = 758
             };

@@ -90,7 +90,10 @@ namespace PROMEDICAL.WebApi
             {
                 app.UseDeveloperExceptionPage();
             }
-
+            else
+            {
+                app.UseExceptionHandler();
+            }
             app.UseHttpsRedirection();
 
             app.UseRouting();

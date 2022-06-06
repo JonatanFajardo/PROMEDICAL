@@ -39,23 +39,23 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         }
 
         [HttpPost(ApiUrl.Empresas.Create)]
-        [SwaggerRequestExample(typeof(Empresas_CreateDto), typeof(CreateEmpresasExamples))]
+        [SwaggerRequestExample(typeof(EmpresasCreateDto), typeof(CreateEmpresasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateEmpresasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreateEmpresasErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create([FromBody] Empresas_CreateDto dto)
+        public async Task<IActionResult> Create([FromBody] EmpresasCreateDto dto)
         {
             return ApiServiceResult(await _empresasService.AddAsync(dto));
         }
 
         [HttpPut(ApiUrl.Empresas.Update)]
-        [SwaggerRequestExample(typeof(Empresas_UpdateDto), typeof(UpdateEmpresasExamples))]
+        [SwaggerRequestExample(typeof(EmpresasUpdateDto), typeof(UpdateEmpresasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateEmpresasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(UpdateEmpresasErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Update(Empresas_UpdateDto dto)
+        public async Task<IActionResult> Update(EmpresasUpdateDto dto)
         {
             return ApiServiceResult(await _empresasService.EditAsync(dto));
         }

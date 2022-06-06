@@ -15,14 +15,14 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<Jornadas_SelectDto>()
+                Data = new List<JornadasSelectDto>()
                 {
-                    new Jornadas_SelectDto()
+                    new JornadasSelectDto()
                     {
                         jorn_Id = 704,
                         jorn_Descripcion =    "Matutina"
                     },
-                    new Jornadas_SelectDto()
+                    new JornadasSelectDto()
                     {
                         jorn_Id = 224,
                         jorn_Descripcion =    "Vespertina"
@@ -34,11 +34,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreateJornadasExamples : IExamplesProvider<Jornadas_CreateDto>
+    public class CreateJornadasExamples : IExamplesProvider<JornadasCreateDto>
     {
-        public Jornadas_CreateDto GetExamples()
+        public JornadasCreateDto GetExamples()
         {
-            return new Jornadas_CreateDto()
+            return new JornadasCreateDto()
             {
                 jorn_Descripcion = "Vespertina"
             };
@@ -75,11 +75,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdateJornadasExamples : IExamplesProvider<Jornadas_UpdateDto>
+    public class UpdateJornadasExamples : IExamplesProvider<JornadasUpdateDto>
     {
-        public Jornadas_UpdateDto GetExamples()
+        public JornadasUpdateDto GetExamples()
         {
-            return new Jornadas_UpdateDto()
+            return new JornadasUpdateDto()
             {
                 jorn_Id = 758,
                 jorn_Descripcion = "Matutina"
@@ -117,11 +117,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeleteJornadasExamples : IExamplesProvider<Jornadas_DeleteDto>
+    public class DeleteJornadasExamples : IExamplesProvider<JornadasDeleteDto>
     {
-        public Jornadas_DeleteDto GetExamples()
+        public JornadasDeleteDto GetExamples()
         {
-            return new Jornadas_DeleteDto()
+            return new JornadasDeleteDto()
             {
                 jorn_Id = 757
             };

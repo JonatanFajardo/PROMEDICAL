@@ -27,7 +27,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<tbPrescripciones> repositoryResult = await _unitOfWork.Prescripciones.ListAsync(id);
-                apiServiceResult.Data = _mapper.Map<List<Prescripciones_SelectDto>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<PrescripcionesSelectDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -46,7 +46,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbPrescripciones repositoryResult = await _unitOfWork.Prescripciones.FindAsync(id);
-                apiServiceResult.Data = _mapper.Map<Prescripciones_FindDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<PrescripcionesFindDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -65,7 +65,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbPrescripciones repositoryResult = await _unitOfWork.Prescripciones.DetailAsync(id);
-                apiServiceResult.Data = _mapper.Map<Prescripciones_DetailDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<PrescripcionesDetailDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -77,7 +77,7 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ServiceResult> AddAsync(Prescripciones_CreateDto dto)
+        public async Task<ServiceResult> AddAsync(PrescripcionesCreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
@@ -95,7 +95,7 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ServiceResult> EditAsync(Prescripciones_UpdateDto dto)
+        public async Task<ServiceResult> EditAsync(PrescripcionesUpdateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 

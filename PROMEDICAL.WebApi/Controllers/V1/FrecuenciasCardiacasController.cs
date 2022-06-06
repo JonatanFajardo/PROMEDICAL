@@ -33,29 +33,29 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         }
 
         [HttpPost(ApiUrl.FrecuenciasCardiacas.Create)]
-        [SwaggerRequestExample(typeof(FrecuenciasCardiacas_CreateDto), typeof(CreateFrecuenciasCardiacasExamples))]
+        [SwaggerRequestExample(typeof(FrecuenciasCardiacasCreateDto), typeof(CreateFrecuenciasCardiacasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateFrecuenciasCardiacasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreateFrecuenciasCardiacasErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create([FromBody] FrecuenciasCardiacas_CreateDto dto)
+        public async Task<IActionResult> Create([FromBody] FrecuenciasCardiacasCreateDto dto)
         {
             return ApiServiceResult(await _frecuenciasCardiacas.AddAsync(dto));
         }
 
         //[HttpPut(ApiUrl.FrecuenciasCardiacas.Update)]
-        //[SwaggerRequestExample(typeof(FrecuenciasCardiacas_UpdateDto), typeof(UpdateFrecuenciasCardiacasExamples))]
+        //[SwaggerRequestExample(typeof(FrecuenciasCardiacasUpdateDto), typeof(UpdateFrecuenciasCardiacasExamples))]
         //[SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateFrecuenciasCardiacasOKResponseExamples))]
         //[SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         //[SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(UpdateFrecuenciasCardiacasErrorResponseExamples))]
         //[SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        //public async Task<IActionResult> Update(FrecuenciasCardiacas_UpdateDto dto)
+        //public async Task<IActionResult> Update(FrecuenciasCardiacasUpdateDto dto)
         //{
         //    return ApiServiceResult(await _frecuenciasCardiacas.EditAsync(dto));
         //}
 
         //[HttpPut(ApiUrl.FrecuenciasCardiacas.Delete)]
-        //[SwaggerRequestExample(typeof(FrecuenciasCardiacas_CreateDto), typeof(DeleteFrecuenciasCardiacasExamples))]
+        //[SwaggerRequestExample(typeof(FrecuenciasCardiacasCreateDto), typeof(DeleteFrecuenciasCardiacasExamples))]
         //[SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteFrecuenciasCardiacasOKResponseExamples))]
         //[SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         //[SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(DeleteFrecuenciasCardiacasErrorResponseExamples))]

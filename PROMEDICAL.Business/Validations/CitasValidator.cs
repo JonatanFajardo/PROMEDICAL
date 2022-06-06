@@ -3,7 +3,7 @@ using PROMEDICAL.Business.Dto;
 
 namespace PROMEDICAL.Business.Validations
 {
-    public class CitasCreateValidator : AbstractValidator<Citas_CreateDto>
+    public class CitasCreateValidator : AbstractValidator<CitasCreateDto>
     {
         public CitasCreateValidator()
         {

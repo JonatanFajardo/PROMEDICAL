@@ -39,7 +39,7 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ServiceResult> AddAsync(Citas_CreateDto dto)
+        public async Task<ServiceResult> AddAsync(CitasCreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 

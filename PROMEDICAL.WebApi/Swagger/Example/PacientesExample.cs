@@ -16,9 +16,9 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<Pacientes_SelectDto>()
+                Data = new List<PacientesSelectDto>()
                 {
-                    new Pacientes_SelectDto()
+                    new PacientesSelectDto()
                     {
                         paci_Id = 14,
                         pers_Identidad = "1219200311732",
@@ -30,7 +30,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                         emps_RTN = "12234681788846",
                         emps_Telefono = "99241373"
                     },
-                    new Pacientes_SelectDto()
+                    new PacientesSelectDto()
                     {
                         paci_Id = 13,
                         pers_Identidad = "0901195445786",
@@ -58,9 +58,9 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<Pacientes_FindDto>()
+                Data = new List<PacientesFindDto>()
                 {
-                    new Pacientes_FindDto()
+                    new PacientesFindDto()
                     {
                         paci_Id = 18,
                         pers_Id = 66,
@@ -97,11 +97,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreatePacientesExamples : IExamplesProvider<Pacientes_CreateDto>
+    public class CreatePacientesExamples : IExamplesProvider<PacientesCreateDto>
     {
-        public Pacientes_CreateDto GetExamples()
+        public PacientesCreateDto GetExamples()
         {
-            return new Pacientes_CreateDto()
+            return new PacientesCreateDto()
             {
                 emps_Id = 2,
                 tipsan_Id = 8,
@@ -156,11 +156,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdatePacientesExamples : IExamplesProvider<Pacientes_UpdateDto>
+    public class UpdatePacientesExamples : IExamplesProvider<PacientesUpdateDto>
     {
-        public Pacientes_UpdateDto GetExamples()
+        public PacientesUpdateDto GetExamples()
         {
-            return new Pacientes_UpdateDto()
+            return new PacientesUpdateDto()
             {
                 paci_Id = 32,
                 emps_Id = 2,
@@ -215,11 +215,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeletePacientesExamples : IExamplesProvider<Pacientes_DeleteDto>
+    public class DeletePacientesExamples : IExamplesProvider<PacientesDeleteDto>
     {
-        public Pacientes_DeleteDto GetExamples()
+        public PacientesDeleteDto GetExamples()
         {
-            return new Pacientes_DeleteDto()
+            return new PacientesDeleteDto()
             {
                 paci_Id = 758
             };

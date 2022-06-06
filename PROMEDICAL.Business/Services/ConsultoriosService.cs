@@ -27,7 +27,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<tbConsultorios> repositoryResult = await _unitOfWork.Consultorios.ListAsync();
-                apiServiceResult.Data = _mapper.Map<List<Consultorios_SelectDto>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<ConsultoriosSelectDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -46,7 +46,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbConsultorios repositoryResult = await _unitOfWork.Consultorios.FindAsync(id);
-                apiServiceResult.Data = _mapper.Map<Consultorios_FindDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<ConsultoriosFindDto>(repositoryResult);
                 if (apiServiceResult.Data = null)
                 {
                     apiServiceResult.Success = false;
@@ -69,7 +69,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbConsultorios repositoryResult = await _unitOfWork.Consultorios.DetailAsync(id);
-                apiServiceResult.Data = _mapper.Map<Consultorios_DetailDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<ConsultoriosDetailDto>(repositoryResult);
                 if (apiServiceResult.Data = null)
                 {
                     apiServiceResult.Success = false;
@@ -85,7 +85,7 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ServiceResult> AddAsync(Consultorios_CreateDto dto)
+        public async Task<ServiceResult> AddAsync(ConsultoriosCreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
@@ -103,7 +103,7 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ServiceResult> EditAsync(Consultorios_UpdateDto dto)
+        public async Task<ServiceResult> EditAsync(ConsultoriosUpdateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 

@@ -29,7 +29,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<UDP_Pacientes_FindResult> repositoryResult = await _unitOfWork.Pacientes.ListAsync();
-                apiServiceResult.Data = _mapper.Map<List<Pacientes_SelectDto>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<PacientesSelectDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -48,7 +48,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 UDP_Pacientes_FindResult repositoryResult = await _unitOfWork.Pacientes.FindAsync(id);
-                apiServiceResult.Data = _mapper.Map<Pacientes_FindDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<PacientesFindDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -60,7 +60,7 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ServiceResult> AddAsync(Pacientes_CreateDto dto)
+        public async Task<ServiceResult> AddAsync(PacientesCreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
@@ -85,7 +85,7 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ServiceResult> EditAsync(Pacientes_UpdateDto dto)
+        public async Task<ServiceResult> EditAsync(PacientesUpdateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 

@@ -31,12 +31,12 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         }
 
         [HttpPost(ApiUrl.Citas.Create)]
-        [SwaggerRequestExample(typeof(Citas_CreateDto), typeof(CreateCitasExamples))]
+        [SwaggerRequestExample(typeof(CitasCreateDto), typeof(CreateCitasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateCitasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreateCitasErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create([FromBody] Citas_CreateDto dto)
+        public async Task<IActionResult> Create([FromBody] CitasCreateDto dto)
         {
             return ApiServiceResult(await _CitasService.AddAsync(dto));
         }

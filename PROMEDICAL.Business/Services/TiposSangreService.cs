@@ -27,7 +27,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<tbTiposSangre> repositoryResult = await _unitOfWork.TiposSangre.ListAsync();
-                apiServiceResult.Data = _mapper.Map<List<TiposSangre_SelectDto>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<TiposSangreSelectDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -46,7 +46,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbTiposSangre repositoryResult = await _unitOfWork.TiposSangre.FindAsync(id);
-                apiServiceResult.Data = _mapper.Map<TiposSangre_FindDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<TiposSangreFindDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -72,7 +72,7 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ServiceResult> AddAsync(TiposSangre_CreateDto dto)
+        public async Task<ServiceResult> AddAsync(TiposSangreCreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
@@ -90,7 +90,7 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ServiceResult> EditAsync(TiposSangre_UpdateDto dto)
+        public async Task<ServiceResult> EditAsync(TiposSangreUpdateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 

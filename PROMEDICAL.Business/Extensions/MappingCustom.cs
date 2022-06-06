@@ -5,7 +5,7 @@ namespace PROMEDICAL.Business.Extensions
 {
     public class MappingCustom
     {
-        public static tbEmpleados Map(Empleados_CreateDto dto)
+        public static tbEmpleados Map(EmpleadosCreateDto dto)
         {
             tbEmpleados empleados = new tbEmpleados()
             {
@@ -35,7 +35,7 @@ namespace PROMEDICAL.Business.Extensions
             return empleados;
         }
 
-        internal static tbEmpleados Map(Empleados_UpdateDto dto)
+        internal static tbEmpleados Map(EmpleadosUpdateDto dto)
         {
             tbEmpleados empleados = new tbEmpleados()
             {
@@ -66,7 +66,7 @@ namespace PROMEDICAL.Business.Extensions
             return empleados;
         }
 
-        internal static tbPacientes Map(Pacientes_CreateDto dto)
+        internal static tbPacientes Map(PacientesCreateDto dto)
         {
             tbPacientes pacientes = new tbPacientes()
             {
@@ -95,7 +95,7 @@ namespace PROMEDICAL.Business.Extensions
             };
             return pacientes;
         }
-        internal static tbPacientes Map(Pacientes_UpdateDto dto)
+        internal static tbPacientes Map(PacientesUpdateDto dto)
         {
             tbPacientes pacientes = new tbPacientes()
             {
@@ -126,7 +126,7 @@ namespace PROMEDICAL.Business.Extensions
             return pacientes;
         }
 
-        internal static tbEmpresas Map(Empresas_CreateDto dto)
+        internal static tbEmpresas Map(EmpresasCreateDto dto)
         {
             tbEmpresas empresas = new tbEmpresas()
             {
@@ -140,7 +140,7 @@ namespace PROMEDICAL.Business.Extensions
             return empresas;
         }
 
-        internal static tbEmpresas Map(Empresas_UpdateDto dto)
+        internal static tbEmpresas Map(EmpresasUpdateDto dto)
         {
             tbEmpresas empresas = new tbEmpresas()
             {
@@ -157,7 +157,7 @@ namespace PROMEDICAL.Business.Extensions
 
 
 
-        //public static void Map(Empleados_CreateDto dto)
+        //public static void Map(EmpleadosCreateDto dto)
         //{
 
         //}

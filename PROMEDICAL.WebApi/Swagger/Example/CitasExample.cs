@@ -16,9 +16,9 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<Citas_SelectDto>()
+                Data = new List<CitasSelectDto>()
                 {
-                    new Citas_SelectDto()
+                    new CitasSelectDto()
                     {
                         cita_Id = 5,
                         paci_Id = 5,
@@ -35,7 +35,7 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                         cita_UsuarioModifica = null,
                         cita_FechaModifica = null
                     },
-                    new Citas_SelectDto()
+                    new CitasSelectDto()
                     {
                         cita_Id = 6,
                         paci_Id = 6,
@@ -59,11 +59,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreateCitasExamples : IExamplesProvider<Citas_CreateDto>
+    public class CreateCitasExamples : IExamplesProvider<CitasCreateDto>
     {
-        public Citas_CreateDto GetExamples()
+        public CitasCreateDto GetExamples()
         {
-            return new Citas_CreateDto()
+            return new CitasCreateDto()
             {
                 paci_Id = 3,
                 empd_Id = 44,

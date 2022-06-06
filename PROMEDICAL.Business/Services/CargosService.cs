@@ -29,7 +29,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 IEnumerable<tbCargos> repositoryResult = await _unitOfWork.Cargos.ListAsync();
-                apiServiceResult.Data = _mapper.Map<List<Cargos_SelectDto>>(repositoryResult.ToList());
+                apiServiceResult.Data = _mapper.Map<List<CargosSelectDto>>(repositoryResult.ToList());
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -48,7 +48,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbCargos repositoryResult = await _unitOfWork.Cargos.FindAsync(id);
-                apiServiceResult.Data = _mapper.Map<Cargos_FindDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<CargosFindDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -67,7 +67,7 @@ namespace PROMEDICAL.Business.Services
             try
             {
                 tbCargos repositoryResult = await _unitOfWork.Cargos.DetailAsync(id);
-                apiServiceResult.Data = _mapper.Map<Cargos_DetailDto>(repositoryResult);
+                apiServiceResult.Data = _mapper.Map<CargosDetailDto>(repositoryResult);
                 if (apiServiceResult.Data == null)
                     return apiServiceResult.Error();
 
@@ -79,7 +79,7 @@ namespace PROMEDICAL.Business.Services
             }
         }
 
-        public async Task<ServiceResult> AddAsync(Cargos_CreateDto dto)
+        public async Task<ServiceResult> AddAsync(CargosCreateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 
@@ -97,7 +97,7 @@ namespace PROMEDICAL.Business.Services
                 return apiServiceResult.Error();
             }
         }
-        public async Task<ServiceResult> EditAsync(Cargos_UpdateDto dto)
+        public async Task<ServiceResult> EditAsync(CargosUpdateDto dto)
         {
             ServiceResult apiServiceResult = new ServiceResult();
 

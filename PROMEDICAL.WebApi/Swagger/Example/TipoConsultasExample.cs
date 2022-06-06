@@ -15,14 +15,14 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<TipoConsultas_SelectDto>()
+                Data = new List<TipoConsultasSelectDto>()
                 {
-                    new TipoConsultas_SelectDto()
+                    new TipoConsultasSelectDto()
                     {
                         tico_Id = 189,
                         tico_Descripcion =    ""
                     },
-                    new TipoConsultas_SelectDto()
+                    new TipoConsultasSelectDto()
                     {
                         tico_Id = 221,
                         tico_Descripcion =    ""
@@ -34,11 +34,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreateTipoConsultasExamples : IExamplesProvider<TipoConsultas_CreateDto>
+    public class CreateTipoConsultasExamples : IExamplesProvider<TipoConsultasCreateDto>
     {
-        public TipoConsultas_CreateDto GetExamples()
+        public TipoConsultasCreateDto GetExamples()
         {
-            return new TipoConsultas_CreateDto()
+            return new TipoConsultasCreateDto()
             {
                 tico_Descripcion = ""
             };
@@ -75,11 +75,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdateTipoConsultasExamples : IExamplesProvider<TipoConsultas_UpdateDto>
+    public class UpdateTipoConsultasExamples : IExamplesProvider<TipoConsultasUpdateDto>
     {
-        public TipoConsultas_UpdateDto GetExamples()
+        public TipoConsultasUpdateDto GetExamples()
         {
-            return new TipoConsultas_UpdateDto()
+            return new TipoConsultasUpdateDto()
             {
                 tico_Id = 713,
                 tico_Descripcion = ""
@@ -117,11 +117,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeleteTipoConsultasExamples : IExamplesProvider<TipoConsultas_DeleteDto>
+    public class DeleteTipoConsultasExamples : IExamplesProvider<TipoConsultasDeleteDto>
     {
-        public TipoConsultas_DeleteDto GetExamples()
+        public TipoConsultasDeleteDto GetExamples()
         {
-            return new TipoConsultas_DeleteDto()
+            return new TipoConsultasDeleteDto()
             {
                 tico_Id = 392
             };

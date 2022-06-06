@@ -3,7 +3,7 @@ using PROMEDICAL.Business.Dto;
 
 namespace PROMEDICAL.Business.Validations
 {
-    public class TipoCitasCreateValidator : AbstractValidator<TipoCitas_CreateDto>
+    public class TipoCitasCreateValidator : AbstractValidator<TipoCitasCreateDto>
     {
         public TipoCitasCreateValidator()
         {
@@ -11,7 +11,7 @@ namespace PROMEDICAL.Business.Validations
             RuleFor(x => x.tici_UsuarioRegistra).NotEmpty().NotEqual(0);
         }
     }
-    public class TipoCitasUpdateValidator : AbstractValidator<TipoCitas_UpdateDto>
+    public class TipoCitasUpdateValidator : AbstractValidator<TipoCitasUpdateDto>
     {
         public TipoCitasUpdateValidator()
         {

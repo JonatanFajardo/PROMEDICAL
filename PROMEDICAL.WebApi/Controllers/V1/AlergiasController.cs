@@ -47,29 +47,29 @@ namespace PROMEDICAL.WebApi.Controllers.V1
         }
 
         [HttpPost(ApiUrl.Alergias.Create)]
-        [SwaggerRequestExample(typeof(Alergias_CreateDto), typeof(CreateAlergiasExamples))]
+        [SwaggerRequestExample(typeof(AlergiasCreateDto), typeof(CreateAlergiasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(CreateAlergiasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(CreateAlergiasErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Create([FromBody] Alergias_CreateDto dto)
+        public async Task<IActionResult> Create([FromBody] AlergiasCreateDto dto)
         {
             return ApiServiceResult(await _alergiasService.AddAsync(dto));
         }
 
         [HttpPut(ApiUrl.Alergias.Update)]
-        [SwaggerRequestExample(typeof(Alergias_UpdateDto), typeof(UpdateAlergiasExamples))]
+        [SwaggerRequestExample(typeof(AlergiasUpdateDto), typeof(UpdateAlergiasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(UpdateAlergiasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(UpdateAlergiasErrorResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(ServiceResult))]
-        public async Task<IActionResult> Update(Alergias_UpdateDto dto)
+        public async Task<IActionResult> Update(AlergiasUpdateDto dto)
         {
             return ApiServiceResult(await _alergiasService.EditAsync(dto));
         }
 
         [HttpPut(ApiUrl.Alergias.Delete)]
-        [SwaggerRequestExample(typeof(Alergias_UpdateDto), typeof(DeleteAlergiasExamples))]
+        [SwaggerRequestExample(typeof(AlergiasUpdateDto), typeof(DeleteAlergiasExamples))]
         [SwaggerResponseExample((int)HttpStatusCode.OK, typeof(DeleteAlergiasOKResponseExamples))]
         [SwaggerResponse((int)HttpStatusCode.OK, Type = typeof(ServiceResult))]
         [SwaggerResponse((int)HttpStatusCode.InternalServerError, Type = typeof(DeleteAlergiasErrorResponseExamples))]

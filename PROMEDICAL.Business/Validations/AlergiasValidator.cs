@@ -3,7 +3,7 @@ using PROMEDICAL.Business.Dto;
 
 namespace PROMEDICAL.Business.Validations
 {
-    public class AlergiasCreateValidator : AbstractValidator<Alergias_CreateDto>
+    public class AlergiasCreateValidator : AbstractValidator<AlergiasCreateDto>
     {
         public AlergiasCreateValidator()
         {
@@ -12,7 +12,7 @@ namespace PROMEDICAL.Business.Validations
             RuleFor(x => x.algi_UsuarioRegistra).NotEmpty().NotEqual(0);
         }
     }
-    public class AlergiasUpdateValidator : AbstractValidator<Alergias_UpdateDto>
+    public class AlergiasUpdateValidator : AbstractValidator<AlergiasUpdateDto>
     {
         public AlergiasUpdateValidator()
         {

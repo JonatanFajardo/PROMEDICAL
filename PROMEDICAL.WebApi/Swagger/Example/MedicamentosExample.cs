@@ -15,16 +15,16 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<Medicamentos_SelectDto>()
+                Data = new List<MedicamentosSelectDto>()
                 {
-                    new Medicamentos_SelectDto()
+                    new MedicamentosSelectDto()
                     {
                         medi_Id = 854,
                         medi_Nombre = "BRONCOPULMIN GOTAS X 30 ML",
                         medi_Precio = 34,
                         medi_Descripcion = "Este producto no requiere refrigeración."
                     },
-                    new Medicamentos_SelectDto()
+                    new MedicamentosSelectDto()
                     {
                         medi_Id = 635,
                         medi_Nombre = "BRONCOPULMIN JARABE X 120 ML",
@@ -38,11 +38,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreateMedicamentosExamples : IExamplesProvider<Medicamentos_CreateDto>
+    public class CreateMedicamentosExamples : IExamplesProvider<MedicamentosCreateDto>
     {
-        public Medicamentos_CreateDto GetExamples()
+        public MedicamentosCreateDto GetExamples()
         {
-            return new Medicamentos_CreateDto()
+            return new MedicamentosCreateDto()
             {
                 medi_Nombre = "BORBALAN GOTAS X 30 M",
                 medi_Precio = 34,
@@ -82,11 +82,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdateMedicamentosExamples : IExamplesProvider<Medicamentos_UpdateDto>
+    public class UpdateMedicamentosExamples : IExamplesProvider<MedicamentosUpdateDto>
     {
-        public Medicamentos_UpdateDto GetExamples()
+        public MedicamentosUpdateDto GetExamples()
         {
-            return new Medicamentos_UpdateDto()
+            return new MedicamentosUpdateDto()
             {
                 medi_Id = 19,
                 medi_Nombre = "BORBALAN JARABE X 120 ML",
@@ -126,11 +126,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeleteMedicamentosExamples : IExamplesProvider<Medicamentos_DeleteDto>
+    public class DeleteMedicamentosExamples : IExamplesProvider<MedicamentosDeleteDto>
     {
-        public Medicamentos_DeleteDto GetExamples()
+        public MedicamentosDeleteDto GetExamples()
         {
-            return new Medicamentos_DeleteDto()
+            return new MedicamentosDeleteDto()
             {
                 medi_Id = 4
             };

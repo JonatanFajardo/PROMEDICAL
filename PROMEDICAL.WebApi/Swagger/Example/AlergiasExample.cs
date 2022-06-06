@@ -15,14 +15,14 @@ namespace PROMEDICAL.WebApi.Swagger.Example
                 Message = "Operacion completada exitosamente",
                 Success = true,
                 Type = ServiceResultType.Success,
-                Data = new List<Alergias_SelectDto>()
+                Data = new List<AlergiasSelectDto>()
                 {
-                    new Alergias_SelectDto()
+                    new AlergiasSelectDto()
                     {
                         algi_Id = 198,
                         algi_Descripcion =    "En realidad, las alergias a las mascotas no son una reacción al pelo de su mascota, sino a las proteínas de las células cutáneas del animal."
                     },
-                    new Alergias_SelectDto()
+                    new AlergiasSelectDto()
                     {
                         algi_Id = 92,
                         algi_Descripcion =    "Las alergias cutáneas son una reacción alérgica que causa una inflamación cutánea que provoca una erupción abultada y que pica en la piel."
@@ -34,11 +34,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Create
-    public class CreateAlergiasExamples : IExamplesProvider<Alergias_CreateDto>
+    public class CreateAlergiasExamples : IExamplesProvider<AlergiasCreateDto>
     {
-        public Alergias_CreateDto GetExamples()
+        public AlergiasCreateDto GetExamples()
         {
-            return new Alergias_CreateDto()
+            return new AlergiasCreateDto()
             {
                 algi_Nombre = "Alergia estacional",
                 algi_Descripcion = "Alergias causadas por alérgenos de exteriores como el polen. Estos alérgenos son muy ligeros y pueden ser transportados por el aire con facilidad.",
@@ -77,11 +77,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Update
-    public class UpdateAlergiasExamples : IExamplesProvider<Alergias_UpdateDto>
+    public class UpdateAlergiasExamples : IExamplesProvider<AlergiasUpdateDto>
     {
-        public Alergias_UpdateDto GetExamples()
+        public AlergiasUpdateDto GetExamples()
         {
-            return new Alergias_UpdateDto()
+            return new AlergiasUpdateDto()
             {
                 algi_Id = 929,
                 algi_Nombre = "Alergias de interior",
@@ -121,11 +121,11 @@ namespace PROMEDICAL.WebApi.Swagger.Example
     #endregion
 
     #region Delete
-    public class DeleteAlergiasExamples : IExamplesProvider<Alergias_DeleteDto>
+    public class DeleteAlergiasExamples : IExamplesProvider<AlergiasDeleteDto>
     {
-        public Alergias_DeleteDto GetExamples()
+        public AlergiasDeleteDto GetExamples()
         {
-            return new Alergias_DeleteDto()
+            return new AlergiasDeleteDto()
             {
                 algi_Id = 743
             };
