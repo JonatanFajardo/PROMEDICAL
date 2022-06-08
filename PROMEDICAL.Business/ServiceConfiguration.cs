@@ -1,9 +1,11 @@
 ﻿using AutoMapper;
 using FluentValidation;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
 using Microsoft.AspNetCore.Mvc.Routing;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 using PROMEDICAL.Business.Dto;
 using PROMEDICAL.Business.Extensions;
 using PROMEDICAL.Business.Services;
@@ -18,7 +20,7 @@ namespace PROMEDICAL.Business
 {
     public static class ServiceConfiguration
     {
-        public static void AddLogicLayer(this IServiceCollection services)
+        public static void AddLogicLayer(this IServiceCollection services, string conection)
         {
             services.AddScoped<IAlergiasRepository, AlergiasRepository>();
             services.AddScoped<ICirugiasRepository, CirugiasRepository>();
@@ -45,7 +47,7 @@ namespace PROMEDICAL.Business
                 .GetRequiredService<IUrlHelperFactory>()
                 .GetUrlHelper(x.GetRequiredService<IActionContextAccessor>().ActionContext));
 
-            AppPromedicalDbContext.BuildConnectionString();
+            AppPromedicalDbContext.BuildConnectionString(conection);
         }
 
         public static void AddBusinessLayer(this IServiceCollection services)
@@ -123,6 +125,15 @@ namespace PROMEDICAL.Business
             services.AddTransient<IValidator<PrescripcionesUpdateDto>, PrescripcionesUpdateValidator>();
             services.AddTransient<IValidator<TipoCitasUpdateDto>, TipoCitasUpdateValidator>();
             services.AddTransient<IValidator<TipoConsultasUpdateDto>, TipoConsultasUpdateValidator>();
+
+
+        }
+
+
+        public static void invServices(RequestDelegate next, ILoggerFactory loggerFactory)
+        {
+
+
         }
     }
 }

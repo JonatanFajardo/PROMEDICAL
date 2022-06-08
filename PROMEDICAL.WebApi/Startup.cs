@@ -33,9 +33,10 @@ namespace PROMEDICAL.WebApi
         {
             services.AddControllersWithViews().AddFluentValidation();
             services.AddControllers();
-            services.AddLogicLayer();
+            services.AddLogicLayer(Configuration.GetConnectionString("MEDICALSYSTEM"));
             services.AddValidatorServices();
             services.AddBusinessLayer();
+
 
 
             /*Inicio configuración Swagger*/
@@ -94,6 +95,8 @@ namespace PROMEDICAL.WebApi
             {
                 app.UseExceptionHandler();
             }
+
+            app.UseMiddleware<ExceptionMiddleware>();
             app.UseHttpsRedirection();
 
             app.UseRouting();
