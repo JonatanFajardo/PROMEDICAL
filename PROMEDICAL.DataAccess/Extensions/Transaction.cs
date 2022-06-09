@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PROMEDICAL.DataAccess.Extensions
 {
-    public class Transaction
+    class Transaction
     {
         public static async Task<IEnumerable<T>> SelectAsync<T>(string sqlQuery)
         {
@@ -72,7 +72,7 @@ namespace PROMEDICAL.DataAccess.Extensions
             }
         }
 
-        public static async Task<Boolean> DeleteAsync(string sqlQuery, DynamicParameters parameters)
+        protected static async Task<Boolean> DeleteAsync(string sqlQuery, DynamicParameters parameters)
         {
             using (var database = new SqlConnection(AppPromedicalDbContext.ConnectionString))
             {

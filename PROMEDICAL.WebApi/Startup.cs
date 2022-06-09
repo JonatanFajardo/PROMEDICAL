@@ -90,28 +90,28 @@ namespace PROMEDICAL.WebApi
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseMiddleware<ExceptionMiddleware>();
+                app.UseSwagger();
+                app.UseSwaggerUI(c =>
+                {
+                    foreach (var description in provider.ApiVersionDescriptions.OrderByDescending(o => o.GroupName))
+                    {
+                        c.SwaggerEndpoint(
+                            $"/swagger/{description.GroupName}/swagger.json",
+                            description.GroupName.ToUpperInvariant());
+                    }
+                });
             }
             else
             {
                 app.UseExceptionHandler();
             }
 
-            app.UseMiddleware<ExceptionMiddleware>();
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             /*Inicio configuración Swagger*/
-            app.UseSwagger();
-            app.UseSwaggerUI(c =>
-            {
-                foreach (var description in provider.ApiVersionDescriptions.OrderByDescending(o => o.GroupName))
-                {
-                    c.SwaggerEndpoint(
-                        $"/swagger/{description.GroupName}/swagger.json",
-                        description.GroupName.ToUpperInvariant());
-                }
-            });
             /*Fin configuración Swagger*/
 
             app.UseAuthorization();
