@@ -5,6 +5,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Sql\**" />
+    <EmbeddedResource Remove="Sql\**" />
+    <None Remove="Sql\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Sql\Diagrama_PROMEDICAL.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Sql\V1\V1.1\PROMEDICAL.sql" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Dapper" Version="2.0.123" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.14" />
   </ItemGroup>
