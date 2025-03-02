@@ -7,11 +7,8 @@ using Microsoft.AspNetCore.Mvc.Versioning;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Options;
 using PROMEDICAL.Business;
-using PROMEDICAL.WebApi.Swagger;
 using Swashbuckle.AspNetCore.Filters;
-using Swashbuckle.AspNetCore.SwaggerGen;
 using System;
 using System.IO;
 using System.Linq;
@@ -19,119 +16,143 @@ using System.Reflection;
 
 namespace PROMEDICAL.WebApi
 {
-    public class Startup
-    {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+	public class Startup
+	{
+		public Startup(IConfiguration configuration)
+		{
+			Configuration = configuration;
+		}
 
-        public IConfiguration Configuration { get; }
+		public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddControllersWithViews().AddFluentValidation();
-            services.AddControllers();
-            services.AddLogicLayer(Configuration.GetConnectionString("MEDICALSYSTEM"));
-            services.AddValidatorServices();
-            services.AddBusinessLayer();
-
-
-
-            /*Inicio configuración Swagger*/
-            services.AddVersionedApiExplorer(opt =>
-            {
-                opt.GroupNameFormat = "'v'VVV";
-
-                // note: this option is only necessary when versioning by url segment. the SubstitutionFormat
-                // can also be used to control the format of the API version in route templates
-                opt.SubstituteApiVersionInUrl = true;
-            });
-
-            services.AddApiVersioning(opt =>
-            {
-                opt.ReportApiVersions = true;
-                opt.AssumeDefaultVersionWhenUnspecified = true;
-                opt.DefaultApiVersion = new ApiVersion(1, 0);
-                opt.ApiVersionReader = new UrlSegmentApiVersionReader();
-            });
-            services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerOptions>();
-            services.AddSwaggerGen(opt =>
-            {
-                opt.ExampleFilters();
+		// This method gets called by the runtime. Use this method to add services to the container.
+		public void ConfigureServices(IServiceCollection services)
+		{
+			services.AddControllersWithViews().AddFluentValidation();
+			services.AddCors(options =>
+			{
+				options.AddPolicy("AllowAll",
+					builder =>
+					{
+						builder.AllowAnyOrigin()
+							   .AllowAnyMethod()
+							   .AllowAnyHeader();
+					});
+			});
+			services.AddControllers();
+			services.AddLogicLayer(Configuration.GetConnectionString("MEDICALSYSTEM"));
+			services.AddValidatorServices();
+			services.AddBusinessLayer();
 
 
-                opt.EnableAnnotations();
-                var xmlPath = GetXmlDataAnnotationFilePath();
-                if (!string.IsNullOrEmpty(xmlPath))
-                {
-                    opt.IncludeXmlComments(xmlPath);
-                }
 
-                //opt.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
-                //{
-                //    Description = "Authorization header. Example: \"bearer {token}\"",
-                //    In = ParameterLocation.Header,
-                //    Name = "authorization",
-                //    Type = SecuritySchemeType.ApiKey
-                //});
-                opt.OperationFilter<SecurityRequirementsOperationFilter>();
-            });
+			/*Inicio configuración Swagger*/
+			services.AddVersionedApiExplorer(opt =>
+			{
+				opt.GroupNameFormat = "'v'VVV";
 
-            services.AddSwaggerExamplesFromAssemblyOf<Program>();
-            /*Fin configuración Swagger*/
+				// note: this option is only necessary when versioning by url segment. the SubstitutionFormat
+				// can also be used to control the format of the API version in route templates
+				opt.SubstituteApiVersionInUrl = true;
+			});
 
-        }
+			services.AddApiVersioning(opt =>
+			{
+				opt.ReportApiVersions = true;
+				opt.AssumeDefaultVersionWhenUnspecified = true;
+				opt.DefaultApiVersion = new ApiVersion(1, 0);
+				opt.ApiVersionReader = new UrlSegmentApiVersionReader();
+			});
+			//services.AddTransient<IConfigureOptions<SwaggerGenOptions>, SwaggerOptions>();
+			services.AddSwaggerGen(opt =>
+			{
+				opt.ExampleFilters();
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
-        {
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-                app.UseMiddleware<ExceptionMiddleware>();
-                app.UseSwagger();
-                app.UseSwaggerUI(c =>
-                {
-                    foreach (var description in provider.ApiVersionDescriptions.OrderByDescending(o => o.GroupName))
-                    {
-                        c.SwaggerEndpoint(
-                            $"/swagger/{description.GroupName}/swagger.json",
-                            description.GroupName.ToUpperInvariant());
-                    }
-                });
-            }
-            else
-            {
-                app.UseExceptionHandler();
-            }
 
-            app.UseHttpsRedirection();
+				opt.EnableAnnotations();
+				var xmlPath = GetXmlDataAnnotationFilePath();
+				if (!string.IsNullOrEmpty(xmlPath))
+				{
+					opt.IncludeXmlComments(xmlPath);
+				}
 
-            app.UseRouting();
+				//opt.AddSecurityDefinition("oauth2", new OpenApiSecurityScheme
+				//{
+				//    Description = "Authorization header. Example: \"bearer {token}\"",
+				//    In = ParameterLocation.Header,
+				//    Name = "authorization",
+				//    Type = SecuritySchemeType.ApiKey
+				//});
+				opt.OperationFilter<SecurityRequirementsOperationFilter>();
+			});
 
-            /*Inicio configuración Swagger*/
-            /*Fin configuración Swagger*/
+			services.AddSwaggerExamplesFromAssemblyOf<Program>();
+			/*Fin configuración Swagger*/
 
-            app.UseAuthorization();
+		}
 
-            app.UseEndpoints(endpoints =>
-            {
-                endpoints.MapControllers();
-            });
-        }
+		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+		public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IApiVersionDescriptionProvider provider)
+		{
+			if (env.IsDevelopment() || env.IsProduction())
+			{
+				app.UseDeveloperExceptionPage();
+				//app.UseMiddleware<ExceptionMiddleware>();
+				//app.UseStaticFiles();
+				app.UseSwagger();
+				app.UseSwaggerUI(c =>
+				{
+					foreach (var description in provider.ApiVersionDescriptions.OrderByDescending(o => o.GroupName))
+					{
+						c.SwaggerEndpoint(
+							$"/swagger/{description.GroupName}/swagger.json",
+							description.GroupName.ToUpperInvariant());
+					}
+					//c.RoutePrefix = string.Empty;
+				});
+			}
+			else
+			{
+				app.UseExceptionHandler();
+			}
 
-        private string GetXmlDataAnnotationFilePath()
-        {
-            var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
-            var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
-            if (!File.Exists(xmlPath))
-            {
-                return null;
-            }
+			app.UseHttpsRedirection();
 
-            return xmlPath;
-        }
-    }
+			app.UseRouting();
+
+			app.UseCors("AllowAll");
+
+			/*Inicio configuración Swagger*/
+			/*Fin configuración Swagger*/
+
+			app.UseAuthorization();
+
+			app.UseEndpoints(endpoints =>
+			{
+				endpoints.MapControllers();
+			});
+
+			app.Use(async (context, next) =>
+			{
+				if (context.Request.Path == "/")
+				{
+					context.Response.Redirect("/swagger/index.html");
+					return;
+				}
+				await next();
+			});
+		}
+
+		private string GetXmlDataAnnotationFilePath()
+		{
+			var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
+			var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
+			if (!File.Exists(xmlPath))
+			{
+				return null;
+			}
+
+			return xmlPath;
+		}
+	}
 }
